@@ -150,8 +150,6 @@ This repo is publicly visible so that collaborators, reviewers, and the clinical
 ## Author
 
 **Rachel Terra Norton, MS, CCC-SLP**
-PhD Student, Rehabilitation Sciences — MGH Institute of Health Professions
-Technical Associate — MIT McGovern Institute, Gabrieli Lab
 RTN Communication & Literacy — [rachelslp.org](https://rachelslp.org)
 
 ---
