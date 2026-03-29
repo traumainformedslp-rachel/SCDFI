@@ -24,6 +24,7 @@ textarea {
   font-family: "Outfit", sans-serif;
 }
 
+/* ── Print: clean white background ── */
 @media print {
   * {
     -webkit-print-color-adjust: exact !important;
@@ -38,9 +39,25 @@ textarea {
     display: none !important;
   }
   .print-card {
+    background: #fff !important;
+    color: #000 !important;
     box-shadow: none !important;
+    border: 1px solid #ddd !important;
     margin: 0 !important;
     max-width: 100% !important;
+  }
+  .print-card * {
+    color: #333 !important;
+    border-color: #ddd !important;
+  }
+  .print-card input,
+  .print-card textarea {
+    background: #fff !important;
+    color: #000 !important;
+    border-color: #ccc !important;
+  }
+  .print-card div[style] {
+    background: transparent !important;
   }
   @page {
     margin: 0.4in;

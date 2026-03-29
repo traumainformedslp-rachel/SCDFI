@@ -195,33 +195,33 @@ export default function App() {
           <div style={{ background: "#1a1a1a", borderRadius: 12, padding: "10px 14px", marginBottom: 12, border: "1px solid #222" }}>
             <div style={{ display: "grid", gridTemplateColumns: "2fr 2fr 1fr", gap: 8 }}>
               <div>
-                <label style={{ fontSize: 10, fontWeight: 700, color: "#555", fontFamily: "'Space Mono', monospace", letterSpacing: 1 }}>{clientLabel}</label>
-                <input value={form.client} onChange={(e) => setForm((f) => ({ ...f, client: e.target.value }))} style={{ width: "100%", padding: "6px 10px", borderRadius: 7, border: "1px solid #333", fontSize: 12, background: "#0a0a0a", color: "#e8e8e8" }} />
+                <label style={{ fontSize: 12, fontWeight: 700, color: "#555", fontFamily: "'Space Mono', monospace", letterSpacing: 1 }}>{clientLabel}</label>
+                <input value={form.client} onChange={(e) => setForm((f) => ({ ...f, client: e.target.value }))} style={{ width: "100%", padding: "6px 10px", borderRadius: 7, border: "1px solid #333", fontSize: 14, background: "#0a0a0a", color: "#e8e8e8" }} />
               </div>
               <div>
-                <label style={{ fontSize: 10, fontWeight: 700, color: "#555", fontFamily: "'Space Mono', monospace", letterSpacing: 1 }}>{respondentLabel}</label>
-                <input value={form.respondent} onChange={(e) => setForm((f) => ({ ...f, respondent: e.target.value }))} style={{ width: "100%", padding: "6px 10px", borderRadius: 7, border: "1px solid #333", fontSize: 12, background: "#0a0a0a", color: "#e8e8e8" }} />
+                <label style={{ fontSize: 12, fontWeight: 700, color: "#555", fontFamily: "'Space Mono', monospace", letterSpacing: 1 }}>{respondentLabel}</label>
+                <input value={form.respondent} onChange={(e) => setForm((f) => ({ ...f, respondent: e.target.value }))} style={{ width: "100%", padding: "6px 10px", borderRadius: 7, border: "1px solid #333", fontSize: 14, background: "#0a0a0a", color: "#e8e8e8" }} />
               </div>
               <div>
-                <label style={{ fontSize: 10, fontWeight: 700, color: "#555", fontFamily: "'Space Mono', monospace", letterSpacing: 1 }}>Date</label>
-                <input type="date" value={form.date} onChange={(e) => setForm((f) => ({ ...f, date: e.target.value }))} style={{ width: "100%", padding: "6px 10px", borderRadius: 7, border: "1px solid #333", fontSize: 12, background: "#0a0a0a", color: "#e8e8e8" }} />
+                <label style={{ fontSize: 12, fontWeight: 700, color: "#555", fontFamily: "'Space Mono', monospace", letterSpacing: 1 }}>Date</label>
+                <input type="date" value={form.date} onChange={(e) => setForm((f) => ({ ...f, date: e.target.value }))} style={{ width: "100%", padding: "6px 10px", borderRadius: 7, border: "1px solid #333", fontSize: 14, background: "#0a0a0a", color: "#e8e8e8" }} />
               </div>
             </div>
             {isObserver(ver) && (
               <div style={{ marginTop: 6 }}>
-                <label style={{ fontSize: 10, fontWeight: 700, color: "#555", fontFamily: "'Space Mono', monospace", letterSpacing: 1 }}>Setting / Context</label>
+                <label style={{ fontSize: 12, fontWeight: 700, color: "#555", fontFamily: "'Space Mono', monospace", letterSpacing: 1 }}>Setting / Context</label>
                 <input
                   value={form.setting}
                   onChange={(e) => setForm((f) => ({ ...f, setting: e.target.value }))}
                   placeholder={vm.settingPrompt}
-                  style={{ width: "100%", padding: "6px 10px", borderRadius: 7, border: "1px solid #333", fontSize: 12, background: "#0a0a0a", color: "#e8e8e8" }}
+                  style={{ width: "100%", padding: "6px 10px", borderRadius: 7, border: "1px solid #333", fontSize: 14, background: "#0a0a0a", color: "#e8e8e8" }}
                 />
               </div>
             )}
           </div>
 
           {/* Instructions */}
-          <div style={{ background: vc + "0D", borderRadius: 10, padding: "10px 14px", marginBottom: 12, border: `1px solid ${vc}33`, fontSize: 11, color: "#999", lineHeight: 1.6 }}>
+          <div style={{ background: vc + "0D", borderRadius: 10, padding: "10px 14px", marginBottom: 12, border: `1px solid ${vc}33`, fontSize: 13, color: "#999", lineHeight: 1.6 }}>
             {ver === "self" ? (
               <><b style={{ color: vc }}>Hey! 👋</b> {vm.instructions}</>
             ) : (
