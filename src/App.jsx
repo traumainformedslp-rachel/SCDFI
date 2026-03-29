@@ -10,7 +10,7 @@ import {
 /* ═══════════════════════════════════════════════════════════════
    SCDCI — Social-Communication & Developmental Capacities Inventory
    Unified App: Assessment + Profile Dashboard
-   RTN Communication & Literacy • v0.3
+   RTN Communication & Literacy • v0.3 • Dark Theme
    ═══════════════════════════════════════════════════════════════ */
 
 const isObserver = (v) => v === "clinician" || v === "teacher";
@@ -103,25 +103,25 @@ export default function App() {
   if (!mode) {
     return (
       <div style={{ minHeight: "100vh", display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center", padding: 24 }}>
-        <div style={{ background: COLORS.card, borderRadius: 24, padding: "40px 36px", maxWidth: 720, width: "100%", boxShadow: "0 8px 40px #0001" }}>
-          <div style={{ background: COLORS.navy, borderRadius: 14, padding: "18px 20px", marginBottom: 28, textAlign: "center" }}>
-            <div style={{ color: "#fff", fontFamily: "'Baloo 2',cursive", fontWeight: 800, fontSize: 22 }}>SCDCI</div>
-            <div style={{ color: "#fff9", fontSize: 12 }}>Social-Communication & Developmental Capacities Inventory</div>
-            <div style={{ color: "#fff5", fontSize: 10, marginTop: 2 }}>RTN Communication & Literacy • v0.3</div>
+        <div style={{ background: "#111", borderRadius: 20, padding: "40px 36px", maxWidth: 720, width: "100%", border: "1px solid #1e1e1e" }}>
+          <div style={{ marginBottom: 28, textAlign: "center" }}>
+            <div style={{ color: "#555", fontFamily: "'Space Mono', monospace", fontWeight: 700, fontSize: 14, letterSpacing: 4, textTransform: "uppercase" }}>SCDCI</div>
+            <div style={{ color: "#444", fontFamily: "'Space Mono', monospace", fontSize: 10, letterSpacing: 2, textTransform: "uppercase", marginTop: 4 }}>Social-Communication & Developmental Capacities Inventory</div>
+            <div style={{ color: "#333", fontFamily: "'Space Mono', monospace", fontSize: 9, letterSpacing: 2, textTransform: "uppercase", marginTop: 2 }}>RTN Communication & Literacy • v0.3</div>
           </div>
           <div style={{ display: "flex", gap: 14 }}>
-            <button onClick={() => setMode("assess")} style={{ flex: 1, padding: "28px 20px", borderRadius: 18, border: `3px solid ${COLORS.blue}`, background: "linear-gradient(135deg,#EAF2FF,#D6E8FF)", cursor: "pointer", textAlign: "center" }}>
+            <button onClick={() => setMode("assess")} style={{ flex: 1, padding: "28px 20px", borderRadius: 18, border: "1px solid #222", background: "#1a1a1a", cursor: "pointer", textAlign: "center" }}>
               <div style={{ fontSize: 40, marginBottom: 6 }}>📝</div>
-              <div style={{ fontWeight: 800, fontSize: 18, color: COLORS.navy, fontFamily: "'Baloo 2',cursive" }}>New Assessment</div>
-              <div style={{ fontSize: 11, color: "#666", marginTop: 6, lineHeight: 1.5 }}>Clinician • Teacher • Parent • Self<br />12 domains • 4 informant versions<br />Save as JSON when done</div>
+              <div style={{ fontWeight: 800, fontSize: 16, color: "#e8e8e8", fontFamily: "'Outfit', sans-serif" }}>New Assessment</div>
+              <div style={{ fontSize: 11, color: "#666", marginTop: 6, lineHeight: 1.5, fontFamily: "'Space Mono', monospace", letterSpacing: 0.5 }}>Clinician • Teacher • Parent • Self<br />12 domains • 4 informant versions<br />Save as JSON when done</div>
             </button>
-            <button onClick={() => setMode("dash")} style={{ flex: 1, padding: "28px 20px", borderRadius: 18, border: `3px solid ${COLORS.teal}`, background: "linear-gradient(135deg,#E0F5F5,#D4F1F7)", cursor: "pointer", textAlign: "center" }}>
+            <button onClick={() => setMode("dash")} style={{ flex: 1, padding: "28px 20px", borderRadius: 18, border: "1px solid #222", background: "#1a1a1a", cursor: "pointer", textAlign: "center" }}>
               <div style={{ fontSize: 40, marginBottom: 6 }}>📊</div>
-              <div style={{ fontWeight: 800, fontSize: 18, color: COLORS.navy, fontFamily: "'Baloo 2',cursive" }}>Profile Dashboard</div>
-              <div style={{ fontSize: 11, color: "#666", marginTop: 6, lineHeight: 1.5 }}>Import saved assessments<br />Radar chart • Bar comparison<br />Cross-informant analysis</div>
+              <div style={{ fontWeight: 800, fontSize: 16, color: "#e8e8e8", fontFamily: "'Outfit', sans-serif" }}>Profile Dashboard</div>
+              <div style={{ fontSize: 11, color: "#666", marginTop: 6, lineHeight: 1.5, fontFamily: "'Space Mono', monospace", letterSpacing: 0.5 }}>Import saved assessments<br />Radar chart • Bar comparison<br />Cross-informant analysis</div>
             </button>
           </div>
-          <div style={{ textAlign: "center", marginTop: 20, fontSize: 10, color: "#bbb" }}>
+          <div style={{ textAlign: "center", marginTop: 20, fontSize: 9, color: "#333", fontFamily: "'Space Mono', monospace", letterSpacing: 1 }}>
             Informed by: LSP© • FEDC/DIR • BESSI • SSF • Roth & Worthington • Nakamura<br />
             Rachel Terra Norton, MS, CCC-SLP • rachelslp.org
           </div>
@@ -130,28 +130,28 @@ export default function App() {
     );
   }
 
-  // ═══ VERSION SELECT — 4 cards ═══
+  // ═══ VERSION SELECT ═══
   if (mode === "assess" && !ver) {
     const cards = [
-      { v: "clinician", ico: "📋", lbl: "Clinician", clr: COLORS.navy, bg1: "#E8EDF4", bg2: "#D6DFEF", desc: "5-point developmental scale\n~66 items • SA/IU notation\nClinical / therapeutic settings" },
-      { v: "teacher", ico: "🏫", lbl: "Teacher", clr: COLORS.teal, bg1: "#E0F5F5", bg2: "#D4F1F7", desc: "5-point developmental scale\n~66 items • SA/IU notation\nClassroom / school settings" },
-      { v: "parent", ico: "👨‍👩‍👧", lbl: "Parent / Caregiver", clr: COLORS.green, bg1: "#EBF7EE", bg2: "#D6FADC", desc: "3-point frequency scale\n~43 items • Stress modifier\nHome / community settings" },
-      { v: "self", ico: "🧑‍🎓", lbl: "Self-Report (14+)", clr: COLORS.purple, bg1: "#F3EDF9", bg2: "#EDE7F6", desc: "4-point self-identification\n~24 items\nAdolescent / young adult" },
+      { v: "clinician", ico: "📋", lbl: "Clinician", clr: "#7eb8e0", bg: "#0c1520", desc: "5-point developmental scale\n~66 items • SA/IU notation\nClinical / therapeutic settings" },
+      { v: "teacher", ico: "🏫", lbl: "Teacher", clr: "#27ae60", bg: "#081a10", desc: "5-point developmental scale\n~66 items • SA/IU notation\nClassroom / school settings" },
+      { v: "parent", ico: "👨‍👩‍👧", lbl: "Parent / Caregiver", clr: "#e89b2d", bg: "#1a1208", desc: "3-point frequency scale\n~43 items • Stress modifier\nHome / community settings" },
+      { v: "self", ico: "🧑‍🎓", lbl: "Self-Report (14+)", clr: "#9b59b6", bg: "#140a1a", desc: "4-point self-identification\n~24 items\nAdolescent / young adult" },
     ];
 
     return (
       <div style={{ minHeight: "100vh", display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center", padding: 24 }}>
-        <div style={{ background: COLORS.card, borderRadius: 24, padding: "40px 36px", maxWidth: 780, width: "100%", boxShadow: "0 8px 40px #0001" }}>
+        <div style={{ background: "#111", borderRadius: 20, padding: "40px 36px", maxWidth: 780, width: "100%", border: "1px solid #1e1e1e" }}>
           <div style={{ display: "flex", alignItems: "center", gap: 10, marginBottom: 24 }}>
-            <button onClick={() => setMode(null)} style={{ padding: "6px 12px", borderRadius: 8, border: "2px solid #ddd", background: "#fff", color: "#888", fontWeight: 700, cursor: "pointer", fontSize: 12 }}>← Back</button>
-            <div style={{ fontWeight: 800, fontSize: 18, color: COLORS.navy, fontFamily: "'Baloo 2',cursive" }}>Select Informant Version</div>
+            <button onClick={() => setMode(null)} style={{ padding: "6px 12px", borderRadius: 8, border: "1px solid #333", background: "transparent", color: "#888", fontWeight: 700, cursor: "pointer", fontSize: 12, fontFamily: "'Space Mono', monospace" }}>← Back</button>
+            <div style={{ fontWeight: 700, fontSize: 13, color: "#888", fontFamily: "'Space Mono', monospace", letterSpacing: 3, textTransform: "uppercase" }}>Select Informant Version</div>
           </div>
           <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 12 }}>
-            {cards.map(({ v, ico, lbl, clr, bg1, bg2, desc }) => (
-              <button key={v} onClick={() => setVer(v)} style={{ padding: "20px 16px", borderRadius: 16, border: `3px solid ${clr}`, background: `linear-gradient(135deg,${bg1},${bg2})`, cursor: "pointer", textAlign: "center" }}>
+            {cards.map(({ v, ico, lbl, clr, bg, desc }) => (
+              <button key={v} onClick={() => setVer(v)} style={{ padding: "20px 16px", borderRadius: 16, border: `1px solid ${clr}33`, background: bg, cursor: "pointer", textAlign: "center" }}>
                 <div style={{ fontSize: 30, marginBottom: 4 }}>{ico}</div>
-                <div style={{ fontWeight: 800, fontSize: 14, color: COLORS.navy, fontFamily: "'Baloo 2',cursive" }}>{lbl}</div>
-                <div style={{ fontSize: 10, color: "#666", marginTop: 4, lineHeight: 1.5, whiteSpace: "pre-line" }}>{desc}</div>
+                <div style={{ fontWeight: 800, fontSize: 14, color: clr, fontFamily: "'Outfit', sans-serif" }}>{lbl}</div>
+                <div style={{ fontSize: 10, color: "#666", marginTop: 4, lineHeight: 1.5, whiteSpace: "pre-line", fontFamily: "'Space Mono', monospace" }}>{desc}</div>
               </button>
             ))}
           </div>
@@ -171,57 +171,57 @@ export default function App() {
     return (
       <div style={{ maxWidth: 860, margin: "0 auto" }}>
         {/* Top bar */}
-        <div className="no-print" style={{ position: "sticky", top: 0, zIndex: 100, background: vc, padding: "8px 20px", display: "flex", alignItems: "center", justifyContent: "space-between", borderRadius: "0 0 14px 14px", boxShadow: "0 4px 20px #0002" }}>
+        <div className="no-print" style={{ position: "sticky", top: 0, zIndex: 100, background: "#111", padding: "8px 20px", display: "flex", alignItems: "center", justifyContent: "space-between", borderRadius: "0 0 14px 14px", borderBottom: "1px solid #1e1e1e" }}>
           <div>
-            <div style={{ color: "#fff", fontFamily: "'Baloo 2',cursive", fontWeight: 800, fontSize: 15 }}>SCDCI — {vm.label}</div>
-            <div style={{ color: "#fff7", fontSize: 10 }}>RTN Communication & Literacy</div>
+            <div style={{ color: "#888", fontFamily: "'Space Mono', monospace", fontWeight: 700, fontSize: 12, letterSpacing: 3, textTransform: "uppercase" }}>SCDCI — {vm.label}</div>
+            <div style={{ color: "#333", fontFamily: "'Space Mono', monospace", fontSize: 9, letterSpacing: 2, textTransform: "uppercase" }}>RTN Communication & Literacy</div>
           </div>
           <div style={{ display: "flex", gap: 6 }}>
-            <button onClick={() => { setVer(null); setResp({}); setStress({}); }} style={{ padding: "5px 10px", borderRadius: 7, border: "2px solid #fff3", background: "transparent", color: "#fffa", fontWeight: 700, cursor: "pointer", fontSize: 10 }}>← Back</button>
-            <button onClick={saveJSON} style={{ padding: "5px 10px", borderRadius: 7, border: "2px solid #fff4", background: "transparent", color: "#fff", fontWeight: 700, cursor: "pointer", fontSize: 10 }}>💾 Save</button>
-            <button onClick={finishAssessment} style={{ padding: "5px 10px", borderRadius: 7, border: "none", background: "#fff3", color: "#fff", fontWeight: 700, cursor: "pointer", fontSize: 10 }}>📊 Dashboard</button>
+            <button onClick={() => { setVer(null); setResp({}); setStress({}); }} style={{ padding: "5px 10px", borderRadius: 7, border: "1px solid #333", background: "transparent", color: "#888", fontWeight: 700, cursor: "pointer", fontSize: 10, fontFamily: "'Space Mono', monospace" }}>← Back</button>
+            <button onClick={saveJSON} style={{ padding: "5px 10px", borderRadius: 7, border: "1px solid #333", background: "transparent", color: "#ccc", fontWeight: 700, cursor: "pointer", fontSize: 10, fontFamily: "'Space Mono', monospace" }}>💾 Save</button>
+            <button onClick={finishAssessment} style={{ padding: "5px 10px", borderRadius: 7, border: "none", background: "#1a1a1a", color: "#fff", fontWeight: 700, cursor: "pointer", fontSize: 10, fontFamily: "'Space Mono', monospace" }}>📊 Dashboard</button>
           </div>
         </div>
 
-        <div className="print-card" style={{ background: COLORS.card, borderRadius: 18, padding: "20px 24px", margin: "12px 0", boxShadow: "0 2px 20px #0001" }}>
+        <div className="print-card" style={{ background: "#111", borderRadius: 18, padding: "20px 24px", margin: "12px 0", border: "1px solid #1e1e1e" }}>
           {/* Version badge */}
           <div style={{ display: "flex", justifyContent: "center", marginBottom: 8 }}>
-            <span style={{ background: vc + "18", color: vc, padding: "3px 14px", borderRadius: 20, fontWeight: 700, fontSize: 10, border: `2px solid ${vc}` }}>
+            <span style={{ background: vc + "18", color: vc, padding: "3px 14px", borderRadius: 20, fontWeight: 700, fontSize: 10, border: `1px solid ${vc}44`, fontFamily: "'Space Mono', monospace", letterSpacing: 1 }}>
               {vm.icon} {vm.label}
             </span>
           </div>
 
           {/* Client info */}
-          <div style={{ background: "#F8F9FB", borderRadius: 12, padding: "10px 14px", marginBottom: 12, border: "1px solid #eee" }}>
+          <div style={{ background: "#1a1a1a", borderRadius: 12, padding: "10px 14px", marginBottom: 12, border: "1px solid #222" }}>
             <div style={{ display: "grid", gridTemplateColumns: "2fr 2fr 1fr", gap: 8 }}>
               <div>
-                <label style={{ fontSize: 10, fontWeight: 700, color: "#aaa" }}>{clientLabel}</label>
-                <input value={form.client} onChange={(e) => setForm((f) => ({ ...f, client: e.target.value }))} style={{ width: "100%", padding: "6px 10px", borderRadius: 7, border: "1.5px solid #ddd", fontSize: 12, background: "#fff" }} />
+                <label style={{ fontSize: 10, fontWeight: 700, color: "#555", fontFamily: "'Space Mono', monospace", letterSpacing: 1 }}>{clientLabel}</label>
+                <input value={form.client} onChange={(e) => setForm((f) => ({ ...f, client: e.target.value }))} style={{ width: "100%", padding: "6px 10px", borderRadius: 7, border: "1px solid #333", fontSize: 12, background: "#0a0a0a", color: "#e8e8e8" }} />
               </div>
               <div>
-                <label style={{ fontSize: 10, fontWeight: 700, color: "#aaa" }}>{respondentLabel}</label>
-                <input value={form.respondent} onChange={(e) => setForm((f) => ({ ...f, respondent: e.target.value }))} style={{ width: "100%", padding: "6px 10px", borderRadius: 7, border: "1.5px solid #ddd", fontSize: 12, background: "#fff" }} />
+                <label style={{ fontSize: 10, fontWeight: 700, color: "#555", fontFamily: "'Space Mono', monospace", letterSpacing: 1 }}>{respondentLabel}</label>
+                <input value={form.respondent} onChange={(e) => setForm((f) => ({ ...f, respondent: e.target.value }))} style={{ width: "100%", padding: "6px 10px", borderRadius: 7, border: "1px solid #333", fontSize: 12, background: "#0a0a0a", color: "#e8e8e8" }} />
               </div>
               <div>
-                <label style={{ fontSize: 10, fontWeight: 700, color: "#aaa" }}>Date</label>
-                <input type="date" value={form.date} onChange={(e) => setForm((f) => ({ ...f, date: e.target.value }))} style={{ width: "100%", padding: "6px 10px", borderRadius: 7, border: "1.5px solid #ddd", fontSize: 12, background: "#fff" }} />
+                <label style={{ fontSize: 10, fontWeight: 700, color: "#555", fontFamily: "'Space Mono', monospace", letterSpacing: 1 }}>Date</label>
+                <input type="date" value={form.date} onChange={(e) => setForm((f) => ({ ...f, date: e.target.value }))} style={{ width: "100%", padding: "6px 10px", borderRadius: 7, border: "1px solid #333", fontSize: 12, background: "#0a0a0a", color: "#e8e8e8" }} />
               </div>
             </div>
             {isObserver(ver) && (
               <div style={{ marginTop: 6 }}>
-                <label style={{ fontSize: 10, fontWeight: 700, color: "#aaa" }}>Setting / Context</label>
+                <label style={{ fontSize: 10, fontWeight: 700, color: "#555", fontFamily: "'Space Mono', monospace", letterSpacing: 1 }}>Setting / Context</label>
                 <input
                   value={form.setting}
                   onChange={(e) => setForm((f) => ({ ...f, setting: e.target.value }))}
                   placeholder={vm.settingPrompt}
-                  style={{ width: "100%", padding: "6px 10px", borderRadius: 7, border: "1.5px solid #ddd", fontSize: 12, background: "#fff" }}
+                  style={{ width: "100%", padding: "6px 10px", borderRadius: 7, border: "1px solid #333", fontSize: 12, background: "#0a0a0a", color: "#e8e8e8" }}
                 />
               </div>
             )}
           </div>
 
           {/* Instructions */}
-          <div style={{ background: vc + "0D", borderRadius: 10, padding: "10px 14px", marginBottom: 12, border: `1px solid ${vc}33`, fontSize: 11, color: "#555", lineHeight: 1.6 }}>
+          <div style={{ background: vc + "0D", borderRadius: 10, padding: "10px 14px", marginBottom: 12, border: `1px solid ${vc}33`, fontSize: 11, color: "#999", lineHeight: 1.6 }}>
             {ver === "self" ? (
               <><b style={{ color: vc }}>Hey! 👋</b> {vm.instructions}</>
             ) : (
@@ -238,7 +238,7 @@ export default function App() {
             return (
               <div key={d.id}>
                 <SectionHeader icon={d.icon} title={d.title} color={d.color} num={d.n} sub={d.desc} />
-                <div style={{ fontSize: 9, color: "#bbb", marginBottom: 6, fontStyle: "italic", paddingLeft: 4 }}>{d.fw}</div>
+                <div style={{ fontSize: 9, color: "#444", marginBottom: 6, fontStyle: "italic", paddingLeft: 4 }}>{d.fw}</div>
 
                 {isObserver(ver) && <ContextPrompt text={ctx} color={vc} />}
 
@@ -257,7 +257,7 @@ export default function App() {
                     value={form.notes[d.id] || ""} placeholder="Observations / contextual notes..."
                     onChange={(e) => setForm((f) => ({ ...f, notes: { ...f.notes, [d.id]: e.target.value } }))}
                     rows={2}
-                    style={{ width: "100%", padding: "6px 10px", borderRadius: 7, border: "1.5px solid #eee", fontSize: 11, resize: "vertical", background: "#fafafa", color: "#666", fontStyle: "italic", marginTop: 4 }}
+                    style={{ width: "100%", padding: "6px 10px", borderRadius: 7, border: "1px solid #222", fontSize: 11, resize: "vertical", background: "#1a1a1a", color: "#888", fontStyle: "italic", marginTop: 4 }}
                   />
                 )}
               </div>
@@ -266,23 +266,23 @@ export default function App() {
 
           {/* Completion */}
           <div style={{ background: `${vc}0A`, borderRadius: 12, padding: "18px 20px", marginTop: 24, textAlign: "center", border: `1px solid ${vc}33` }}>
-            <div style={{ fontSize: 18, fontWeight: 800, color: COLORS.navy, fontFamily: "'Baloo 2',cursive" }}>
-              {ver === "self" ? "You're all done — nice work! 🎉" : "Assessment Complete"}
+            <div style={{ fontSize: 14, fontWeight: 700, color: "#e8e8e8", fontFamily: "'Outfit', sans-serif" }}>
+              {ver === "self" ? "You're all done — nice work!" : "Assessment Complete"}
             </div>
-            <div style={{ fontSize: 11, color: "#666", marginTop: 4 }}>Save your data, then view the profile dashboard.</div>
+            <div style={{ fontSize: 11, color: "#666", marginTop: 4, fontFamily: "'Space Mono', monospace" }}>Save your data, then view the profile dashboard.</div>
           </div>
 
-          <div style={{ textAlign: "center", marginTop: 16, color: "#ccc", fontSize: 9 }}>
+          <div style={{ textAlign: "center", marginTop: 16, color: "#333", fontSize: 9, fontFamily: "'Space Mono', monospace", letterSpacing: 1 }}>
             SCDCI v0.3 • RTN Communication & Literacy • Rachel Terra Norton, MS, CCC-SLP • rachelslp.org<br />
             Not for clinical use without further validation
           </div>
         </div>
 
         {/* Bottom bar */}
-        <div className="no-print" style={{ position: "sticky", bottom: 0, background: COLORS.card, padding: "10px 20px", borderRadius: "14px 14px 0 0", boxShadow: "0 -4px 16px #0001", display: "flex", justifyContent: "center", gap: 10, marginTop: 8 }}>
-          <button onClick={saveJSON} style={{ padding: "10px 20px", borderRadius: 10, border: `2px solid ${vc}`, background: "#fff", color: vc, fontWeight: 700, cursor: "pointer", fontSize: 12 }}>💾 Save JSON</button>
-          <button onClick={finishAssessment} style={{ padding: "10px 20px", borderRadius: 10, border: "none", background: vc, color: "#fff", fontWeight: 700, cursor: "pointer", fontSize: 12 }}>📊 View Dashboard</button>
-          <button onClick={() => window.print()} style={{ padding: "10px 20px", borderRadius: 10, border: "2px solid #ddd", background: "#fff", color: "#888", fontWeight: 700, cursor: "pointer", fontSize: 12 }}>🖨 Print</button>
+        <div className="no-print" style={{ position: "sticky", bottom: 0, background: "#111", padding: "10px 20px", borderRadius: "14px 14px 0 0", borderTop: "1px solid #1e1e1e", display: "flex", justifyContent: "center", gap: 10, marginTop: 8 }}>
+          <button onClick={saveJSON} style={{ padding: "10px 20px", borderRadius: 10, border: "1px solid #333", background: "transparent", color: "#ccc", fontWeight: 700, cursor: "pointer", fontSize: 12, fontFamily: "'Space Mono', monospace", letterSpacing: 1 }}>💾 Save JSON</button>
+          <button onClick={finishAssessment} style={{ padding: "10px 20px", borderRadius: 10, border: "none", background: "#fff", color: "#000", fontWeight: 700, cursor: "pointer", fontSize: 12, fontFamily: "'Outfit', sans-serif", letterSpacing: 1, textTransform: "uppercase" }}>📊 View Dashboard</button>
+          <button onClick={() => window.print()} style={{ padding: "10px 20px", borderRadius: 10, border: "1px solid #333", background: "transparent", color: "#888", fontWeight: 700, cursor: "pointer", fontSize: 12, fontFamily: "'Space Mono', monospace" }}>🖨 Print</button>
         </div>
       </div>
     );
@@ -295,49 +295,49 @@ export default function App() {
     return (
       <div style={{ maxWidth: 900, margin: "0 auto", padding: "0 12px" }}>
         {/* Header */}
-        <div style={{ background: COLORS.navy, borderRadius: "0 0 18px 18px", padding: "16px 24px", marginBottom: 16, boxShadow: "0 4px 20px #0002" }}>
+        <div style={{ background: "#111", borderRadius: "0 0 18px 18px", padding: "16px 24px", marginBottom: 16, borderBottom: "1px solid #1e1e1e" }}>
           <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between" }}>
             <div>
-              <div style={{ color: "#fff", fontFamily: "'Baloo 2',cursive", fontWeight: 800, fontSize: 18 }}>SCDCI Profile Dashboard</div>
-              <div style={{ color: "#fff7", fontSize: 10 }}>RTN Communication & Literacy</div>
+              <div style={{ color: "#555", fontFamily: "'Space Mono', monospace", fontWeight: 700, fontSize: 14, letterSpacing: 4, textTransform: "uppercase" }}>SCDCI Profile Dashboard</div>
+              <div style={{ color: "#333", fontFamily: "'Space Mono', monospace", fontSize: 9, letterSpacing: 2, textTransform: "uppercase" }}>RTN Communication & Literacy</div>
             </div>
             <div className="no-print" style={{ display: "flex", gap: 6 }}>
-              <button onClick={() => setMode(null)} style={{ padding: "6px 12px", borderRadius: 8, border: "2px solid #fff3", background: "transparent", color: "#fffa", fontWeight: 700, cursor: "pointer", fontSize: 10 }}>← Home</button>
-              <button onClick={() => window.print()} style={{ padding: "6px 12px", borderRadius: 8, border: "none", background: COLORS.blue, color: "#fff", fontWeight: 700, cursor: "pointer", fontSize: 10 }}>🖨 Print</button>
+              <button onClick={() => setMode(null)} style={{ padding: "6px 12px", borderRadius: 8, border: "1px solid #333", background: "transparent", color: "#888", fontWeight: 700, cursor: "pointer", fontSize: 10, fontFamily: "'Space Mono', monospace" }}>← Home</button>
+              <button onClick={() => window.print()} style={{ padding: "6px 12px", borderRadius: 8, border: "none", background: "#fff", color: "#000", fontWeight: 700, cursor: "pointer", fontSize: 10, fontFamily: "'Space Mono', monospace" }}>🖨 Print</button>
             </div>
           </div>
         </div>
 
         {profiles.length === 0 ? (
-          <div style={{ background: COLORS.card, borderRadius: 18, padding: "36px 28px", boxShadow: "0 2px 20px #0001", textAlign: "center" }}>
+          <div style={{ background: "#111", borderRadius: 20, padding: "36px 28px", border: "1px solid #1e1e1e", textAlign: "center" }}>
             <div style={{ fontSize: 44, marginBottom: 10 }}>📊</div>
-            <div style={{ fontSize: 18, fontWeight: 800, color: COLORS.navy, fontFamily: "'Baloo 2',cursive", marginBottom: 6 }}>Load SCDCI Profiles</div>
-            <div style={{ fontSize: 12, color: "#888", marginBottom: 20, maxWidth: 440, margin: "0 auto 20px" }}>
+            <div style={{ fontSize: 13, fontWeight: 700, color: "#888", fontFamily: "'Space Mono', monospace", letterSpacing: 3, textTransform: "uppercase", marginBottom: 6 }}>Load SCDCI Profiles</div>
+            <div style={{ fontSize: 12, color: "#555", marginBottom: 20, maxWidth: 440, margin: "0 auto 20px" }}>
               Import saved JSON files from assessments, or load demo data to explore the dashboard.
             </div>
             <div style={{ display: "flex", gap: 10, justifyContent: "center", flexWrap: "wrap" }}>
-              <button onClick={() => fileRef.current.click()} style={{ padding: "12px 24px", borderRadius: 12, border: `2.5px dashed ${COLORS.blue}`, background: "#EAF2FF", color: COLORS.blue, fontWeight: 800, cursor: "pointer", fontSize: 13 }}>📁 Import JSON</button>
-              <button onClick={loadDemo} style={{ padding: "12px 24px", borderRadius: 12, border: "2.5px solid #ddd", background: "#fff", color: "#888", fontWeight: 700, cursor: "pointer", fontSize: 13 }}>🎲 Demo Data</button>
-              <button onClick={() => { setMode("assess"); setVer(null); setResp({}); setStress({}); }} style={{ padding: "12px 24px", borderRadius: 12, border: `2.5px solid ${COLORS.green}`, background: "#EBF7EE", color: COLORS.green, fontWeight: 800, cursor: "pointer", fontSize: 13 }}>📝 New Assessment</button>
+              <button onClick={() => fileRef.current.click()} style={{ padding: "12px 24px", borderRadius: 12, border: "1px dashed #7eb8e0", background: "#0c1520", color: "#7eb8e0", fontWeight: 700, cursor: "pointer", fontSize: 13, fontFamily: "'Space Mono', monospace" }}>📁 Import JSON</button>
+              <button onClick={loadDemo} style={{ padding: "12px 24px", borderRadius: 12, border: "1px solid #333", background: "transparent", color: "#888", fontWeight: 700, cursor: "pointer", fontSize: 13, fontFamily: "'Space Mono', monospace" }}>🎲 Demo Data</button>
+              <button onClick={() => { setMode("assess"); setVer(null); setResp({}); setStress({}); }} style={{ padding: "12px 24px", borderRadius: 12, border: "1px solid #27ae6044", background: "#081a10", color: "#27ae60", fontWeight: 700, cursor: "pointer", fontSize: 13, fontFamily: "'Space Mono', monospace" }}>📝 New Assessment</button>
             </div>
             <input ref={fileRef} type="file" accept=".json" multiple onChange={handleFiles} style={{ display: "none" }} />
           </div>
         ) : (
           <>
             {/* Info bar */}
-            <div style={{ background: COLORS.card, borderRadius: 12, padding: "10px 16px", marginBottom: 10, display: "flex", alignItems: "center", justifyContent: "space-between", boxShadow: "0 1px 6px #0001", flexWrap: "wrap", gap: 6 }}>
+            <div style={{ background: "#111", borderRadius: 12, padding: "10px 16px", marginBottom: 10, display: "flex", alignItems: "center", justifyContent: "space-between", border: "1px solid #1e1e1e", flexWrap: "wrap", gap: 6 }}>
               <div>
-                <span style={{ fontWeight: 800, color: COLORS.navy, fontSize: 15 }}>{clientName}</span>
-                <span style={{ color: "#aaa", fontSize: 11, marginLeft: 10 }}>{profiles[0].date}</span>
+                <span style={{ fontWeight: 800, color: "#e8e8e8", fontSize: 15, fontFamily: "'Outfit', sans-serif" }}>{clientName}</span>
+                <span style={{ color: "#444", fontSize: 11, marginLeft: 10, fontFamily: "'Space Mono', monospace" }}>{profiles[0].date}</span>
               </div>
               <div style={{ display: "flex", gap: 4, alignItems: "center", flexWrap: "wrap" }}>
                 {profiles.map((p) => (
-                  <span key={p.version} style={{ padding: "2px 10px", borderRadius: 16, fontSize: 9, fontWeight: 700, background: VERSION_META[p.version].fill, color: VERSION_META[p.version].color, border: `1.5px solid ${VERSION_META[p.version].color}` }}>
+                  <span key={p.version} style={{ padding: "2px 10px", borderRadius: 16, fontSize: 9, fontWeight: 700, background: VERSION_META[p.version].fill, color: VERSION_META[p.version].color, border: `1px solid ${VERSION_META[p.version].color}44`, fontFamily: "'Space Mono', monospace" }}>
                     {VERSION_META[p.version].label}
                   </span>
                 ))}
-                <button onClick={() => fileRef.current.click()} className="no-print" style={{ padding: "3px 8px", borderRadius: 6, border: "1.5px solid #ddd", background: "#fff", color: "#888", fontWeight: 700, cursor: "pointer", fontSize: 9, marginLeft: 4 }}>+ Add</button>
-                <button onClick={() => setProfiles([])} className="no-print" style={{ padding: "3px 8px", borderRadius: 6, border: "1.5px solid #ddd", background: "#fff", color: "#C25670", fontWeight: 700, cursor: "pointer", fontSize: 9 }}>Clear</button>
+                <button onClick={() => fileRef.current.click()} className="no-print" style={{ padding: "3px 8px", borderRadius: 6, border: "1px solid #333", background: "transparent", color: "#888", fontWeight: 700, cursor: "pointer", fontSize: 9, marginLeft: 4, fontFamily: "'Space Mono', monospace" }}>+ Add</button>
+                <button onClick={() => setProfiles([])} className="no-print" style={{ padding: "3px 8px", borderRadius: 6, border: "1px solid #333", background: "transparent", color: "#f87171", fontWeight: 700, cursor: "pointer", fontSize: 9, fontFamily: "'Space Mono', monospace" }}>Clear</button>
                 <input ref={fileRef} type="file" accept=".json" multiple onChange={handleFiles} style={{ display: "none" }} />
               </div>
             </div>
@@ -345,20 +345,20 @@ export default function App() {
             {/* Tabs */}
             <div className="no-print" style={{ display: "flex", gap: 3, marginBottom: 10 }}>
               {[["radar", "🕸️ Radar"], ["bars", "📊 Bars"], ["table", "📋 Table"]].map(([t, lbl]) => (
-                <button key={t} onClick={() => setTab(t)} style={{ flex: 1, padding: "8px 14px", borderRadius: 10, border: "none", background: tab === t ? COLORS.navy : "#fff", color: tab === t ? "#fff" : "#888", fontWeight: 700, cursor: "pointer", fontSize: 12, boxShadow: "0 1px 3px #0001" }}>
+                <button key={t} onClick={() => setTab(t)} style={{ flex: 1, padding: "8px 14px", borderRadius: 10, border: tab === t ? "none" : "1px solid #222", background: tab === t ? "#fff" : "transparent", color: tab === t ? "#000" : "#888", fontWeight: 700, cursor: "pointer", fontSize: 12, fontFamily: "'Space Mono', monospace", letterSpacing: 1 }}>
                   {lbl}
                 </button>
               ))}
             </div>
 
             {/* Main card */}
-            <div className="print-card" style={{ background: COLORS.card, borderRadius: 18, padding: "20px 24px", boxShadow: "0 2px 20px #0001" }}>
+            <div className="print-card" style={{ background: "#111", borderRadius: 18, padding: "20px 24px", border: "1px solid #1e1e1e" }}>
               {profiles.length > 1 && (
                 <div style={{ display: "flex", gap: 12, marginBottom: 12, justifyContent: "center", flexWrap: "wrap" }}>
                   {profiles.map((p) => (
                     <div key={p.version} style={{ display: "flex", alignItems: "center", gap: 6 }}>
                       <div style={{ width: 14, height: 3, borderRadius: 2, background: VERSION_META[p.version].color }} />
-                      <span style={{ fontSize: 10, fontWeight: 700, color: VERSION_META[p.version].color }}>{VERSION_META[p.version].label}</span>
+                      <span style={{ fontSize: 10, fontWeight: 700, color: VERSION_META[p.version].color, fontFamily: "'Space Mono', monospace" }}>{VERSION_META[p.version].label}</span>
                     </div>
                   ))}
                 </div>
@@ -367,7 +367,7 @@ export default function App() {
               {tab === "radar" && (
                 <>
                   <div style={{ textAlign: "center", marginBottom: 6 }}>
-                    <div style={{ fontSize: 15, fontWeight: 800, color: COLORS.navy, fontFamily: "'Baloo 2',cursive" }}>
+                    <div style={{ fontSize: 13, fontWeight: 700, color: "#888", fontFamily: "'Space Mono', monospace", letterSpacing: 3, textTransform: "uppercase" }}>
                       {profiles.length > 1 ? "Cross-Informant Comparison" : `${VERSION_META[profiles[0].version].label} Profile`}
                     </div>
                   </div>
@@ -376,13 +376,13 @@ export default function App() {
               )}
               {tab === "bars" && (
                 <>
-                  <div style={{ fontSize: 15, fontWeight: 800, color: COLORS.navy, fontFamily: "'Baloo 2',cursive", marginBottom: 10, textAlign: "center" }}>Domain Scores by Informant</div>
+                  <div style={{ fontSize: 13, fontWeight: 700, color: "#888", fontFamily: "'Space Mono', monospace", letterSpacing: 3, textTransform: "uppercase", marginBottom: 10, textAlign: "center" }}>Domain Scores by Informant</div>
                   <BarChart datasets={profiles} />
                 </>
               )}
               {tab === "table" && (
                 <>
-                  <div style={{ fontSize: 15, fontWeight: 800, color: COLORS.navy, fontFamily: "'Baloo 2',cursive", marginBottom: 10, textAlign: "center" }}>Domain Score Detail</div>
+                  <div style={{ fontSize: 13, fontWeight: 700, color: "#888", fontFamily: "'Space Mono', monospace", letterSpacing: 3, textTransform: "uppercase", marginBottom: 10, textAlign: "center" }}>Domain Score Detail</div>
                   <ScoreTable datasets={profiles} />
                 </>
               )}
@@ -399,26 +399,26 @@ export default function App() {
                   if (diff >= 20) discs.push({ d, diff, hi: mx.v, lo: mn.v });
                 });
                 return discs.length > 0 ? (
-                  <div style={{ background: "#FFF8F0", borderRadius: 10, padding: "12px 14px", marginTop: 14, border: "1px solid #FFE0C8" }}>
-                    <div style={{ fontSize: 12, fontWeight: 700, color: "#B07830" }}>Cross-Informant Discrepancy Analysis</div>
-                    <div style={{ fontSize: 11, color: "#555", marginTop: 4, lineHeight: 1.7 }}>
+                  <div style={{ background: "#1a1208", borderRadius: 10, padding: "12px 14px", marginTop: 14, border: "1px solid #2a2010" }}>
+                    <div style={{ fontSize: 11, fontWeight: 700, color: "#e89b2d", fontFamily: "'Space Mono', monospace", letterSpacing: 2, textTransform: "uppercase" }}>Cross-Informant Discrepancy Analysis</div>
+                    <div style={{ fontSize: 11, color: "#999", marginTop: 4, lineHeight: 1.7 }}>
                       {discs.map((x, i) => (
                         <div key={i}>
                           <b>{x.d.icon} {x.d.title}</b> — {x.diff}pp gap: <span style={{ color: VERSION_META[x.hi].color, fontWeight: 700 }}>{VERSION_META[x.hi].label}</span> rates higher than <span style={{ color: VERSION_META[x.lo].color, fontWeight: 700 }}>{VERSION_META[x.lo].label}</span>.
-                          {x.diff >= 30 && <em style={{ color: "#C25670" }}> Notable — explore environmental context.</em>}
+                          {x.diff >= 30 && <em style={{ color: "#e63946" }}> Notable — explore environmental context.</em>}
                         </div>
                       ))}
                     </div>
                   </div>
                 ) : (
-                  <div style={{ background: "#EBF7EE", borderRadius: 10, padding: "12px 14px", marginTop: 14, border: "1px solid #B8E6C0" }}>
-                    <div style={{ fontSize: 12, fontWeight: 700, color: "#2D7A3E" }}>Cross-Informant Concordance</div>
-                    <div style={{ fontSize: 11, color: "#555", marginTop: 3 }}>Ratings are generally concordant across informants (all discrepancies &lt;20pp).</div>
+                  <div style={{ background: "#081a10", borderRadius: 10, padding: "12px 14px", marginTop: 14, border: "1px solid #0d2a18" }}>
+                    <div style={{ fontSize: 11, fontWeight: 700, color: "#27ae60", fontFamily: "'Space Mono', monospace", letterSpacing: 2, textTransform: "uppercase" }}>Cross-Informant Concordance</div>
+                    <div style={{ fontSize: 11, color: "#999", marginTop: 3 }}>Ratings are generally concordant across informants (all discrepancies &lt;20pp).</div>
                   </div>
                 );
               })()}
 
-              {/* Clinician vs Teacher comparison note */}
+              {/* Clinician vs Teacher comparison */}
               {profiles.some((p) => p.version === "clinician") && profiles.some((p) => p.version === "teacher") && (() => {
                 const cScores = profiles.find((p) => p.version === "clinician").scores;
                 const tScores = profiles.find((p) => p.version === "teacher").scores;
@@ -433,9 +433,9 @@ export default function App() {
                   }
                 });
                 return envDiscs.length > 0 && (
-                  <div style={{ background: "#E8F4FF", borderRadius: 10, padding: "12px 14px", marginTop: 10, border: "1px solid #BDD8F0" }}>
-                    <div style={{ fontSize: 12, fontWeight: 700, color: COLORS.navy }}>🏥↔️🏫 Clinician–Teacher Environmental Comparison</div>
-                    <div style={{ fontSize: 10, color: "#555", marginTop: 4, lineHeight: 1.7 }}>
+                  <div style={{ background: "#0c1520", borderRadius: 10, padding: "12px 14px", marginTop: 10, border: "1px solid #1a2a3a" }}>
+                    <div style={{ fontSize: 11, fontWeight: 700, color: "#7eb8e0", fontFamily: "'Space Mono', monospace", letterSpacing: 2, textTransform: "uppercase" }}>🏥↔️🏫 Clinician–Teacher Environmental Comparison</div>
+                    <div style={{ fontSize: 10, color: "#999", marginTop: 4, lineHeight: 1.7 }}>
                       {envDiscs.map((x, i) => (
                         <div key={i}>
                           <b>{x.d.icon} {x.d.short}</b> — {x.diff}pp gap, <b>{x.higher}</b> rates higher. {x.higher === "Clinician" ? "Skill may be more accessible in structured clinical contexts than naturalistic school settings." : "Skill may emerge more in classroom contexts with peer models and naturalistic demands."}
@@ -452,15 +452,15 @@ export default function App() {
                 const flagged = DOMAINS.filter((d) => pp.stressFlags[d.id] > 0);
                 return flagged.length > 0 && (
                   <div style={{ marginTop: 14 }}>
-                    <div style={{ fontSize: 11, fontWeight: 700, color: COLORS.purple, marginBottom: 6 }}>⚡ Stress-Context Modifier (Parent Report)</div>
+                    <div style={{ fontSize: 11, fontWeight: 700, color: "#9b59b6", marginBottom: 6, fontFamily: "'Space Mono', monospace", letterSpacing: 2, textTransform: "uppercase" }}>⚡ Stress-Context Modifier (Parent Report)</div>
                     <div style={{ display: "flex", gap: 4, flexWrap: "wrap" }}>
                       {flagged.map((d) => (
-                        <span key={d.id} style={{ padding: "3px 10px", borderRadius: 16, fontSize: 9, fontWeight: 700, background: "#F3EDF9", color: COLORS.purple, border: "1.5px solid #D8C8E8" }}>
+                        <span key={d.id} style={{ padding: "3px 10px", borderRadius: 16, fontSize: 9, fontWeight: 700, background: "#140a1a", color: "#9b59b6", border: "1px solid #9b59b633", fontFamily: "'Space Mono', monospace" }}>
                           {d.icon} {d.short}: {Math.round(pp.stressFlags[d.id] * 100)}%
                         </span>
                       ))}
                     </div>
-                    <div style={{ fontSize: 9, color: "#aaa", marginTop: 4, fontStyle: "italic" }}>
+                    <div style={{ fontSize: 9, color: "#444", marginTop: 4, fontStyle: "italic" }}>
                       % of items parent endorsed as "can do this, but not when stressed." Higher values suggest regulation-dependent skill expression.
                     </div>
                   </div>
@@ -468,7 +468,7 @@ export default function App() {
               })()}
             </div>
 
-            <div style={{ textAlign: "center", marginTop: 14, marginBottom: 32, color: "#ccc", fontSize: 9 }}>
+            <div style={{ textAlign: "center", marginTop: 14, marginBottom: 32, color: "#333", fontSize: 9, fontFamily: "'Space Mono', monospace", letterSpacing: 1 }}>
               SCDCI v0.3 • RTN Communication & Literacy • Rachel Terra Norton, MS, CCC-SLP • rachelslp.org<br />
               LSP© • FEDC/DIR • BESSI • SSF • Roth & Worthington • Nakamura<br />
               Not for clinical use without further validation

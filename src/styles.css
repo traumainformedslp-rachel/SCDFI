@@ -1,4 +1,4 @@
-/* SCDCI Global Styles */
+/* SCDCI Global Styles — RTN Dark Theme */
 
 *,
 *::before,
@@ -9,18 +9,19 @@
 }
 
 body {
-  background: #f0f4fa;
-  font-family: "Nunito", sans-serif;
+  background: #0a0a0a;
+  font-family: "Outfit", sans-serif;
+  color: #e8e8e8;
   -webkit-font-smoothing: antialiased;
 }
 
 button {
-  font-family: "Nunito", sans-serif;
+  font-family: "Outfit", sans-serif;
 }
 
 input,
 textarea {
-  font-family: "Nunito", sans-serif;
+  font-family: "Outfit", sans-serif;
 }
 
 @media print {
@@ -31,6 +32,7 @@ textarea {
   }
   body {
     background: #fff !important;
+    color: #000 !important;
   }
   .no-print {
     display: none !important;
