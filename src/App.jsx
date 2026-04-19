@@ -8,7 +8,7 @@ import {
 } from "./components";
 
 /* ═══════════════════════════════════════════════════════════════
-   SCDCI — Social-Communication & Developmental Capacities Inventory
+   SCDFI — Social-Communication & Developmental Functioning Inventory
    Unified App: Assessment + Profile Dashboard
    RTN Communication & Literacy • v0.3
    ═══════════════════════════════════════════════════════════════ */
@@ -37,7 +37,7 @@ export default function App() {
     const b = new Blob([JSON.stringify(data, null, 2)], { type: "application/json" });
     const a = document.createElement("a");
     a.href = URL.createObjectURL(b);
-    a.download = `SCDCI_${ver}_${form.client || "client"}_${form.date}.json`;
+    a.download = `SCDFI_${ver}_${form.client || "client"}_${form.date}.json`;
     a.click();
   };
 
@@ -106,8 +106,8 @@ export default function App() {
         <div className="rtn-rainbow-strip" aria-hidden="true" />
         <div style={{ background: COLORS.card, borderRadius: 24, padding: "40px 36px", maxWidth: 720, width: "100%", boxShadow: "0 8px 40px #0001" }}>
           <div style={{ background: "linear-gradient(135deg, #8a6cb8, #d4718e)", borderRadius: 14, padding: "20px 20px", marginBottom: 28, textAlign: "center", boxShadow: "0 4px 20px rgba(138,108,184,0.25)" }}>
-            <div style={{ color: "#fff", fontFamily: "'Fraunces', Georgia, serif", fontWeight: 700, fontSize: 26, letterSpacing: "-0.01em" }}>SCDCI</div>
-            <div style={{ color: "#ffffffdd", fontSize: 12, fontFamily: "'DM Sans', sans-serif" }}>Social-Communication & Developmental Capacities Inventory</div>
+            <div style={{ color: "#fff", fontFamily: "'Fraunces', Georgia, serif", fontWeight: 700, fontSize: 26, letterSpacing: "-0.01em" }}>SCDFI</div>
+            <div style={{ color: "#ffffffdd", fontSize: 12, fontFamily: "'DM Sans', sans-serif" }}>Social-Communication & Developmental Functioning Inventory</div>
             <div style={{ color: "#ffffff99", fontSize: 10, marginTop: 2, fontFamily: "'Space Mono', monospace", letterSpacing: 1 }}>RTN COMMUNICATION &amp; LITERACY · v0.3</div>
           </div>
           <div style={{ display: "flex", gap: 14 }}>
@@ -174,7 +174,7 @@ export default function App() {
         {/* Top bar */}
         <div className="no-print" style={{ position: "sticky", top: 0, zIndex: 100, background: vc, padding: "8px 20px", display: "flex", alignItems: "center", justifyContent: "space-between", borderRadius: "0 0 14px 14px", boxShadow: "0 4px 20px #0002" }}>
           <div>
-            <div style={{ color: "#fff", fontFamily: "'Fraunces', Georgia, serif", fontWeight: 800, fontSize: 15 }}>SCDCI — {vm.label}</div>
+            <div style={{ color: "#fff", fontFamily: "'Fraunces', Georgia, serif", fontWeight: 800, fontSize: 15 }}>SCDFI — {vm.label}</div>
             <div style={{ color: "#fff7", fontSize: 10 }}>RTN Communication & Literacy</div>
           </div>
           <div style={{ display: "flex", gap: 6 }}>
@@ -274,7 +274,7 @@ export default function App() {
           </div>
 
           <div style={{ textAlign: "center", marginTop: 16, color: "#ccc", fontSize: 9 }}>
-            SCDCI v0.3 • RTN Communication & Literacy • Rachel Terra Norton, MS, CCC-SLP • rachelslp.org<br />
+            SCDFI v0.3 • RTN Communication & Literacy • Rachel Terra Norton, MS, CCC-SLP • rachelslp.org<br />
             Not for clinical use without further validation
           </div>
         </div>
@@ -299,7 +299,7 @@ export default function App() {
         <div style={{ background: COLORS.navy, borderRadius: "0 0 18px 18px", padding: "16px 24px", marginBottom: 16, boxShadow: "0 4px 20px #0002" }}>
           <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between" }}>
             <div>
-              <div style={{ color: "#fff", fontFamily: "'Fraunces', Georgia, serif", fontWeight: 800, fontSize: 18 }}>SCDCI Profile Dashboard</div>
+              <div style={{ color: "#fff", fontFamily: "'Fraunces', Georgia, serif", fontWeight: 800, fontSize: 18 }}>SCDFI Profile Dashboard</div>
               <div style={{ color: "#fff7", fontSize: 10 }}>RTN Communication & Literacy</div>
             </div>
             <div className="no-print" style={{ display: "flex", gap: 6 }}>
@@ -312,7 +312,7 @@ export default function App() {
         {profiles.length === 0 ? (
           <div style={{ background: COLORS.card, borderRadius: 18, padding: "36px 28px", boxShadow: "0 2px 20px #0001", textAlign: "center" }}>
             <div style={{ fontSize: 44, marginBottom: 10 }}>📊</div>
-            <div style={{ fontSize: 18, fontWeight: 800, color: COLORS.navy, fontFamily: "'Fraunces', Georgia, serif", marginBottom: 6 }}>Load SCDCI Profiles</div>
+            <div style={{ fontSize: 18, fontWeight: 800, color: COLORS.navy, fontFamily: "'Fraunces', Georgia, serif", marginBottom: 6 }}>Load SCDFI Profiles</div>
             <div style={{ fontSize: 12, color: "#888", marginBottom: 20, maxWidth: 440, margin: "0 auto 20px" }}>
               Import saved JSON files from assessments, or load demo data to explore the dashboard.
             </div>
@@ -470,7 +470,7 @@ export default function App() {
             </div>
 
             <div style={{ textAlign: "center", marginTop: 14, marginBottom: 32, color: "#ccc", fontSize: 9 }}>
-              SCDCI v0.3 • RTN Communication & Literacy • Rachel Terra Norton, MS, CCC-SLP • rachelslp.org<br />
+              SCDFI v0.3 • RTN Communication & Literacy • Rachel Terra Norton, MS, CCC-SLP • rachelslp.org<br />
               LSP© • FEDC/DIR • BESSI • SSF • Roth & Worthington • Nakamura<br />
               Not for clinical use without further validation
             </div>

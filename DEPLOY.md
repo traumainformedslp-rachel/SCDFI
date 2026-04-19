@@ -1,4 +1,4 @@
-# SCDCI Deployment Guide
+# SCDFI Deployment Guide
 ## GitHub (Private Repo) + Vercel (Password-Protected Site)
 
 ---
@@ -44,7 +44,7 @@ npm install
 npm run dev
 ```
 
-Your browser should open to `http://localhost:3000` with the SCDCI app running. Click around — try the demo data button in the dashboard. When you're satisfied, press `Ctrl+C` in the terminal to stop the server.
+Your browser should open to `http://localhost:3000` with the SCDFI app running. Click around — try the demo data button in the dashboard. When you're satisfied, press `Ctrl+C` in the terminal to stop the server.
 
 ---
 
@@ -55,7 +55,7 @@ Your browser should open to `http://localhost:3000` with the SCDCI app running. 
 1. Go to https://github.com/new
 2. Fill in:
    - **Repository name:** `scdci-app`
-   - **Description:** `SCDCI — Social-Communication & Developmental Capacities Inventory`
+   - **Description:** `SCDFI — Social-Communication & Developmental Functioning Inventory`
    - **Visibility:** Select **Private** ← important
    - Do NOT check "Add a README" (we already have one)
    - Do NOT add .gitignore (we already have one)
@@ -70,7 +70,7 @@ Back in your terminal (still in the `scdci-app` folder):
 ```bash
 git init
 git add .
-git commit -m "SCDCI v0.3 — 4-informant assessment + profile dashboard"
+git commit -m "SCDFI v0.3 — 4-informant assessment + profile dashboard"
 git branch -M main
 git remote add origin https://github.com/YOUR_USERNAME/scdci-app.git
 git push -u origin main
@@ -175,5 +175,5 @@ Vercel auto-deploys every push to `main`. Your live site updates in ~30 seconds.
 
 ---
 
-*SCDCI v0.3 • RTN Communication & Literacy*
+*SCDFI v0.3 • RTN Communication & Literacy*
 *Rachel Terra Norton, MS, CCC-SLP • rachelslp.org*

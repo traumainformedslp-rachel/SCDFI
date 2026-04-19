@@ -1,5 +1,5 @@
 /**
- * SCDCI Domain Definitions & Item Banks — v0.3
+ * SCDFI Domain Definitions & Item Banks — v0.3
  *
  * All item language is ORIGINAL.
  *

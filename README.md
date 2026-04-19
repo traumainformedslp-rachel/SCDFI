@@ -1,6 +1,6 @@
-# SCDCI — Social-Communication & Developmental Capacities Inventory
+# SCDFI — Social-Communication & Developmental Functioning Inventory
 
-> **Multi-informant assessment tool for social-communication and developmental capacities.**
+> **Multi-informant assessment tool for social-communication and developmental functioning.**
 > RTN Communication & Literacy • Rachel Terra Norton, MS, CCC-SLP
 
 ⚠️ **This repository is public but proprietary — All Rights Reserved.** You may view the code but may not copy, modify, distribute, or use it without written permission. See [LICENSE](./LICENSE) for full terms.
@@ -11,9 +11,9 @@
 
 ---
 
-## What Is the SCDCI?
+## What Is the SCDFI?
 
-The SCDCI is a multi-informant inventory that assesses social-communication capacities across 12 unified domains. It combines constructs from developmental, behavioral, and social-skills frameworks into a single tool with four informant versions:
+The SCDFI is a multi-informant inventory that assesses social-communication functioning across 12 unified domains. It combines constructs from developmental, behavioral, and social-skills frameworks into a single tool with four informant versions:
 
 | Version | Respondent | Scale | Items | Setting |
 |---|---|---|---|---|
@@ -101,7 +101,7 @@ SCDFI/
 
 ### Original Work
 
-**All item language in the SCDCI is original.** No text has been reproduced from any copyrighted source measure. The conceptual architecture is informed by published theoretical frameworks, cited below for academic transparency.
+**All item language in the SCDFI is original.** No text has been reproduced from any copyrighted source measure. The conceptual architecture is informed by published theoretical frameworks, cited below for academic transparency.
 
 ### Source Frameworks (Cited, Not Reproduced)
 
@@ -116,7 +116,7 @@ SCDFI/
 
 ### Public Repository, Proprietary License
 
-This repo is publicly visible so that collaborators, reviewers, and the clinical community can see the SCDCI's development process. **Public visibility does not grant any usage rights.** Specifically:
+This repo is publicly visible so that collaborators, reviewers, and the clinical community can see the SCDFI's development process. **Public visibility does not grant any usage rights.** Specifically:
 
 1. **No copyrighted content is reproduced.** All items are original; source frameworks are cited, not copied.
 2. **The license is All Rights Reserved.** Viewing is permitted; copying, modifying, distributing, or using the Work is not.

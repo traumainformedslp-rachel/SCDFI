@@ -1,5 +1,5 @@
 /**
- * Scoring utilities for SCDCI — 4 informant versions
+ * Scoring utilities for SCDFI — 4 informant versions
  */
 
 import DOMAINS from "../data/domains";

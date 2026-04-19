@@ -3,7 +3,7 @@ import DOMAINS from "../data/domains";
 import { VERSION_META, COLORS } from "../data/constants";
 
 /**
- * SVG radar/spider chart for SCDCI domain profiles.
+ * SVG radar/spider chart for SCDFI domain profiles.
  * Supports multiple overlaid datasets for cross-informant comparison.
  */
 export default function RadarChart({ datasets, size = 440 }) {
