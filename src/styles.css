@@ -1,4 +1,4 @@
-/* SCDCI Global Styles — RTN Dark Theme */
+/* SCDCI Global Styles */
 
 *,
 *::before,
@@ -9,22 +9,29 @@
 }
 
 body {
-  background: #0a0a0a;
-  font-family: "Outfit", sans-serif;
-  color: #e8e8e8;
+  background: #f0f4fa;
+  font-family: "DM Sans", "Nunito", sans-serif;
   -webkit-font-smoothing: antialiased;
 }
 
 button {
-  font-family: "Outfit", sans-serif;
+  font-family: "DM Sans", "Nunito", sans-serif;
 }
 
 input,
 textarea {
-  font-family: "Outfit", sans-serif;
+  font-family: "DM Sans", "Nunito", sans-serif;
 }
 
-/* ── Print: clean white background ── */
+.rtn-rainbow-strip {
+  height: 3px;
+  background: linear-gradient(90deg, #F9C5C5, #FDDBB4, #FFF0A8, #C2EDD0, #BEE3F8, #D8C8F8, #EED4F8);
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  z-index: 1000;
+}
+@media print { .rtn-rainbow-strip { display: none !important; } }
+
 @media print {
   * {
     -webkit-print-color-adjust: exact !important;
@@ -33,31 +40,14 @@ textarea {
   }
   body {
     background: #fff !important;
-    color: #000 !important;
   }
   .no-print {
     display: none !important;
   }
   .print-card {
-    background: #fff !important;
-    color: #000 !important;
     box-shadow: none !important;
-    border: 1px solid #ddd !important;
     margin: 0 !important;
     max-width: 100% !important;
-  }
-  .print-card * {
-    color: #333 !important;
-    border-color: #ddd !important;
-  }
-  .print-card input,
-  .print-card textarea {
-    background: #fff !important;
-    color: #000 !important;
-    border-color: #ccc !important;
-  }
-  .print-card div[style] {
-    background: transparent !important;
   }
   @page {
     margin: 0.4in;
