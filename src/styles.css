@@ -66,17 +66,16 @@ input:focus, textarea:focus, select:focus {
     padding: 16px !important;
     max-width: 100% !important;
     background: #fff !important;
-    color: #000 !important;
     border: none !important;
-  }
-  .pc * {
-    color: #333 !important;
-    border-color: #ddd !important;
   }
   .pc input, .pc textarea, .pc select {
     background: #fff !important;
-    color: #000 !important;
     border-color: #ccc !important;
+  }
+  /* Protocol form: preserve inline colors for headers, badges, etc. */
+  .protocol-sheet, .protocol-sheet * {
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
   }
   .likert-btns {
     display: none !important;
