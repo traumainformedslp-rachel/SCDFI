@@ -48,7 +48,7 @@ export function ProtocolForm({ version, dark, onBack, onToggle }) {
       }}>
         <div>
           <div style={{ color: t.text, fontWeight: 500, fontSize: 16, letterSpacing: "-0.005em", lineHeight: 1.1 }}>SCDFI — {versionTitles[version]}</div>
-          <div style={{ color: t.textDim, fontSize: 10, letterSpacing: "0.16em", textTransform: "uppercase", marginTop: 3 }}>Printable Form · COMPASS School Program</div>
+          <div style={{ color: t.textDim, fontSize: 10, letterSpacing: "0.16em", textTransform: "uppercase", marginTop: 3 }}>Printable Form</div>
         </div>
         <div style={{ display: "flex", gap: 6, alignItems: "center", flexWrap: "wrap" }}>
           <ThemeToggle dark={dark} toggle={onToggle} />
@@ -104,24 +104,6 @@ export function ProtocolForm({ version, dark, onBack, onToggle }) {
           <b style={{ color: vm.color }}>Instructions:</b> {vm.instructions}
         </div>
 
-        {/* Rating scale legend */}
-        <div style={{ background: dark ? "#142322" : "#f7fafa", borderRadius: 10, padding: "10px 16px", marginBottom: 20, border: `1px solid ${t.border}` }}>
-          <div style={{ fontSize: 9, fontWeight: 700, color: t.textDim, marginBottom: 6, textTransform: "uppercase", letterSpacing: 1 }}>Rating Scale</div>
-          <div style={{ display: "flex", gap: 8, flexWrap: "wrap" }}>
-            {scale.map((s) => (
-              <div key={s.value} style={{ display: "flex", alignItems: "center", gap: 6, padding: "5px 14px", borderRadius: 8, background: dark ? s.darkBg : s.bg, border: `2px solid ${s.color}` }}>
-                <div style={{ width: 16, height: 16, borderRadius: "50%", border: `2px solid ${s.color}`, background: "transparent", flexShrink: 0 }}></div>
-                <span style={{ fontSize: 12, fontWeight: 700, color: s.color }}>{s.label}</span>
-              </div>
-            ))}
-          </div>
-          {isParent && (
-            <div style={{ fontSize: 10, color: t.textDim, marginTop: 6, fontStyle: "italic" }}>
-              ⚡ = Can do this, but not when stressed / tired / hungry / unfamiliar
-            </div>
-          )}
-        </div>
-
         {/* Domain sections */}
         {DOMAINS.map((d) => {
           const items = getItems(d, version);
@@ -130,11 +112,28 @@ export function ProtocolForm({ version, dark, onBack, onToggle }) {
 
           return (
             <div key={d.id} style={{ marginBottom: 24, pageBreakInside: "avoid" }}>
+              {/* Rating scale key — repeated per section for print */}
+              <div style={{ background: dark ? "#142322" : "#f7fafa", borderRadius: 8, padding: "6px 12px", marginBottom: 8, border: `1px solid ${t.border}`, display: "flex", alignItems: "center", gap: 6, flexWrap: "wrap", WebkitPrintColorAdjust: "exact", printColorAdjust: "exact" }}>
+                <span style={{ fontSize: 8, fontWeight: 700, color: t.textDim, textTransform: "uppercase", letterSpacing: 1, marginRight: 2 }}>Key:</span>
+                {scale.map((s) => (
+                  <div key={s.value} style={{ display: "inline-flex", alignItems: "center", gap: 4, padding: "2px 8px", borderRadius: 6, background: dark ? s.darkBg : s.bg, border: `1.5px solid ${s.color}` }}>
+                    <div style={{ width: 12, height: 12, borderRadius: "50%", border: `1.5px solid ${s.color}`, background: "transparent", flexShrink: 0 }}></div>
+                    <span style={{ fontSize: 9, fontWeight: 700, color: s.color }}>{s.label}</span>
+                  </div>
+                ))}
+                {isParent && (
+                  <div style={{ display: "inline-flex", alignItems: "center", gap: 4, padding: "2px 8px", borderRadius: 6, background: dark ? "#2a2030" : "#f3edf9", border: "1.5px solid #7a5aaa" }}>
+                    <span style={{ fontSize: 10 }}>⚡</span>
+                    <span style={{ fontSize: 9, fontWeight: 700, color: "#7a5aaa" }}>Stress</span>
+                  </div>
+                )}
+              </div>
               {/* Domain header */}
               <div style={{
                 borderRadius: 14, padding: "12px 18px", marginBottom: 10,
                 display: "flex", alignItems: "center", gap: 10,
                 background: dark ? "#111" : sc, border: dark ? `2px solid ${sc}` : "none",
+                WebkitPrintColorAdjust: "exact", printColorAdjust: "exact",
               }}>
                 <span style={{ fontSize: 22 }}>{d.icon}</span>
                 <div>
@@ -218,6 +217,7 @@ export function ProtocolForm({ version, dark, onBack, onToggle }) {
             borderRadius: 14, padding: "14px 18px", marginBottom: 14,
             display: "flex", alignItems: "center", gap: 10,
             background: dark ? "#111" : t.accent, border: dark ? `2px solid ${t.accent}` : "none",
+            WebkitPrintColorAdjust: "exact", printColorAdjust: "exact",
           }}>
             <span style={{ fontSize: 22 }}>📝</span>
             <div style={{ fontWeight: 700, fontSize: 12, letterSpacing: 1.5, textTransform: "uppercase", color: dark ? t.accent : "#fff" }}>
@@ -256,7 +256,7 @@ export function ProtocolForm({ version, dark, onBack, onToggle }) {
         <div style={{ textAlign: "center", marginTop: 28, paddingTop: 16, borderTop: `1px solid ${t.border}`, color: t.textDim, fontSize: 10, lineHeight: 1.8, letterSpacing: "0.1em" }}>
           SCDFI v0.3 · Social-Communication & Developmental Functioning Inventory<br />
           Rachel Terra Norton, MS, CCC-SLP · Confidential<br />
-          Created for COMPASS School Program · Inspired by ASHA Social Communication Benchmarks, LSP, FEDC/DIR, BESSI, SSF, Roth & Worthington
+          Inspired by ASHA Social Communication Benchmarks, LSP, FEDC/DIR, BESSI, SSF, Roth & Worthington
         </div>
       </div>
 

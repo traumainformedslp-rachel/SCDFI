@@ -200,7 +200,7 @@ export default function App() {
           </div>
 
           <div style={{ paddingTop: 20, borderTop: `1px solid ${t.border}`, fontSize: 10, fontWeight: 500, letterSpacing: "0.16em", textTransform: "uppercase", color: t.textDim, lineHeight: 1.9 }}>
-            Created for COMPASS School Program · Inspired by ASHA Benchmarks, LSP, FEDC/DIR, BESSI, SSF, Roth & Worthington<br />
+            Inspired by ASHA Benchmarks, LSP, FEDC/DIR, BESSI, SSF, Roth & Worthington<br />
             Rachel Terra Norton, MS, CCC-SLP · rachelslp.org
           </div>
         </div>
@@ -263,7 +263,7 @@ export default function App() {
         }}>
           <div>
             <div style={{ color: t.text, fontWeight: 500, fontSize: 16, letterSpacing: "-0.005em", lineHeight: 1.1 }}>SCDFI — {vm.label}</div>
-            <div style={{ color: t.textDim, fontSize: 10, letterSpacing: "0.16em", textTransform: "uppercase", marginTop: 3 }}>COMPASS School Program</div>
+            <div style={{ color: t.textDim, fontSize: 10, letterSpacing: "0.16em", textTransform: "uppercase", marginTop: 3 }}>Rachel Terra Norton, MS, CCC-SLP</div>
           </div>
           <div style={{ display: "flex", gap: 6, alignItems: "center", flexWrap: "wrap" }}>
             <ThemeToggle dark={dark} toggle={toggle} />
@@ -390,7 +390,7 @@ export default function App() {
         }}>
           <div>
             <div style={{ color: t.text, fontWeight: 500, fontSize: 16, letterSpacing: "-0.005em" }}>SCDFI Profile Dashboard</div>
-            <div style={{ color: t.textDim, fontSize: 10, letterSpacing: "0.16em", textTransform: "uppercase", marginTop: 3 }}>COMPASS School Program</div>
+            <div style={{ color: t.textDim, fontSize: 10, letterSpacing: "0.16em", textTransform: "uppercase", marginTop: 3 }}>Rachel Terra Norton, MS, CCC-SLP</div>
           </div>
           <div style={{ display: "flex", gap: 6, alignItems: "center", flexWrap: "wrap" }}>
             <ThemeToggle dark={dark} toggle={toggle} />
@@ -528,7 +528,7 @@ export default function App() {
 
             <div style={{ textAlign: "center", marginTop: 14, marginBottom: 32, color: t.textDim, fontSize: 10, letterSpacing: "0.12em" }}>
               SCDFI v0.3 · Social-Communication & Developmental Functioning Inventory · Rachel Terra Norton, MS, CCC-SLP<br />
-              Created for COMPASS School Program · Inspired by ASHA Benchmarks, LSP, FEDC/DIR, BESSI, SSF, Roth & Worthington
+              Created for Rachel Terra Norton, MS, CCC-SLP · Inspired by ASHA Benchmarks, LSP, FEDC/DIR, BESSI, SSF, Roth & Worthington
             </div>
           </>
         )}
