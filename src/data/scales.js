@@ -7,19 +7,19 @@
 export const SCALES = {
   clinician: [
     { label: "Not Observed", value: 0, color: "#c0392b", bg: "#fdf0ef", darkBg: "#2e1f24", face: "none" },
-    { label: "Emerging", value: 1, color: "#b89446", bg: "#fef9ee", darkBg: "#2a2418", face: "sad" },
+    { label: "Emerging", value: 1, color: "#b89446", bg: "#fef9ee", darkBg: "#2a2418", face: "neutral" },
     { label: "Consistent with Support", value: 2, color: "#2a6fa0", bg: "#e8f0f7", darkBg: "#1c2530", face: "content" },
     { label: "Consistent Independently", value: 3, color: "#27864e", bg: "#e8f5ed", darkBg: "#1e2b22", face: "happy" },
   ],
   teacher: [
     { label: "Not Observed", value: 0, color: "#c0392b", bg: "#fdf0ef", darkBg: "#2e1f24", face: "none" },
-    { label: "Emerging", value: 1, color: "#b89446", bg: "#fef9ee", darkBg: "#2a2418", face: "sad" },
+    { label: "Emerging", value: 1, color: "#b89446", bg: "#fef9ee", darkBg: "#2a2418", face: "neutral" },
     { label: "Consistent with Support", value: 2, color: "#2a6fa0", bg: "#e8f0f7", darkBg: "#1c2530", face: "content" },
     { label: "Consistent Independently", value: 3, color: "#27864e", bg: "#e8f5ed", darkBg: "#1e2b22", face: "happy" },
   ],
   parent: [
     { label: "Not Observed", value: 0, color: "#c0392b", bg: "#fdf0ef", darkBg: "#2e1f24", face: "none" },
-    { label: "Emerging", value: 1, color: "#b89446", bg: "#fef9ee", darkBg: "#2a2418", face: "sad" },
+    { label: "Emerging", value: 1, color: "#b89446", bg: "#fef9ee", darkBg: "#2a2418", face: "neutral" },
     { label: "Consistent with Support", value: 2, color: "#2a6fa0", bg: "#e8f0f7", darkBg: "#1c2530", face: "content" },
     { label: "Consistent Independently", value: 3, color: "#27864e", bg: "#e8f5ed", darkBg: "#1e2b22", face: "happy" },
   ],

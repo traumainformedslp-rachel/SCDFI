@@ -48,7 +48,7 @@ export function ProtocolForm({ version, dark, onBack, onToggle }) {
       }}>
         <div>
           <div style={{ color: t.text, fontWeight: 500, fontSize: 16, letterSpacing: "-0.005em", lineHeight: 1.1 }}>SCDFI — {versionTitles[version]}</div>
-          <div style={{ color: t.textDim, fontSize: 10, letterSpacing: "0.16em", textTransform: "uppercase", marginTop: 3 }}>Printable Form · RTN Communication & Literacy</div>
+          <div style={{ color: t.textDim, fontSize: 10, letterSpacing: "0.16em", textTransform: "uppercase", marginTop: 3 }}>Printable Form · COMPASS School Program</div>
         </div>
         <div style={{ display: "flex", gap: 6, alignItems: "center", flexWrap: "wrap" }}>
           <ThemeToggle dark={dark} toggle={onToggle} />
@@ -69,7 +69,7 @@ export function ProtocolForm({ version, dark, onBack, onToggle }) {
             {vm.icon} {versionTitles[version]}
           </div>
           <div style={{ fontSize: 11, color: t.textDim, marginTop: 4 }}>
-            RTN Communication & Literacy · Rachel Terra Norton, MS, CCC-SLP · v0.3
+            Rachel Terra Norton, MS, CCC-SLP · v0.3
           </div>
         </div>
 
@@ -109,9 +109,9 @@ export function ProtocolForm({ version, dark, onBack, onToggle }) {
           <div style={{ fontSize: 9, fontWeight: 700, color: t.textDim, marginBottom: 6, textTransform: "uppercase", letterSpacing: 1 }}>Rating Scale</div>
           <div style={{ display: "flex", gap: 8, flexWrap: "wrap" }}>
             {scale.map((s) => (
-              <div key={s.value} style={{ display: "flex", alignItems: "center", gap: 6, padding: "4px 12px", borderRadius: 8, background: dark ? s.darkBg : s.bg, border: `1.5px solid ${s.color}` }}>
-                <div style={{ width: 14, height: 14, borderRadius: 4, background: s.color, display: "flex", alignItems: "center", justifyContent: "center", fontSize: 9, fontWeight: 700, color: "#fff" }}>{s.value}</div>
-                <span style={{ fontSize: 11, fontWeight: 700, color: s.color }}>{s.label}</span>
+              <div key={s.value} style={{ display: "flex", alignItems: "center", gap: 6, padding: "5px 14px", borderRadius: 8, background: dark ? s.darkBg : s.bg, border: `2px solid ${s.color}` }}>
+                <div style={{ width: 16, height: 16, borderRadius: "50%", border: `2px solid ${s.color}`, background: "transparent", flexShrink: 0 }}></div>
+                <span style={{ fontSize: 12, fontWeight: 700, color: s.color }}>{s.label}</span>
               </div>
             ))}
           </div>
@@ -160,11 +160,15 @@ export function ProtocolForm({ version, dark, onBack, onToggle }) {
                 <thead>
                   <tr>
                     <th style={{ textAlign: "left", padding: "8px 10px", fontSize: 10, fontWeight: 700, color: dark ? sc : t.accentDeep, textTransform: "uppercase", letterSpacing: ".5px", borderBottom: `2px solid ${sc}`, background: dark ? "#0d1b1a" : `${sc}0a`, width: "50%" }}>Item</th>
-                    {scale.map((s) => (
-                      <th key={s.value} style={{ textAlign: "center", padding: "8px 4px", fontSize: 9, fontWeight: 700, color: s.color, textTransform: "uppercase", letterSpacing: ".3px", borderBottom: `2px solid ${sc}`, background: dark ? "#0d1b1a" : `${sc}0a`, minWidth: 36 }}>
-                        <div style={{ width: 18, height: 18, borderRadius: 4, background: s.color, color: "#fff", display: "inline-flex", alignItems: "center", justifyContent: "center", fontWeight: 800, fontSize: 10 }}>{s.value}</div>
-                      </th>
-                    ))}
+                    {scale.map((s) => {
+                      const abbrev = { "Not Observed": "NO", "Emerging": "EM", "Consistent with Support": "CS", "Consistent Independently": "CI" };
+                      return (
+                        <th key={s.value} style={{ textAlign: "center", padding: "6px 2px", fontSize: 8, fontWeight: 700, color: s.color, letterSpacing: ".3px", borderBottom: `2px solid ${sc}`, background: dark ? "#0d1b1a" : `${sc}0a`, minWidth: 40 }}>
+                          <div style={{ fontSize: 8, lineHeight: 1.2, marginBottom: 2 }}>{abbrev[s.label] || s.label.split(" ")[0]}</div>
+                          <div style={{ width: 16, height: 16, borderRadius: "50%", border: `2px solid ${s.color}`, margin: "0 auto" }}></div>
+                        </th>
+                      );
+                    })}
                     {isParent && (
                       <th style={{ textAlign: "center", padding: "8px 4px", fontSize: 9, fontWeight: 700, color: "#7a5aaa", borderBottom: `2px solid ${sc}`, background: dark ? "#0d1b1a" : `${sc}0a`, minWidth: 28 }}>⚡</th>
                     )}
@@ -201,7 +205,7 @@ export function ProtocolForm({ version, dark, onBack, onToggle }) {
               {isObs && (
                 <div style={{ marginTop: 6 }}>
                   <div style={{ fontSize: 10, fontWeight: 700, color: t.textDim, textTransform: "uppercase", letterSpacing: ".4px", marginBottom: 4 }}>Observations / Contextual Notes</div>
-                  <div style={{ border: `1px solid ${t.border}`, borderRadius: 8, minHeight: 48, padding: 8 }}></div>
+                  <div style={{ border: `1px solid ${t.border}`, borderRadius: 8, minHeight: 80, padding: 8 }}></div>
                 </div>
               )}
             </div>
@@ -250,9 +254,9 @@ export function ProtocolForm({ version, dark, onBack, onToggle }) {
 
         {/* Footer */}
         <div style={{ textAlign: "center", marginTop: 28, paddingTop: 16, borderTop: `1px solid ${t.border}`, color: t.textDim, fontSize: 10, lineHeight: 1.8, letterSpacing: "0.1em" }}>
-          SCDFI v0.3 · RTN Communication & Literacy · Rachel Terra Norton, MS, CCC-SLP · rachelslp.org<br />
-          Confidential — Please return to evaluator prior to assessment.<br />
-          LSP · FEDC/DIR · BESSI · SSF · Roth & Worthington · ASHA Benchmarks
+          SCDFI v0.3 · Social-Communication & Developmental Functioning Inventory<br />
+          Rachel Terra Norton, MS, CCC-SLP · Confidential<br />
+          Created for COMPASS School Program · Inspired by ASHA Social Communication Benchmarks, LSP, FEDC/DIR, BESSI, SSF, Roth & Worthington
         </div>
       </div>
 
