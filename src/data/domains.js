@@ -1,5 +1,5 @@
 /**
- * SCDFI Domain Definitions & Item Banks — v0.3
+ * SCDFI Domain Definitions & Item Banks — v0.4
  *
  * All item language is ORIGINAL.
  *
@@ -17,7 +17,7 @@ const DOMAINS = [
     id: "reg", n: 1, short: "Self-Reg", title: "Self-Regulation & Emotional Availability",
     icon: "🌱", color: "#440154", colorKey: "reg",
     desc: "Capacity to maintain a calm, organized state for social engagement and recover from dysregulation",
-    fw: "LSP Emotional Regulation • FEDC Cap 1 • BESSI Emotional Resilience • R&W co-regulation",
+    fw: "LSP Emotional Regulation • FEDC Cap 1 • BESSI Emotional Resilience • R&W co-regulation • CPS/ASUP Regulate emotional response · Interoception · Tolerate sensory environment",
     clinicianContext: "Observe during transitions between structured and unstructured activities, during novel or demanding tasks, and after disruptions to routine. Note co-regulation strategies used by the clinician.",
     teacherContext: "Observe during morning arrival, transitions between classes, after recess, during independent seatwork, and after unexpected schedule changes. Note which adults or routines help the student recover.",
     items: [
@@ -145,7 +145,7 @@ const DOMAINS = [
     id: "flex", n: 6, short: "Flexibility", title: "Flexibility & Adaptation",
     icon: "🔄", color: "#33568b", colorKey: "flex",
     desc: "Capacity to tolerate and participate in anticipated and unanticipated changes",
-    fw: "LSP #4 Flexibility • FEDC Cap 6 • DSM-5 ASD severity mapping • BESSI Adaptability",
+    fw: "LSP #4 Flexibility • FEDC Cap 6 • DSM-5 ASD severity mapping • BESSI Adaptability • CPS/ASUP Shift from original idea · Flexibly handle ambiguity",
     clinicianContext: "Introduce both anticipated changes (warn before modifying a routine) and unanticipated changes (change materials or sequence without warning). Note regulation response and recovery time for each.",
     teacherContext: "Observe during schedule changes, substitute teachers, fire drills, assembly days, changes to seating, and modified assignments. Note the difference between the student's response to forewarned vs. surprise changes.",
     items: [
@@ -172,7 +172,7 @@ const DOMAINS = [
     id: "shared", n: 7, short: "Shared Ctrl", title: "Shared Control & Problem-Solving",
     icon: "🤝", color: "#26828e", colorKey: "shared",
     desc: "Capacity to share the lead and collaboratively problem-solve within shared activities",
-    fw: "LSP #5 Shared Control • FEDC Cap 4 • SSF Negotiation Skill",
+    fw: "LSP #5 Shared Control • FEDC Cap 4 • SSF Negotiation Skill • CPS/ASUP Appreciate actions affect others · Empathize/perspective-take",
     clinicianContext: "Observe during turn-taking games, co-construction tasks, and activities where the clinician shifts between leading and following. Note tolerance for partner's agenda and ability to negotiate.",
     teacherContext: "Observe during partner and group work, collaborative projects, playground negotiations, and shared materials situations. Note whether the student insists on controlling the activity or can share leadership.",
     items: [
@@ -196,7 +196,7 @@ const DOMAINS = [
     id: "interact", n: 8, short: "Interaction", title: "Interaction Style: Init / Maint / Respond",
     icon: "💬", color: "#1f9e89", colorKey: "interact",
     desc: "Range and intentionality across initiating, maintaining, and responding to interactions",
-    fw: "LSP #6 A/B/C • FEDC Cap 3–4 • BESSI Conversational & Expressive Skill",
+    fw: "LSP #6 A/B/C • FEDC Cap 3–4 • BESSI Conversational & Expressive Skill • CPS/ASUP Appreciate actions affect others · Empathize/perspective-take",
     clinicianContext: "Track the balance of initiating, maintaining, and responding across structured and unstructured activities. Use communicative temptations and environmental arrangement to elicit initiations. Note range of communicative functions beyond requesting.",
     teacherContext: "Observe during morning meeting, class discussions, partner work, recess, and lunch. Note whether the student initiates with peers (not only adults), maintains conversations beyond one exchange, and responds when addressed in group contexts.",
     items: [
@@ -223,7 +223,7 @@ const DOMAINS = [
     id: "comm", n: 9, short: "Communic.", title: "Communication: Symbolic, Generative, Intentional",
     icon: "🗣️", color: "#35b779", colorKey: "comm",
     desc: "Use of intentional, symbolic, and increasingly generative communication forms",
-    fw: "LSP #7 Verbal/Symbolic • FEDC Cap 5 • BESSI Expressive Skill • Prizant & Rydell echolalia",
+    fw: "LSP #7 Verbal/Symbolic • FEDC Cap 5 • BESSI Expressive Skill • Prizant & Rydell echolalia • CPS/ASUP Express concerns/needs/thoughts · Understand others' communication",
     clinicianContext: "Document the individual's primary communication modality (speech, sign, AAC, gestalt/echoic). Note the proportion of generative vs. non-generative (echoic, scripted) output. Track communication across functions: requesting, commenting, protesting, greeting, labeling, narrating.",
     teacherContext: "Observe communication during academic instruction (answering questions, contributing to discussion), social interactions (lunch, recess), and functional routines (asking for help, requesting materials). Note whether the student uses flexible language vs. scripted/echoic phrases, and whether communication modality shifts between contexts.",
     items: [
@@ -249,7 +249,7 @@ const DOMAINS = [
     id: "ef", n: 10, short: "Exec Func", title: "Executive Function & Planning",
     icon: "🧩", color: "#6ccd5a", colorKey: "ef",
     desc: "Capacity to understand, organize, and execute a plan for tasks and social routines",
-    fw: "LSP #8 Executive Function • FEDC Cap 6 • BESSI Self-Management • R&W 5-question framework",
+    fw: "LSP #8 Executive Function • FEDC Cap 6 • BESSI Self-Management • R&W 5-question framework • CPS/ASUP Maintain focus · Persist on tasks · Sense of time · Consider solutions · Impulse control",
     clinicianContext: "Observe comprehension and use of visual schedules, task sequences, and social plans. Note whether the individual can rehearse, follow, and independently complete multi-step plans. Probe with the 5-question framework: Where do I go? What do I do? How much? When am I finished? What comes next?",
     teacherContext: "Observe during multi-step academic assignments, classroom routines (unpack → breakfast → morning work), project-based learning, and homework planning. Note reliance on visual schedules, teacher prompts, and peer models for task completion.",
     items: [
@@ -273,7 +273,7 @@ const DOMAINS = [
     id: "dist", n: 11, short: "Distance", title: "Contextual Awareness & Distance Learning",
     icon: "📡", color: "#b5de2b", colorKey: "dist",
     desc: "Processing social information at increasing distances and sensory competition levels",
-    fw: "LSP #9 Distance Learning • R&W generalization across environments • BESSI Energy Regulation",
+    fw: "LSP #9 Distance Learning • R&W generalization across environments • BESSI Energy Regulation • CPS/ASUP Regulate activity level",
     clinicianContext: "Systematically increase physical distance during communicative bids. Test in quiet 1:1 vs. noisy clinic environments. Note the distance and noise threshold at which responsiveness breaks down.",
     teacherContext: "Observe responsiveness from the teacher's desk, across the classroom, in the gymnasium, on the playground, and during assemblies. Note whether the student responds to group instructions from a distance or only to proximity-based cues.",
     items: [
@@ -294,7 +294,7 @@ const DOMAINS = [
     id: "trans", n: 12, short: "Transitions", title: "Transitions & Attentional Shifting",
     icon: "➡️", color: "#fde725", colorKey: "trans",
     desc: "Capacity to conclude an activity, shift attention, and engage in a new routine",
-    fw: "LSP #10 Transitions • DSM-5 difficulty switching • BESSI Adaptability • R&W visual schedules",
+    fw: "LSP #10 Transitions • DSM-5 difficulty switching • BESSI Adaptability • R&W visual schedules • CPS/ASUP Handle transitions · Shift mindset",
     clinicianContext: "Observe responses to session transitions (warm-up → activity → clean-up → new activity). Vary warning types: verbal countdown, visual timer, environmental cue. Note which transition supports are most effective.",
     teacherContext: "Observe during class-to-class transitions, activity shifts within a lesson, moving from preferred to non-preferred tasks, end-of-recess, and dismissal. Note whether the student uses the school bell, teacher signals, or peer cues to transition independently.",
     items: [

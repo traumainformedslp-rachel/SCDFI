@@ -414,9 +414,9 @@ export function ProtocolForm({ version, dark, onBack, onToggle }) {
           fontSize: 7, color: inkSub, textAlign: "center", lineHeight: 1.7,
           letterSpacing: "0.05em",
         }}>
-          SCDFI v0.3 · Social-Communication &amp; Developmental Functioning Inventory · Confidential<br />
+          SCDFI v0.4 · Social-Communication &amp; Developmental Functioning Inventory · Confidential<br />
           Rachel Terra Norton, MS, CCC-SLP<br />
-          Inspired by ASHA Social Communication Benchmarks, LSP, FEDC/DIR, BESSI, SSF, Roth &amp; Worthington
+          Inspired by ASHA Social Communication Benchmarks, LSP, FEDC/DIR, BESSI, SSF, Roth &amp; Worthington, Greene/CPS (ASUP)
         </div>
       </div>
 

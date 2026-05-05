@@ -155,7 +155,7 @@ export default function App() {
 
           <p style={{ fontSize: 16, color: t.textSub, lineHeight: 1.7, marginBottom: 32, maxWidth: 560 }}>
             A strengths-based, multi-informant tool for assessing social communication
-            and developmental functioning across 12 domains &mdash; informed by the LSP, FEDC/DIR, BESSI, and ASHA social communication benchmarks.
+            and developmental functioning across 12 domains &mdash; informed by the LSP, FEDC/DIR, BESSI, Greene/CPS (ASUP), and ASHA social communication benchmarks.
           </p>
 
           <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(200px, 1fr))", gap: 12, marginBottom: 20 }}>
@@ -200,7 +200,7 @@ export default function App() {
           </div>
 
           <div style={{ paddingTop: 20, borderTop: `1px solid ${t.border}`, fontSize: 10, fontWeight: 500, letterSpacing: "0.16em", textTransform: "uppercase", color: t.textDim, lineHeight: 1.9 }}>
-            Inspired by ASHA Benchmarks, LSP, FEDC/DIR, BESSI, SSF, Roth & Worthington<br />
+            Inspired by ASHA Benchmarks, LSP, FEDC/DIR, BESSI, SSF, Roth & Worthington, Greene/CPS (ASUP)<br />
             Rachel Terra Norton, MS, CCC-SLP · rachelslp.org
           </div>
         </div>
@@ -358,7 +358,7 @@ export default function App() {
           </div>
 
           <div style={{ textAlign: "center", marginTop: 16, color: t.textDim, fontSize: 10, letterSpacing: "0.12em" }}>
-            SCDFI v0.3 · Social-Communication & Developmental Functioning Inventory · Rachel Terra Norton, MS, CCC-SLP<br />
+            SCDFI v0.4 · Social-Communication & Developmental Functioning Inventory · Rachel Terra Norton, MS, CCC-SLP<br />
             Not for clinical use without further validation
           </div>
         </div>
@@ -527,8 +527,8 @@ export default function App() {
             </div>
 
             <div style={{ textAlign: "center", marginTop: 14, marginBottom: 32, color: t.textDim, fontSize: 10, letterSpacing: "0.12em" }}>
-              SCDFI v0.3 · Social-Communication & Developmental Functioning Inventory · Rachel Terra Norton, MS, CCC-SLP<br />
-              Created for Rachel Terra Norton, MS, CCC-SLP · Inspired by ASHA Benchmarks, LSP, FEDC/DIR, BESSI, SSF, Roth & Worthington
+              SCDFI v0.4 · Social-Communication & Developmental Functioning Inventory · Rachel Terra Norton, MS, CCC-SLP<br />
+              Created for Rachel Terra Norton, MS, CCC-SLP · Inspired by ASHA Benchmarks, LSP, FEDC/DIR, BESSI, SSF, Roth & Worthington, Greene/CPS (ASUP)
             </div>
           </>
         )}
