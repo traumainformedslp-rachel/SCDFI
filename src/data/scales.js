@@ -1,36 +1,32 @@
 /**
- * Rating scales — full labels on all buttons, no abbreviations.
- *
- * Clinician & Teacher share the same 5-point developmental scale
- * (aligned with Roth & Worthington behavioral objectives).
- * Parent: 3-point frequency + stress modifier (FEDC "Not Under Stress").
- * Self: 4-point self-identification (BESSI skills-inventory methodology).
+ * Rating scales — 4-point developmental scale for clinician, teacher, parent.
+ * Self: 4-point self-identification.
+ * Scale colors: Yellow (Not Observed), Red (Emerging), Blue (Consistent w/ Support), Green (Consistent Independently)
  */
 
 export const SCALES = {
   clinician: [
-    { label: "Not Observed", value: 0, color: "#8E99A4", bg: "#F0F2F4", face: "none" },
-    { label: "Emerging with Support", value: 1, color: "#C25670", bg: "#FCE4EC", face: "sad" },
-    { label: "Emerging Independently", value: 2, color: "#D4995A", bg: "#FFF3E0", face: "neutral" },
-    { label: "Consistent with Support", value: 3, color: "#3BA0A8", bg: "#E0F5F5", face: "content" },
-    { label: "Consistent Independently", value: 4, color: "#2FAB4F", bg: "#D6FADC", face: "happy" },
+    { label: "Not Observed", value: 0, color: "#c0392b", bg: "#fdf0ef", darkBg: "#2e1f24", face: "none" },
+    { label: "Emerging", value: 1, color: "#b89446", bg: "#fef9ee", darkBg: "#2a2418", face: "sad" },
+    { label: "Consistent with Support", value: 2, color: "#2a6fa0", bg: "#e8f0f7", darkBg: "#1c2530", face: "content" },
+    { label: "Consistent Independently", value: 3, color: "#27864e", bg: "#e8f5ed", darkBg: "#1e2b22", face: "happy" },
   ],
   teacher: [
-    { label: "Not Observed", value: 0, color: "#8E99A4", bg: "#F0F2F4", face: "none" },
-    { label: "Emerging with Support", value: 1, color: "#C25670", bg: "#FCE4EC", face: "sad" },
-    { label: "Emerging Independently", value: 2, color: "#D4995A", bg: "#FFF3E0", face: "neutral" },
-    { label: "Consistent with Support", value: 3, color: "#3BA0A8", bg: "#E0F5F5", face: "content" },
-    { label: "Consistent Independently", value: 4, color: "#2FAB4F", bg: "#D6FADC", face: "happy" },
+    { label: "Not Observed", value: 0, color: "#c0392b", bg: "#fdf0ef", darkBg: "#2e1f24", face: "none" },
+    { label: "Emerging", value: 1, color: "#b89446", bg: "#fef9ee", darkBg: "#2a2418", face: "sad" },
+    { label: "Consistent with Support", value: 2, color: "#2a6fa0", bg: "#e8f0f7", darkBg: "#1c2530", face: "content" },
+    { label: "Consistent Independently", value: 3, color: "#27864e", bg: "#e8f5ed", darkBg: "#1e2b22", face: "happy" },
   ],
   parent: [
-    { label: "Never / Not Yet", value: 0, color: "#C25670", bg: "#FCE4EC", face: "sad" },
-    { label: "Sometimes", value: 1, color: "#D4995A", bg: "#FFF3E0", face: "neutral" },
-    { label: "Always", value: 2, color: "#2FAB4F", bg: "#D6FADC", face: "happy" },
+    { label: "Not Observed", value: 0, color: "#c0392b", bg: "#fdf0ef", darkBg: "#2e1f24", face: "none" },
+    { label: "Emerging", value: 1, color: "#b89446", bg: "#fef9ee", darkBg: "#2a2418", face: "sad" },
+    { label: "Consistent with Support", value: 2, color: "#2a6fa0", bg: "#e8f0f7", darkBg: "#1c2530", face: "content" },
+    { label: "Consistent Independently", value: 3, color: "#27864e", bg: "#e8f5ed", darkBg: "#1e2b22", face: "happy" },
   ],
   self: [
-    { label: "Not Really Like Me", value: 1, color: "#C25670", bg: "#FCE4EC", face: "sad" },
-    { label: "A Little Like Me", value: 2, color: "#D4995A", bg: "#FFF3E0", face: "neutral" },
-    { label: "Mostly Like Me", value: 3, color: "#3BA0A8", bg: "#E0F5F5", face: "content" },
-    { label: "Very Much Like Me", value: 4, color: "#2FAB4F", bg: "#D6FADC", face: "happy" },
+    { label: "Not Really Like Me", value: 1, color: "#c0392b", bg: "#fdf0ef", darkBg: "#2e1f24", face: "sad" },
+    { label: "A Little Like Me", value: 2, color: "#b89446", bg: "#fef9ee", darkBg: "#2a2418", face: "neutral" },
+    { label: "Mostly Like Me", value: 3, color: "#2a6fa0", bg: "#e8f0f7", darkBg: "#1c2530", face: "content" },
+    { label: "Very Much Like Me", value: 4, color: "#27864e", bg: "#e8f5ed", darkBg: "#1e2b22", face: "happy" },
   ],
 };

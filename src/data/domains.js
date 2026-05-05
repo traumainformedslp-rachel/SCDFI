@@ -10,12 +10,12 @@
  *   - Teacher version adds school-specific observation guidance per domain
  */
 
-import { COLORS } from "./constants";
+import { SECTION_COLORS } from "./constants";
 
 const DOMAINS = [
   {
     id: "reg", n: 1, short: "Self-Reg", title: "Self-Regulation & Emotional Availability",
-    icon: "🌱", color: COLORS.green,
+    icon: "🌱", color: "#440154", colorKey: "reg",
     desc: "Capacity to maintain a calm, organized state for social engagement and recover from dysregulation",
     fw: "LSP Emotional Regulation • FEDC Cap 1 • BESSI Emotional Resilience • R&W co-regulation",
     clinicianContext: "Observe during transitions between structured and unstructured activities, during novel or demanding tasks, and after disruptions to routine. Note co-regulation strategies used by the clinician.",
@@ -43,7 +43,7 @@ const DOMAINS = [
   },
   {
     id: "orient", n: 2, short: "Social Orient.", title: "Social Orientation & Engagement",
-    icon: "👥", color: COLORS.blue,
+    icon: "👥", color: "#481567", colorKey: "orient",
     desc: "Orientation toward people, curiosity about social partners, sustained social attention",
     fw: "LSP #1 Object vs. People • FEDC Cap 1–2 • BESSI Social Engagement",
     clinicianContext: "Observe balance of orientation toward objects vs. people during free play, structured tasks, and shared activities. Note whether the individual seeks out social partners spontaneously.",
@@ -68,7 +68,7 @@ const DOMAINS = [
   },
   {
     id: "ja", n: 3, short: "Joint Attn", title: "Joint Attention & Shared Focus",
-    icon: "🔗", color: COLORS.purple,
+    icon: "🔗", color: "#482677", colorKey: "ja",
     desc: "Triadic attention and shared focus across increasing distances and competing stimuli",
     fw: "LSP Joint Attention (trunk) • LSP #9 • FEDC Cap 2 • R&W localization sequence",
     clinicianContext: "Observe gaze coordination during shared book reading, construction tasks, and joint play. Probe with pointing and gaze shifts. Note distance at which shared attention breaks down.",
@@ -95,7 +95,7 @@ const DOMAINS = [
   },
   {
     id: "learn", n: 4, short: "Social Learn", title: "Social Learning & Imitation",
-    icon: "🪞", color: COLORS.orange,
+    icon: "🪞", color: "#453781", colorKey: "learn",
     desc: "Capacity to learn through observation of social models, imitation, and rehearsal",
     fw: "LSP #2 Social Models • FEDC Cap 3–4 • R&W joint action routines",
     clinicianContext: "Observe during modeled activities (clinician demonstrates, then waits). Note latency to imitate, accuracy of imitation, and whether imitation occurs with novel vs. familiar actions.",
@@ -120,7 +120,7 @@ const DOMAINS = [
   },
   {
     id: "multi", n: 5, short: "Multi-Partner", title: "Multi-Partner Social Awareness",
-    icon: "👂", color: COLORS.teal,
+    icon: "👂", color: "#3f4788", colorKey: "multi",
     desc: "Ability to attend to and respond to cues from multiple social partners simultaneously",
     fw: "LSP #3 Multiple Partners • FEDC Cap 4 • BESSI Teamwork",
     clinicianContext: "Observe during small group activities (3+ participants). Note whether the individual monitors multiple partners or fixates on one. Probe by having different partners initiate.",
@@ -143,7 +143,7 @@ const DOMAINS = [
   },
   {
     id: "flex", n: 6, short: "Flexibility", title: "Flexibility & Adaptation",
-    icon: "🔄", color: COLORS.red,
+    icon: "🔄", color: "#33568b", colorKey: "flex",
     desc: "Capacity to tolerate and participate in anticipated and unanticipated changes",
     fw: "LSP #4 Flexibility • FEDC Cap 6 • DSM-5 ASD severity mapping • BESSI Adaptability",
     clinicianContext: "Introduce both anticipated changes (warn before modifying a routine) and unanticipated changes (change materials or sequence without warning). Note regulation response and recovery time for each.",
@@ -170,7 +170,7 @@ const DOMAINS = [
   },
   {
     id: "shared", n: 7, short: "Shared Ctrl", title: "Shared Control & Problem-Solving",
-    icon: "🤝", color: COLORS.gold,
+    icon: "🤝", color: "#26828e", colorKey: "shared",
     desc: "Capacity to share the lead and collaboratively problem-solve within shared activities",
     fw: "LSP #5 Shared Control • FEDC Cap 4 • SSF Negotiation Skill",
     clinicianContext: "Observe during turn-taking games, co-construction tasks, and activities where the clinician shifts between leading and following. Note tolerance for partner's agenda and ability to negotiate.",
@@ -194,7 +194,7 @@ const DOMAINS = [
   },
   {
     id: "interact", n: 8, short: "Interaction", title: "Interaction Style: Init / Maint / Respond",
-    icon: "💬", color: COLORS.blue,
+    icon: "💬", color: "#1f9e89", colorKey: "interact",
     desc: "Range and intentionality across initiating, maintaining, and responding to interactions",
     fw: "LSP #6 A/B/C • FEDC Cap 3–4 • BESSI Conversational & Expressive Skill",
     clinicianContext: "Track the balance of initiating, maintaining, and responding across structured and unstructured activities. Use communicative temptations and environmental arrangement to elicit initiations. Note range of communicative functions beyond requesting.",
@@ -221,7 +221,7 @@ const DOMAINS = [
   },
   {
     id: "comm", n: 9, short: "Communic.", title: "Communication: Symbolic, Generative, Intentional",
-    icon: "🗣️", color: COLORS.green,
+    icon: "🗣️", color: "#35b779", colorKey: "comm",
     desc: "Use of intentional, symbolic, and increasingly generative communication forms",
     fw: "LSP #7 Verbal/Symbolic • FEDC Cap 5 • BESSI Expressive Skill • Prizant & Rydell echolalia",
     clinicianContext: "Document the individual's primary communication modality (speech, sign, AAC, gestalt/echoic). Note the proportion of generative vs. non-generative (echoic, scripted) output. Track communication across functions: requesting, commenting, protesting, greeting, labeling, narrating.",
@@ -247,7 +247,7 @@ const DOMAINS = [
   },
   {
     id: "ef", n: 10, short: "Exec Func", title: "Executive Function & Planning",
-    icon: "🧩", color: COLORS.purple,
+    icon: "🧩", color: "#6ccd5a", colorKey: "ef",
     desc: "Capacity to understand, organize, and execute a plan for tasks and social routines",
     fw: "LSP #8 Executive Function • FEDC Cap 6 • BESSI Self-Management • R&W 5-question framework",
     clinicianContext: "Observe comprehension and use of visual schedules, task sequences, and social plans. Note whether the individual can rehearse, follow, and independently complete multi-step plans. Probe with the 5-question framework: Where do I go? What do I do? How much? When am I finished? What comes next?",
@@ -271,7 +271,7 @@ const DOMAINS = [
   },
   {
     id: "dist", n: 11, short: "Distance", title: "Contextual Awareness & Distance Learning",
-    icon: "📡", color: COLORS.teal,
+    icon: "📡", color: "#b5de2b", colorKey: "dist",
     desc: "Processing social information at increasing distances and sensory competition levels",
     fw: "LSP #9 Distance Learning • R&W generalization across environments • BESSI Energy Regulation",
     clinicianContext: "Systematically increase physical distance during communicative bids. Test in quiet 1:1 vs. noisy clinic environments. Note the distance and noise threshold at which responsiveness breaks down.",
@@ -292,7 +292,7 @@ const DOMAINS = [
   },
   {
     id: "trans", n: 12, short: "Transitions", title: "Transitions & Attentional Shifting",
-    icon: "➡️", color: COLORS.red,
+    icon: "➡️", color: "#fde725", colorKey: "trans",
     desc: "Capacity to conclude an activity, shift attention, and engage in a new routine",
     fw: "LSP #10 Transitions • DSM-5 difficulty switching • BESSI Adaptability • R&W visual schedules",
     clinicianContext: "Observe responses to session transitions (warm-up → activity → clean-up → new activity). Vary warning types: verbal countdown, visual timer, environmental cue. Note which transition supports are most effective.",

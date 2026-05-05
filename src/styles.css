@@ -1,4 +1,4 @@
-/* SCDFI Global Styles */
+/* SCDFI Global Styles — Editorial-Calm Design System */
 
 *,
 *::before,
@@ -8,29 +8,41 @@
   padding: 0;
 }
 
+html {
+  -webkit-text-size-adjust: 100%;
+}
+
 body {
-  background: #f0f4fa;
-  font-family: "DM Sans", "Nunito", sans-serif;
+  font-family: 'DM Sans', -apple-system, system-ui, sans-serif;
   -webkit-font-smoothing: antialiased;
+  min-height: 100vh;
+  position: relative;
+  transition: background 0.3s ease, color 0.3s ease;
 }
 
 button {
-  font-family: "DM Sans", "Nunito", sans-serif;
+  font-family: 'DM Sans', -apple-system, system-ui, sans-serif;
 }
 
 input,
-textarea {
-  font-family: "DM Sans", "Nunito", sans-serif;
+textarea,
+select {
+  font-family: 'DM Sans', -apple-system, system-ui, sans-serif;
 }
 
-.rtn-rainbow-strip {
-  height: 3px;
-  background: linear-gradient(90deg, #F9C5C5, #FDDBB4, #FFF0A8, #C2EDD0, #BEE3F8, #D8C8F8, #EED4F8);
-  position: fixed;
-  top: 0; left: 0; right: 0;
-  z-index: 1000;
+input:focus, textarea:focus, select:focus {
+  outline: none;
 }
-@media print { .rtn-rainbow-strip { display: none !important; } }
+
+:focus-visible {
+  outline: 2px solid #1a7a7a !important;
+  outline-offset: 3px;
+  border-radius: 2px;
+}
+
+::selection {
+  background: rgba(42,157,143,0.15);
+}
 
 @media print {
   * {
@@ -40,14 +52,37 @@ textarea {
   }
   body {
     background: #fff !important;
+    color: #000 !important;
+  }
+  body::before {
+    display: none !important;
   }
   .no-print {
     display: none !important;
   }
-  .print-card {
+  .pc {
     box-shadow: none !important;
     margin: 0 !important;
+    padding: 16px !important;
     max-width: 100% !important;
+    background: #fff !important;
+    color: #000 !important;
+    border: none !important;
+  }
+  .pc * {
+    color: #333 !important;
+    border-color: #ddd !important;
+  }
+  .pc input, .pc textarea, .pc select {
+    background: #fff !important;
+    color: #000 !important;
+    border-color: #ccc !important;
+  }
+  .likert-btns {
+    display: none !important;
+  }
+  .print-answer {
+    display: inline-flex !important;
   }
   @page {
     margin: 0.4in;
