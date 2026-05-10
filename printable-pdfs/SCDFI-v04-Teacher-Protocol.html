@@ -1,0 +1,557 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SCDFI v0.4 — Teacher Protocol</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&display=swap');
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { -webkit-text-size-adjust: 100%; }
+body {
+  font-family: 'DM Sans', -apple-system, system-ui, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  font-size: 11px;
+  line-height: 1.4;
+  color: #1a1a1a;
+  padding: 32px 40px;
+  max-width: 880px;
+  margin: 0 auto;
+}
+
+@media print {
+  * { -webkit-print-color-adjust: exact !important; print-color-adjust: exact !important; }
+  body { padding: 0; }
+  @page { margin: 0.4in; }
+  .no-print { display: none !important; }
+}
+
+.no-print {
+  text-align: center;
+  margin-bottom: 20px;
+  padding: 12px;
+  background: #f0f4f4;
+  border-radius: 8px;
+}
+.no-print button {
+  font-family: 'DM Sans', sans-serif;
+  padding: 10px 24px;
+  border-radius: 999px;
+  border: none;
+  background: #1a7a7a;
+  color: #fff;
+  font-weight: 700;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+/* Header */
+.form-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  border-bottom: 3px solid #1a1a1a;
+  padding-bottom: 10px;
+  margin-bottom: 12px;
+}
+.form-title { font-size: 26px; font-weight: 700; letter-spacing: -0.02em; }
+.form-subtitle { font-size: 9px; font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase; color: #666; margin-top: 4px; }
+.form-badge {
+  font-size: 10px; font-weight: 700; padding: 5px 14px; border-radius: 4px;
+  color: #fff; letter-spacing: 0.08em; text-transform: uppercase; white-space: nowrap; margin-top: 4px;
+}
+
+/* Client info grid */
+.info-grid {
+  display: grid;
+  grid-template-columns: 2fr 2fr 1fr;
+  border: 1.5px solid #1a1a1a;
+  margin-bottom: 10px;
+}
+.info-field { padding: 5px 10px; border-right: 1px solid #ddd; border-bottom: 1px solid #ddd; }
+.info-field:last-child { border-right: none; }
+.info-field.full-width { grid-column: 1 / -1; border-bottom: none; border-right: none; }
+.field-label { font-size: 7px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; color: #666; margin-bottom: 2px; }
+.field-blank { min-height: 16px; }
+
+/* Instructions */
+.instructions {
+  background: #f7f7f7;
+  border: 1px solid #ddd;
+  border-radius: 3px;
+  padding: 7px 10px;
+  font-size: 9px;
+  line-height: 1.5;
+  margin-bottom: 10px;
+}
+
+/* Rating key */
+.rating-key {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  flex-wrap: wrap;
+  padding: 5px 8px;
+  border: 1.5px solid #1a1a1a;
+  background: #fafafa;
+  margin-bottom: 8px;
+}
+.rk-label { font-size: 7px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.12em; color: #888; margin-right: 6px; }
+.rk-item {
+  display: inline-flex; align-items: center; gap: 4px;
+  padding: 2px 7px; border-radius: 3px; font-size: 8px; font-weight: 700;
+  border: 1px solid;
+}
+.rk-circle { width: 8px; height: 8px; border-radius: 50%; border: 1.5px solid; display: inline-block; }
+
+/* Domain blocks */
+.domain-block { margin-bottom: 14px; page-break-inside: avoid; }
+.domain-header {
+  display: flex; align-items: center; gap: 8px;
+  padding: 6px 12px; color: #fff; border-radius: 3px 3px 0 0;
+}
+.dh-icon { font-size: 14px; line-height: 1; }
+.dh-num { font-size: 8px; font-weight: 600; opacity: 0.7; }
+.dh-title { font-size: 9px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; }
+.domain-fw {
+  font-size: 7.5px; color: #888; font-style: italic;
+  padding: 3px 10px;
+  border-left: 1.5px solid #1a1a1a; border-right: 1.5px solid #1a1a1a;
+  background: #fafafa;
+}
+.domain-context {
+  font-size: 8.5px; padding: 4px 10px;
+  border-left: 1.5px solid #1a1a1a; border-right: 1.5px solid #1a1a1a;
+  border-bottom: 1px solid #ddd; background: #fcfcfc; font-style: italic;
+}
+.domain-context strong { font-style: normal; }
+
+/* Domain table */
+.domain-table {
+  width: 100%; border-collapse: collapse; font-size: 9.5px;
+  border: 1.5px solid #1a1a1a; border-top: none;
+}
+.domain-table thead { display: table-header-group; }
+.th-item {
+  text-align: left; padding: 4px 8px; font-size: 7px;
+  font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em;
+  border-bottom: 2px solid #1a1a1a; background: #f0f0f0; width: 52%;
+}
+.th-scale {
+  text-align: center; padding: 4px 3px; font-size: 7px;
+  font-weight: 700; border-bottom: 2px solid #1a1a1a; background: #f0f0f0; min-width: 32px;
+}
+.th-notes {
+  text-align: left; padding: 4px 6px; font-size: 7px;
+  font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em;
+  border-bottom: 2px solid #1a1a1a; background: #f0f0f0; min-width: 90px;
+}
+.domain-table tbody tr { background: transparent; }
+.domain-table tbody tr.zebra { background: #f9f9f9; }
+.item-cell { padding: 5px 8px; font-size: 9.5px; border-bottom: 1px solid #ddd; line-height: 1.35; vertical-align: top; }
+.item-num { font-weight: 600; color: #666; margin-right: 4px; }
+.circle-cell { padding: 5px 3px; text-align: center; border-bottom: 1px solid #ddd; vertical-align: middle; }
+.circle { display: inline-block; width: 16px; height: 16px; border-radius: 50%; border: 1.5px solid #aaa; }
+.checkbox { display: inline-block; width: 12px; height: 12px; border-radius: 2px; border: 1.5px solid #aaa; }
+.notes-cell { padding: 5px 6px; border-bottom: 1px solid #ddd; vertical-align: middle; }
+.notes-line { border-bottom: 1px solid #bbb; min-height: 14px; }
+
+/* Domain totals */
+.domain-totals {
+  display: flex; justify-content: flex-end; gap: 14px;
+  padding: 4px 10px; font-size: 8px; font-weight: 700;
+  color: #666; background: #f5f5f5;
+  border: 1.5px solid #1a1a1a; border-top: none;
+  text-transform: uppercase; letter-spacing: 0.05em;
+}
+.total-item { display: inline-flex; align-items: center; gap: 6px; }
+.blank-line { display: inline-block; width: 36px; border-bottom: 1.5px solid #1a1a1a; min-height: 12px; }
+.blank-line.short { width: 30px; }
+.total-max { color: #888; font-weight: 500; }
+
+/* Observation box */
+.obs-box {
+  border: 1.5px solid #1a1a1a; border-top: none;
+  border-radius: 0 0 3px 3px; padding: 5px 8px;
+}
+.obs-label { font-size: 7px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; color: #666; margin-bottom: 3px; }
+.lined-area {
+  min-height: 60px; border-top: 1px solid #ddd;
+  background: repeating-linear-gradient(to bottom, transparent 0, transparent 19px, #e8e8e8 19px, #e8e8e8 20px);
+}
+
+/* Summary & signature */
+.summary-section { margin-top: 24px; page-break-inside: avoid; }
+.summary-header {
+  background: #1a1a1a; color: #fff;
+  padding: 6px 12px; font-size: 9px; font-weight: 700;
+  text-transform: uppercase; letter-spacing: 0.1em; border-radius: 3px 3px 0 0;
+}
+.summary-body { border: 1.5px solid #1a1a1a; border-top: none; border-radius: 0 0 3px 3px; padding: 14px; }
+.summary-label { font-size: 7px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; color: #666; margin-bottom: 4px; }
+.summary-lined { min-height: 90px; background: repeating-linear-gradient(to bottom, transparent 0, transparent 19px, #e8e8e8 19px, #e8e8e8 20px); margin-bottom: 14px; }
+.sig-grid { display: grid; grid-template-columns: 2fr 1fr; gap: 14px; }
+.sig-field-label { font-size: 7px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; color: #666; margin-bottom: 2px; }
+.sig-line { border-bottom: 1.5px solid #1a1a1a; min-height: 22px; }
+
+/* Footer */
+.form-footer {
+  margin-top: 16px; padding-top: 8px; border-top: 1px solid #ddd;
+  font-size: 7px; color: #888; text-align: center; line-height: 1.7; letter-spacing: 0.05em;
+}
+</style>
+</head>
+<body>
+
+<div class="no-print">
+  <button onclick="window.print()">🖨 Print / Save as PDF</button>
+</div>
+
+<div class="form-header">
+  <div>
+    <div class="form-title">SCDFI</div>
+    <div class="form-subtitle">Social-Communication &amp; Developmental Functioning Inventory</div>
+  </div>
+  <div class="form-badge" style="background:#1a7a7a">Teacher Protocol</div>
+</div>
+
+<div class="info-grid">
+  <div class="info-field"><div class="field-label">Client / Student Name</div><div class="field-blank"></div></div>
+       <div class="info-field"><div class="field-label">Respondent (Name, Role)</div><div class="field-blank"></div></div>
+       <div class="info-field"><div class="field-label">Date</div><div class="field-blank"></div></div>
+       <div class="info-field full-width"><div class="field-label">Setting / Context</div><div class="field-blank"></div></div>
+</div>
+
+<div class="instructions"><strong>Instructions:</strong> Rate current functioning based on classroom and school observations. Consider how the student performs across school contexts — structured instruction, independent work, group activities, unstructured time (recess, hallways, lunch), and transitions between settings. Use notes to describe context per domain.</div>
+
+
+<div class="rating-key"><span class="rk-label">Rating Key</span><span class="rk-item" style="background:#fdf0ef;color:#c0392b;border-color:#c0392b"><span class="rk-circle" style="border-color:#c0392b"></span>NO — Not Observed</span><span class="rk-item" style="background:#fef9ee;color:#b89446;border-color:#b89446"><span class="rk-circle" style="border-color:#b89446"></span>EM — Emerging</span><span class="rk-item" style="background:#e8f0f7;color:#2a6fa0;border-color:#2a6fa0"><span class="rk-circle" style="border-color:#2a6fa0"></span>CS — Consistent with Support</span><span class="rk-item" style="background:#e8f5ed;color:#27864e;border-color:#27864e"><span class="rk-circle" style="border-color:#27864e"></span>CI — Consistent Independently</span></div>
+<div class="domain-block">
+  <div class="domain-header" style="background:#440154">
+    <span class="dh-icon">🌱</span>
+    <span class="dh-num">D1</span>
+    <span class="dh-title">Self-Regulation & Emotional Availability</span>
+  </div>
+  <div class="domain-fw">LSP Emotional Regulation • FEDC Cap 1 • BESSI Emotional Resilience • R&W co-regulation • CPS/ASUP Regulate emotional response · Interoception · Tolerate sensory environment</div>
+  <div class="domain-context"><strong>Observation context:</strong> Observe during morning arrival, transitions between classes, after recess, during independent seatwork, and after unexpected schedule changes. Note which adults or routines help the student recover.</div>
+  <table class="domain-table">
+    <thead><tr><th class="th-item">Item</th><th class="th-scale" style="color:#c0392b">NO</th><th class="th-scale" style="color:#b89446">EM</th><th class="th-scale" style="color:#2a6fa0">CS</th><th class="th-scale" style="color:#27864e">CI</th><th class="th-notes">Notes / SA · IU</th></tr></thead>
+    <tbody><tr><td class="item-cell"><span class="item-num">1.</span>Maintains a calm, organized state during familiar social routines for 2+ minutes</td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="circle"></span></td><td class="notes-cell"><div class="notes-line"></div></td></tr>
+<tr class="zebra"><td class="item-cell"><span class="item-num">2.</span>Recovers from dysregulation within a reasonable timeframe with partner support</td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="circle"></span></td><td class="notes-cell"><div class="notes-line"></div></td></tr>
+<tr><td class="item-cell"><span class="item-num">3.</span>Recovers from dysregulation within a reasonable timeframe without partner support</td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="circle"></span></td><td class="notes-cell"><div class="notes-line"></div></td></tr>
+<tr class="zebra"><td class="item-cell"><span class="item-num">4.</span>Orients to sensory and social aspects of the environment</td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="circle"></span></td><td class="notes-cell"><div class="notes-line"></div></td></tr>
+<tr><td class="item-cell"><span class="item-num">5.</span>Sustains a regulated state in the presence of moderate sensory input</td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="circle"></span></td><td class="notes-cell"><div class="notes-line"></div></td></tr>
+<tr class="zebra"><td class="item-cell"><span class="item-num">6.</span>Signals dysregulation through recognizable communicative indicators</td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="circle"></span></td><td class="notes-cell"><div class="notes-line"></div></td></tr>
+</tbody>
+  </table>
+  <div class="domain-totals">
+    <span class="total-item">Raw Total: <span class="blank-line"></span> <span class="total-max">/ 18</span></span>
+    <span class="total-item">% Score: <span class="blank-line"></span></span>
+  </div>
+  <div class="obs-box"><div class="obs-label">Observations / Contextual Notes</div><div class="lined-area"></div></div>
+</div>
+
+<div class="rating-key"><span class="rk-label">Rating Key</span><span class="rk-item" style="background:#fdf0ef;color:#c0392b;border-color:#c0392b"><span class="rk-circle" style="border-color:#c0392b"></span>NO — Not Observed</span><span class="rk-item" style="background:#fef9ee;color:#b89446;border-color:#b89446"><span class="rk-circle" style="border-color:#b89446"></span>EM — Emerging</span><span class="rk-item" style="background:#e8f0f7;color:#2a6fa0;border-color:#2a6fa0"><span class="rk-circle" style="border-color:#2a6fa0"></span>CS — Consistent with Support</span><span class="rk-item" style="background:#e8f5ed;color:#27864e;border-color:#27864e"><span class="rk-circle" style="border-color:#27864e"></span>CI — Consistent Independently</span></div>
+<div class="domain-block">
+  <div class="domain-header" style="background:#481567">
+    <span class="dh-icon">👥</span>
+    <span class="dh-num">D2</span>
+    <span class="dh-title">Social Orientation & Engagement</span>
+  </div>
+  <div class="domain-fw">LSP #1 Object vs. People • FEDC Cap 1–2 • BESSI Social Engagement</div>
+  <div class="domain-context"><strong>Observation context:</strong> Observe during group instruction, partner work, free choice time, lunch, and recess. Note whether the student orients toward peers vs. materials/devices and whether social interest varies by context.</div>
+  <table class="domain-table">
+    <thead><tr><th class="th-item">Item</th><th class="th-scale" style="color:#c0392b">NO</th><th class="th-scale" style="color:#b89446">EM</th><th class="th-scale" style="color:#2a6fa0">CS</th><th class="th-scale" style="color:#27864e">CI</th><th class="th-notes">Notes / SA · IU</th></tr></thead>
+    <tbody><tr><td class="item-cell"><span class="item-num">1.</span>Orients to people in the environment (eye gaze, body orientation)</td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="circle"></span></td><td class="notes-cell"><div class="notes-line"></div></td></tr>
+<tr class="zebra"><td class="item-cell"><span class="item-num">2.</span>Demonstrates social curiosity toward others (approaches, watches, moves closer)</td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="circle"></span></td><td class="notes-cell"><div class="notes-line"></div></td></tr>
+<tr><td class="item-cell"><span class="item-num">3.</span>Sustains attention to a social partner during a shared activity for extended periods</td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="circle"></span></td><td class="notes-cell"><div class="notes-line"></div></td></tr>
+<tr class="zebra"><td class="item-cell"><span class="item-num">4.</span>Establishes and maintains joint attention between partner and shared materials</td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="circle"></span></td><td class="notes-cell"><div class="notes-line"></div></td></tr>
+<tr><td class="item-cell"><span class="item-num">5.</span>Responds to a partner's overtures with observable positive affect</td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="circle"></span></td><td class="notes-cell"><div class="notes-line"></div></td></tr>
+</tbody>
+  </table>
+  <div class="domain-totals">
+    <span class="total-item">Raw Total: <span class="blank-line"></span> <span class="total-max">/ 15</span></span>
+    <span class="total-item">% Score: <span class="blank-line"></span></span>
+  </div>
+  <div class="obs-box"><div class="obs-label">Observations / Contextual Notes</div><div class="lined-area"></div></div>
+</div>
+
+<div class="rating-key"><span class="rk-label">Rating Key</span><span class="rk-item" style="background:#fdf0ef;color:#c0392b;border-color:#c0392b"><span class="rk-circle" style="border-color:#c0392b"></span>NO — Not Observed</span><span class="rk-item" style="background:#fef9ee;color:#b89446;border-color:#b89446"><span class="rk-circle" style="border-color:#b89446"></span>EM — Emerging</span><span class="rk-item" style="background:#e8f0f7;color:#2a6fa0;border-color:#2a6fa0"><span class="rk-circle" style="border-color:#2a6fa0"></span>CS — Consistent with Support</span><span class="rk-item" style="background:#e8f5ed;color:#27864e;border-color:#27864e"><span class="rk-circle" style="border-color:#27864e"></span>CI — Consistent Independently</span></div>
+<div class="domain-block">
+  <div class="domain-header" style="background:#482677">
+    <span class="dh-icon">🔗</span>
+    <span class="dh-num">D3</span>
+    <span class="dh-title">Joint Attention & Shared Focus</span>
+  </div>
+  <div class="domain-fw">LSP Joint Attention (trunk) • LSP #9 • FEDC Cap 2 • R&W localization sequence</div>
+  <div class="domain-context"><strong>Observation context:</strong> Observe during whole-class instruction (teacher points to board), partner reading, science demos, and show-and-tell. Note whether the student follows teacher gaze/point from their seat and whether shared attention persists with classroom-level distractions.</div>
+  <table class="domain-table">
+    <thead><tr><th class="th-item">Item</th><th class="th-scale" style="color:#c0392b">NO</th><th class="th-scale" style="color:#b89446">EM</th><th class="th-scale" style="color:#2a6fa0">CS</th><th class="th-scale" style="color:#27864e">CI</th><th class="th-notes">Notes / SA · IU</th></tr></thead>
+    <tbody><tr><td class="item-cell"><span class="item-num">1.</span>Coordinates gaze between a social partner and a shared object or event</td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="circle"></span></td><td class="notes-cell"><div class="notes-line"></div></td></tr>
+<tr class="zebra"><td class="item-cell"><span class="item-num">2.</span>Follows a social partner's point, gaze, or head turn to a referent</td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="circle"></span></td><td class="notes-cell"><div class="notes-line"></div></td></tr>
+<tr><td class="item-cell"><span class="item-num">3.</span>Directs a partner's attention to an object or event of interest (showing, pointing, giving)</td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="circle"></span></td><td class="notes-cell"><div class="notes-line"></div></td></tr>
+<tr class="zebra"><td class="item-cell"><span class="item-num">4.</span>Maintains shared focus with a partner during joint activity for extended periods</td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="circle"></span></td><td class="notes-cell"><div class="notes-line"></div></td></tr>
+<tr><td class="item-cell"><span class="item-num">5.</span>Attends to partner's bids and cues at increasing physical distances</td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="circle"></span></td><td class="notes-cell"><div class="notes-line"></div></td></tr>
+<tr class="zebra"><td class="item-cell"><span class="item-num">6.</span>Maintains shared focus with moderate to high attentional competition</td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="circle"></span></td><td class="notes-cell"><div class="notes-line"></div></td></tr>
+</tbody>
+  </table>
+  <div class="domain-totals">
+    <span class="total-item">Raw Total: <span class="blank-line"></span> <span class="total-max">/ 18</span></span>
+    <span class="total-item">% Score: <span class="blank-line"></span></span>
+  </div>
+  <div class="obs-box"><div class="obs-label">Observations / Contextual Notes</div><div class="lined-area"></div></div>
+</div>
+
+<div class="rating-key"><span class="rk-label">Rating Key</span><span class="rk-item" style="background:#fdf0ef;color:#c0392b;border-color:#c0392b"><span class="rk-circle" style="border-color:#c0392b"></span>NO — Not Observed</span><span class="rk-item" style="background:#fef9ee;color:#b89446;border-color:#b89446"><span class="rk-circle" style="border-color:#b89446"></span>EM — Emerging</span><span class="rk-item" style="background:#e8f0f7;color:#2a6fa0;border-color:#2a6fa0"><span class="rk-circle" style="border-color:#2a6fa0"></span>CS — Consistent with Support</span><span class="rk-item" style="background:#e8f5ed;color:#27864e;border-color:#27864e"><span class="rk-circle" style="border-color:#27864e"></span>CI — Consistent Independently</span></div>
+<div class="domain-block">
+  <div class="domain-header" style="background:#453781">
+    <span class="dh-icon">🪞</span>
+    <span class="dh-num">D4</span>
+    <span class="dh-title">Social Learning & Imitation</span>
+  </div>
+  <div class="domain-fw">LSP #2 Social Models • FEDC Cap 3–4 • R&W joint action routines</div>
+  <div class="domain-context"><strong>Observation context:</strong> Observe during teacher modeling (math procedures, writing demonstrations, science experiments), peer modeling, and social routines (lining up, raising hand). Note whether the student learns from watching classmates vs. only from direct instruction.</div>
+  <table class="domain-table">
+    <thead><tr><th class="th-item">Item</th><th class="th-scale" style="color:#c0392b">NO</th><th class="th-scale" style="color:#b89446">EM</th><th class="th-scale" style="color:#2a6fa0">CS</th><th class="th-scale" style="color:#27864e">CI</th><th class="th-notes">Notes / SA · IU</th></tr></thead>
+    <tbody><tr><td class="item-cell"><span class="item-num">1.</span>Attends to a partner's actions and use of objects during modeled demonstrations</td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="circle"></span></td><td class="notes-cell"><div class="notes-line"></div></td></tr>
+<tr class="zebra"><td class="item-cell"><span class="item-num">2.</span>Attends to a partner's nonverbal cues during social models</td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="circle"></span></td><td class="notes-cell"><div class="notes-line"></div></td></tr>
+<tr><td class="item-cell"><span class="item-num">3.</span>Spontaneously imitates a partner's meaningful actions with objects</td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="circle"></span></td><td class="notes-cell"><div class="notes-line"></div></td></tr>
+<tr class="zebra"><td class="item-cell"><span class="item-num">4.</span>Spontaneously imitates or approximates a partner's verbal communication</td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="circle"></span></td><td class="notes-cell"><div class="notes-line"></div></td></tr>
+<tr><td class="item-cell"><span class="item-num">5.</span>Follows a partner's communicative lead during a demonstrated social routine</td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="circle"></span></td><td class="notes-cell"><div class="notes-line"></div></td></tr>
+<tr class="zebra"><td class="item-cell"><span class="item-num">6.</span>Applies previously modeled skills in novel but related contexts</td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="circle"></span></td><td class="notes-cell"><div class="notes-line"></div></td></tr>
+</tbody>
+  </table>
+  <div class="domain-totals">
+    <span class="total-item">Raw Total: <span class="blank-line"></span> <span class="total-max">/ 18</span></span>
+    <span class="total-item">% Score: <span class="blank-line"></span></span>
+  </div>
+  <div class="obs-box"><div class="obs-label">Observations / Contextual Notes</div><div class="lined-area"></div></div>
+</div>
+
+<div class="rating-key"><span class="rk-label">Rating Key</span><span class="rk-item" style="background:#fdf0ef;color:#c0392b;border-color:#c0392b"><span class="rk-circle" style="border-color:#c0392b"></span>NO — Not Observed</span><span class="rk-item" style="background:#fef9ee;color:#b89446;border-color:#b89446"><span class="rk-circle" style="border-color:#b89446"></span>EM — Emerging</span><span class="rk-item" style="background:#e8f0f7;color:#2a6fa0;border-color:#2a6fa0"><span class="rk-circle" style="border-color:#2a6fa0"></span>CS — Consistent with Support</span><span class="rk-item" style="background:#e8f5ed;color:#27864e;border-color:#27864e"><span class="rk-circle" style="border-color:#27864e"></span>CI — Consistent Independently</span></div>
+<div class="domain-block">
+  <div class="domain-header" style="background:#3f4788">
+    <span class="dh-icon">👂</span>
+    <span class="dh-num">D5</span>
+    <span class="dh-title">Multi-Partner Social Awareness</span>
+  </div>
+  <div class="domain-fw">LSP #3 Multiple Partners • FEDC Cap 4 • BESSI Teamwork</div>
+  <div class="domain-context"><strong>Observation context:</strong> Observe during group projects, class discussions, cooperative learning, and recess games. Note whether the student tracks contributions from multiple classmates or only responds to one preferred peer or the teacher.</div>
+  <table class="domain-table">
+    <thead><tr><th class="th-item">Item</th><th class="th-scale" style="color:#c0392b">NO</th><th class="th-scale" style="color:#b89446">EM</th><th class="th-scale" style="color:#2a6fa0">CS</th><th class="th-scale" style="color:#27864e">CI</th><th class="th-notes">Notes / SA · IU</th></tr></thead>
+    <tbody><tr><td class="item-cell"><span class="item-num">1.</span>Attends to and monitors actions of more than one partner during shared activity</td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="circle"></span></td><td class="notes-cell"><div class="notes-line"></div></td></tr>
+<tr class="zebra"><td class="item-cell"><span class="item-num">2.</span>Anticipates the actions or contributions of multiple partners in a group routine</td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="circle"></span></td><td class="notes-cell"><div class="notes-line"></div></td></tr>
+<tr><td class="item-cell"><span class="item-num">3.</span>Imitates or approximates actions of multiple partners (not only one preferred partner)</td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="circle"></span></td><td class="notes-cell"><div class="notes-line"></div></td></tr>
+<tr class="zebra"><td class="item-cell"><span class="item-num">4.</span>Contingently responds and reciprocates with multiple partners within shared activity</td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="circle"></span></td><td class="notes-cell"><div class="notes-line"></div></td></tr>
+</tbody>
+  </table>
+  <div class="domain-totals">
+    <span class="total-item">Raw Total: <span class="blank-line"></span> <span class="total-max">/ 12</span></span>
+    <span class="total-item">% Score: <span class="blank-line"></span></span>
+  </div>
+  <div class="obs-box"><div class="obs-label">Observations / Contextual Notes</div><div class="lined-area"></div></div>
+</div>
+
+<div class="rating-key"><span class="rk-label">Rating Key</span><span class="rk-item" style="background:#fdf0ef;color:#c0392b;border-color:#c0392b"><span class="rk-circle" style="border-color:#c0392b"></span>NO — Not Observed</span><span class="rk-item" style="background:#fef9ee;color:#b89446;border-color:#b89446"><span class="rk-circle" style="border-color:#b89446"></span>EM — Emerging</span><span class="rk-item" style="background:#e8f0f7;color:#2a6fa0;border-color:#2a6fa0"><span class="rk-circle" style="border-color:#2a6fa0"></span>CS — Consistent with Support</span><span class="rk-item" style="background:#e8f5ed;color:#27864e;border-color:#27864e"><span class="rk-circle" style="border-color:#27864e"></span>CI — Consistent Independently</span></div>
+<div class="domain-block">
+  <div class="domain-header" style="background:#33568b">
+    <span class="dh-icon">🔄</span>
+    <span class="dh-num">D6</span>
+    <span class="dh-title">Flexibility & Adaptation</span>
+  </div>
+  <div class="domain-fw">LSP #4 Flexibility • FEDC Cap 6 • DSM-5 ASD severity mapping • BESSI Adaptability • CPS/ASUP Shift from original idea · Flexibly handle ambiguity</div>
+  <div class="domain-context"><strong>Observation context:</strong> Observe during schedule changes, substitute teachers, fire drills, assembly days, changes to seating, and modified assignments. Note the difference between the student's response to forewarned vs. surprise changes.</div>
+  <table class="domain-table">
+    <thead><tr><th class="th-item">Item</th><th class="th-scale" style="color:#c0392b">NO</th><th class="th-scale" style="color:#b89446">EM</th><th class="th-scale" style="color:#2a6fa0">CS</th><th class="th-scale" style="color:#27864e">CI</th><th class="th-notes">Notes / SA · IU</th></tr></thead>
+    <tbody><tr><td class="item-cell"><span class="item-num">1.</span>Attends to changes in familiar routines introduced by social partners</td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="circle"></span></td><td class="notes-cell"><div class="notes-line"></div></td></tr>
+<tr class="zebra"><td class="item-cell"><span class="item-num">2.</span>Tolerates changes to familiar routines while maintaining a regulated state</td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="circle"></span></td><td class="notes-cell"><div class="notes-line"></div></td></tr>
+<tr><td class="item-cell"><span class="item-num">3.</span>Actively participates in modified familiar routines introduced by partners</td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="circle"></span></td><td class="notes-cell"><div class="notes-line"></div></td></tr>
+<tr class="zebra"><td class="item-cell"><span class="item-num">4.</span>Maintains engagement when anticipated (forewarned) changes are introduced</td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="circle"></span></td><td class="notes-cell"><div class="notes-line"></div></td></tr>
+<tr><td class="item-cell"><span class="item-num">5.</span>Maintains engagement when unanticipated (unexpected) changes are introduced</td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="circle"></span></td><td class="notes-cell"><div class="notes-line"></div></td></tr>
+<tr class="zebra"><td class="item-cell"><span class="item-num">6.</span>Demonstrates varied/flexible actions with familiar and novel objects</td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="circle"></span></td><td class="notes-cell"><div class="notes-line"></div></td></tr>
+<tr><td class="item-cell"><span class="item-num">7.</span>Engages with a range of social partners — not only preferred individuals</td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="circle"></span></td><td class="notes-cell"><div class="notes-line"></div></td></tr>
+</tbody>
+  </table>
+  <div class="domain-totals">
+    <span class="total-item">Raw Total: <span class="blank-line"></span> <span class="total-max">/ 21</span></span>
+    <span class="total-item">% Score: <span class="blank-line"></span></span>
+  </div>
+  <div class="obs-box"><div class="obs-label">Observations / Contextual Notes</div><div class="lined-area"></div></div>
+</div>
+
+<div class="rating-key"><span class="rk-label">Rating Key</span><span class="rk-item" style="background:#fdf0ef;color:#c0392b;border-color:#c0392b"><span class="rk-circle" style="border-color:#c0392b"></span>NO — Not Observed</span><span class="rk-item" style="background:#fef9ee;color:#b89446;border-color:#b89446"><span class="rk-circle" style="border-color:#b89446"></span>EM — Emerging</span><span class="rk-item" style="background:#e8f0f7;color:#2a6fa0;border-color:#2a6fa0"><span class="rk-circle" style="border-color:#2a6fa0"></span>CS — Consistent with Support</span><span class="rk-item" style="background:#e8f5ed;color:#27864e;border-color:#27864e"><span class="rk-circle" style="border-color:#27864e"></span>CI — Consistent Independently</span></div>
+<div class="domain-block">
+  <div class="domain-header" style="background:#26828e">
+    <span class="dh-icon">🤝</span>
+    <span class="dh-num">D7</span>
+    <span class="dh-title">Shared Control & Problem-Solving</span>
+  </div>
+  <div class="domain-fw">LSP #5 Shared Control • FEDC Cap 4 • SSF Negotiation Skill • CPS/ASUP Appreciate actions affect others · Empathize/perspective-take</div>
+  <div class="domain-context"><strong>Observation context:</strong> Observe during partner and group work, collaborative projects, playground negotiations, and shared materials situations. Note whether the student insists on controlling the activity or can share leadership.</div>
+  <table class="domain-table">
+    <thead><tr><th class="th-item">Item</th><th class="th-scale" style="color:#c0392b">NO</th><th class="th-scale" style="color:#b89446">EM</th><th class="th-scale" style="color:#2a6fa0">CS</th><th class="th-scale" style="color:#27864e">CI</th><th class="th-notes">Notes / SA · IU</th></tr></thead>
+    <tbody><tr><td class="item-cell"><span class="item-num">1.</span>Tolerates a social partner taking the lead in a shared activity</td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="circle"></span></td><td class="notes-cell"><div class="notes-line"></div></td></tr>
+<tr class="zebra"><td class="item-cell"><span class="item-num">2.</span>Sustains participation in activities initiated by another partner</td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="circle"></span></td><td class="notes-cell"><div class="notes-line"></div></td></tr>
+<tr><td class="item-cell"><span class="item-num">3.</span>Collaboratively takes turns leading and following within a shared activity</td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="circle"></span></td><td class="notes-cell"><div class="notes-line"></div></td></tr>
+<tr class="zebra"><td class="item-cell"><span class="item-num">4.</span>Waits for and anticipates socially appropriate opportunities to take the lead</td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="circle"></span></td><td class="notes-cell"><div class="notes-line"></div></td></tr>
+<tr><td class="item-cell"><span class="item-num">5.</span>Engages in shared problem-solving with a partner</td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="circle"></span></td><td class="notes-cell"><div class="notes-line"></div></td></tr>
+</tbody>
+  </table>
+  <div class="domain-totals">
+    <span class="total-item">Raw Total: <span class="blank-line"></span> <span class="total-max">/ 15</span></span>
+    <span class="total-item">% Score: <span class="blank-line"></span></span>
+  </div>
+  <div class="obs-box"><div class="obs-label">Observations / Contextual Notes</div><div class="lined-area"></div></div>
+</div>
+
+<div class="rating-key"><span class="rk-label">Rating Key</span><span class="rk-item" style="background:#fdf0ef;color:#c0392b;border-color:#c0392b"><span class="rk-circle" style="border-color:#c0392b"></span>NO — Not Observed</span><span class="rk-item" style="background:#fef9ee;color:#b89446;border-color:#b89446"><span class="rk-circle" style="border-color:#b89446"></span>EM — Emerging</span><span class="rk-item" style="background:#e8f0f7;color:#2a6fa0;border-color:#2a6fa0"><span class="rk-circle" style="border-color:#2a6fa0"></span>CS — Consistent with Support</span><span class="rk-item" style="background:#e8f5ed;color:#27864e;border-color:#27864e"><span class="rk-circle" style="border-color:#27864e"></span>CI — Consistent Independently</span></div>
+<div class="domain-block">
+  <div class="domain-header" style="background:#1f9e89">
+    <span class="dh-icon">💬</span>
+    <span class="dh-num">D8</span>
+    <span class="dh-title">Interaction Style: Init / Maint / Respond</span>
+  </div>
+  <div class="domain-fw">LSP #6 A/B/C • FEDC Cap 3–4 • BESSI Conversational & Expressive Skill • CPS/ASUP Appreciate actions affect others · Empathize/perspective-take</div>
+  <div class="domain-context"><strong>Observation context:</strong> Observe during morning meeting, class discussions, partner work, recess, and lunch. Note whether the student initiates with peers (not only adults), maintains conversations beyond one exchange, and responds when addressed in group contexts.</div>
+  <table class="domain-table">
+    <thead><tr><th class="th-item">Item</th><th class="th-scale" style="color:#c0392b">NO</th><th class="th-scale" style="color:#b89446">EM</th><th class="th-scale" style="color:#2a6fa0">CS</th><th class="th-scale" style="color:#27864e">CI</th><th class="th-notes">Notes / SA · IU</th></tr></thead>
+    <tbody><tr><td class="item-cell"><span class="item-num">1.</span>[A] Uses nonverbal/verbal means to initiate interactions (showing, greeting, requesting)</td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="circle"></span></td><td class="notes-cell"><div class="notes-line"></div></td></tr>
+<tr class="zebra"><td class="item-cell"><span class="item-num">2.</span>[A] Spontaneously initiates across a range of communicative functions</td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="circle"></span></td><td class="notes-cell"><div class="notes-line"></div></td></tr>
+<tr><td class="item-cell"><span class="item-num">3.</span>[B] Uses nonverbal/verbal means to sustain interactions (commenting, turn-taking)</td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="circle"></span></td><td class="notes-cell"><div class="notes-line"></div></td></tr>
+<tr class="zebra"><td class="item-cell"><span class="item-num">4.</span>[B] Spontaneously maintains reciprocal interaction for extended exchanges</td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="circle"></span></td><td class="notes-cell"><div class="notes-line"></div></td></tr>
+<tr><td class="item-cell"><span class="item-num">5.</span>[C] Uses nonverbal/verbal means to respond to partners (answering, contingent responses)</td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="circle"></span></td><td class="notes-cell"><div class="notes-line"></div></td></tr>
+<tr class="zebra"><td class="item-cell"><span class="item-num">6.</span>[C] Spontaneously responds to partner's initiations across varied contexts</td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="circle"></span></td><td class="notes-cell"><div class="notes-line"></div></td></tr>
+</tbody>
+  </table>
+  <div class="domain-totals">
+    <span class="total-item">Raw Total: <span class="blank-line"></span> <span class="total-max">/ 18</span></span>
+    <span class="total-item">% Score: <span class="blank-line"></span></span>
+  </div>
+  <div class="obs-box"><div class="obs-label">Observations / Contextual Notes</div><div class="lined-area"></div></div>
+</div>
+
+<div class="rating-key"><span class="rk-label">Rating Key</span><span class="rk-item" style="background:#fdf0ef;color:#c0392b;border-color:#c0392b"><span class="rk-circle" style="border-color:#c0392b"></span>NO — Not Observed</span><span class="rk-item" style="background:#fef9ee;color:#b89446;border-color:#b89446"><span class="rk-circle" style="border-color:#b89446"></span>EM — Emerging</span><span class="rk-item" style="background:#e8f0f7;color:#2a6fa0;border-color:#2a6fa0"><span class="rk-circle" style="border-color:#2a6fa0"></span>CS — Consistent with Support</span><span class="rk-item" style="background:#e8f5ed;color:#27864e;border-color:#27864e"><span class="rk-circle" style="border-color:#27864e"></span>CI — Consistent Independently</span></div>
+<div class="domain-block">
+  <div class="domain-header" style="background:#35b779">
+    <span class="dh-icon">🗣️</span>
+    <span class="dh-num">D9</span>
+    <span class="dh-title">Communication: Symbolic, Generative, Intentional</span>
+  </div>
+  <div class="domain-fw">LSP #7 Verbal/Symbolic • FEDC Cap 5 • BESSI Expressive Skill • Prizant & Rydell echolalia • CPS/ASUP Express concerns/needs/thoughts · Understand others' communication</div>
+  <div class="domain-context"><strong>Observation context:</strong> Observe communication during academic instruction (answering questions, contributing to discussion), social interactions (lunch, recess), and functional routines (asking for help, requesting materials). Note whether the student uses flexible language vs. scripted/echoic phrases, and whether communication modality shifts between contexts.</div>
+  <table class="domain-table">
+    <thead><tr><th class="th-item">Item</th><th class="th-scale" style="color:#c0392b">NO</th><th class="th-scale" style="color:#b89446">EM</th><th class="th-scale" style="color:#2a6fa0">CS</th><th class="th-scale" style="color:#27864e">CI</th><th class="th-notes">Notes / SA · IU</th></tr></thead>
+    <tbody><tr><td class="item-cell"><span class="item-num">1.</span>Uses intentional communication (verbal, gestural, AAC) for wants and needs</td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="circle"></span></td><td class="notes-cell"><div class="notes-line"></div></td></tr>
+<tr class="zebra"><td class="item-cell"><span class="item-num">2.</span>Uses single words or gestalt phrases with meaning to represent semantic knowledge</td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="circle"></span></td><td class="notes-cell"><div class="notes-line"></div></td></tr>
+<tr><td class="item-cell"><span class="item-num">3.</span>Uses word combinations or mitigated echoic phrases for multi-word meanings</td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="circle"></span></td><td class="notes-cell"><div class="notes-line"></div></td></tr>
+<tr class="zebra"><td class="item-cell"><span class="item-num">4.</span>Uses generative, flexible phrases/sentences across contexts and functions</td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="circle"></span></td><td class="notes-cell"><div class="notes-line"></div></td></tr>
+<tr><td class="item-cell"><span class="item-num">5.</span>Creates symbolic ideas through pretend play, narrative, or creative expression</td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="circle"></span></td><td class="notes-cell"><div class="notes-line"></div></td></tr>
+<tr class="zebra"><td class="item-cell"><span class="item-num">6.</span>Communicates emotional states and abstract ideas — not only concrete requests</td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="circle"></span></td><td class="notes-cell"><div class="notes-line"></div></td></tr>
+</tbody>
+  </table>
+  <div class="domain-totals">
+    <span class="total-item">Raw Total: <span class="blank-line"></span> <span class="total-max">/ 18</span></span>
+    <span class="total-item">% Score: <span class="blank-line"></span></span>
+  </div>
+  <div class="obs-box"><div class="obs-label">Observations / Contextual Notes</div><div class="lined-area"></div></div>
+</div>
+
+<div class="rating-key"><span class="rk-label">Rating Key</span><span class="rk-item" style="background:#fdf0ef;color:#c0392b;border-color:#c0392b"><span class="rk-circle" style="border-color:#c0392b"></span>NO — Not Observed</span><span class="rk-item" style="background:#fef9ee;color:#b89446;border-color:#b89446"><span class="rk-circle" style="border-color:#b89446"></span>EM — Emerging</span><span class="rk-item" style="background:#e8f0f7;color:#2a6fa0;border-color:#2a6fa0"><span class="rk-circle" style="border-color:#2a6fa0"></span>CS — Consistent with Support</span><span class="rk-item" style="background:#e8f5ed;color:#27864e;border-color:#27864e"><span class="rk-circle" style="border-color:#27864e"></span>CI — Consistent Independently</span></div>
+<div class="domain-block">
+  <div class="domain-header" style="background:#6ccd5a">
+    <span class="dh-icon">🧩</span>
+    <span class="dh-num">D10</span>
+    <span class="dh-title">Executive Function & Planning</span>
+  </div>
+  <div class="domain-fw">LSP #8 Executive Function • FEDC Cap 6 • BESSI Self-Management • R&W 5-question framework • CPS/ASUP Maintain focus · Persist on tasks · Sense of time · Consider solutions · Impulse control</div>
+  <div class="domain-context"><strong>Observation context:</strong> Observe during multi-step academic assignments, classroom routines (unpack → breakfast → morning work), project-based learning, and homework planning. Note reliance on visual schedules, teacher prompts, and peer models for task completion.</div>
+  <table class="domain-table">
+    <thead><tr><th class="th-item">Item</th><th class="th-scale" style="color:#c0392b">NO</th><th class="th-scale" style="color:#b89446">EM</th><th class="th-scale" style="color:#2a6fa0">CS</th><th class="th-scale" style="color:#27864e">CI</th><th class="th-notes">Notes / SA · IU</th></tr></thead>
+    <tbody><tr><td class="item-cell"><span class="item-num">1.</span>Orients to a partner's use of visual structure for organizing a social plan</td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="circle"></span></td><td class="notes-cell"><div class="notes-line"></div></td></tr>
+<tr class="zebra"><td class="item-cell"><span class="item-num">2.</span>Participates in practice/rehearsal activities preparing for upcoming events</td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="circle"></span></td><td class="notes-cell"><div class="notes-line"></div></td></tr>
+<tr><td class="item-cell"><span class="item-num">3.</span>Collaboratively follows a mutually agreed-upon, visually structured plan</td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="circle"></span></td><td class="notes-cell"><div class="notes-line"></div></td></tr>
+<tr class="zebra"><td class="item-cell"><span class="item-num">4.</span>Independently follows and completes a previously rehearsed plan</td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="circle"></span></td><td class="notes-cell"><div class="notes-line"></div></td></tr>
+<tr><td class="item-cell"><span class="item-num">5.</span>Uses contextual/situational/interpersonal cues to collaborate during new activities</td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="circle"></span></td><td class="notes-cell"><div class="notes-line"></div></td></tr>
+</tbody>
+  </table>
+  <div class="domain-totals">
+    <span class="total-item">Raw Total: <span class="blank-line"></span> <span class="total-max">/ 15</span></span>
+    <span class="total-item">% Score: <span class="blank-line"></span></span>
+  </div>
+  <div class="obs-box"><div class="obs-label">Observations / Contextual Notes</div><div class="lined-area"></div></div>
+</div>
+
+<div class="rating-key"><span class="rk-label">Rating Key</span><span class="rk-item" style="background:#fdf0ef;color:#c0392b;border-color:#c0392b"><span class="rk-circle" style="border-color:#c0392b"></span>NO — Not Observed</span><span class="rk-item" style="background:#fef9ee;color:#b89446;border-color:#b89446"><span class="rk-circle" style="border-color:#b89446"></span>EM — Emerging</span><span class="rk-item" style="background:#e8f0f7;color:#2a6fa0;border-color:#2a6fa0"><span class="rk-circle" style="border-color:#2a6fa0"></span>CS — Consistent with Support</span><span class="rk-item" style="background:#e8f5ed;color:#27864e;border-color:#27864e"><span class="rk-circle" style="border-color:#27864e"></span>CI — Consistent Independently</span></div>
+<div class="domain-block">
+  <div class="domain-header" style="background:#b5de2b">
+    <span class="dh-icon">📡</span>
+    <span class="dh-num">D11</span>
+    <span class="dh-title">Contextual Awareness & Distance Learning</span>
+  </div>
+  <div class="domain-fw">LSP #9 Distance Learning • R&W generalization across environments • BESSI Energy Regulation • CPS/ASUP Regulate activity level</div>
+  <div class="domain-context"><strong>Observation context:</strong> Observe responsiveness from the teacher's desk, across the classroom, in the gymnasium, on the playground, and during assemblies. Note whether the student responds to group instructions from a distance or only to proximity-based cues.</div>
+  <table class="domain-table">
+    <thead><tr><th class="th-item">Item</th><th class="th-scale" style="color:#c0392b">NO</th><th class="th-scale" style="color:#b89446">EM</th><th class="th-scale" style="color:#2a6fa0">CS</th><th class="th-scale" style="color:#27864e">CI</th><th class="th-notes">Notes / SA · IU</th></tr></thead>
+    <tbody><tr><td class="item-cell"><span class="item-num">1.</span>Attends to partner's communication at increasing physical distances</td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="circle"></span></td><td class="notes-cell"><div class="notes-line"></div></td></tr>
+<tr class="zebra"><td class="item-cell"><span class="item-num">2.</span>Attends to partner's communication in spaces of increasing size</td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="circle"></span></td><td class="notes-cell"><div class="notes-line"></div></td></tr>
+<tr><td class="item-cell"><span class="item-num">3.</span>Attends to partner's communication with increasing background noise</td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="circle"></span></td><td class="notes-cell"><div class="notes-line"></div></td></tr>
+<tr class="zebra"><td class="item-cell"><span class="item-num">4.</span>Responds to partner's directions and bids at graduating distances</td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="circle"></span></td><td class="notes-cell"><div class="notes-line"></div></td></tr>
+</tbody>
+  </table>
+  <div class="domain-totals">
+    <span class="total-item">Raw Total: <span class="blank-line"></span> <span class="total-max">/ 12</span></span>
+    <span class="total-item">% Score: <span class="blank-line"></span></span>
+  </div>
+  <div class="obs-box"><div class="obs-label">Observations / Contextual Notes</div><div class="lined-area"></div></div>
+</div>
+
+<div class="rating-key"><span class="rk-label">Rating Key</span><span class="rk-item" style="background:#fdf0ef;color:#c0392b;border-color:#c0392b"><span class="rk-circle" style="border-color:#c0392b"></span>NO — Not Observed</span><span class="rk-item" style="background:#fef9ee;color:#b89446;border-color:#b89446"><span class="rk-circle" style="border-color:#b89446"></span>EM — Emerging</span><span class="rk-item" style="background:#e8f0f7;color:#2a6fa0;border-color:#2a6fa0"><span class="rk-circle" style="border-color:#2a6fa0"></span>CS — Consistent with Support</span><span class="rk-item" style="background:#e8f5ed;color:#27864e;border-color:#27864e"><span class="rk-circle" style="border-color:#27864e"></span>CI — Consistent Independently</span></div>
+<div class="domain-block">
+  <div class="domain-header" style="background:#fde725">
+    <span class="dh-icon">➡️</span>
+    <span class="dh-num">D12</span>
+    <span class="dh-title">Transitions & Attentional Shifting</span>
+  </div>
+  <div class="domain-fw">LSP #10 Transitions • DSM-5 difficulty switching • BESSI Adaptability • R&W visual schedules • CPS/ASUP Handle transitions · Shift mindset</div>
+  <div class="domain-context"><strong>Observation context:</strong> Observe during class-to-class transitions, activity shifts within a lesson, moving from preferred to non-preferred tasks, end-of-recess, and dismissal. Note whether the student uses the school bell, teacher signals, or peer cues to transition independently.</div>
+  <table class="domain-table">
+    <thead><tr><th class="th-item">Item</th><th class="th-scale" style="color:#c0392b">NO</th><th class="th-scale" style="color:#b89446">EM</th><th class="th-scale" style="color:#2a6fa0">CS</th><th class="th-scale" style="color:#27864e">CI</th><th class="th-notes">Notes / SA · IU</th></tr></thead>
+    <tbody><tr><td class="item-cell"><span class="item-num">1.</span>Attends to interpersonal cues signaling a current activity is ending</td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="circle"></span></td><td class="notes-cell"><div class="notes-line"></div></td></tr>
+<tr class="zebra"><td class="item-cell"><span class="item-num">2.</span>Attends to contextual/environmental cues signaling an activity change</td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="circle"></span></td><td class="notes-cell"><div class="notes-line"></div></td></tr>
+<tr><td class="item-cell"><span class="item-num">3.</span>Tolerates the conclusion of a current activity without significant dysregulation</td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="circle"></span></td><td class="notes-cell"><div class="notes-line"></div></td></tr>
+<tr class="zebra"><td class="item-cell"><span class="item-num">4.</span>Collaboratively participates in ending an activity and shifting to a new one</td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="circle"></span></td><td class="notes-cell"><div class="notes-line"></div></td></tr>
+<tr><td class="item-cell"><span class="item-num">5.</span>Independently uses contextual cues to conclude activities and transition</td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="circle"></span></td><td class="notes-cell"><div class="notes-line"></div></td></tr>
+</tbody>
+  </table>
+  <div class="domain-totals">
+    <span class="total-item">Raw Total: <span class="blank-line"></span> <span class="total-max">/ 15</span></span>
+    <span class="total-item">% Score: <span class="blank-line"></span></span>
+  </div>
+  <div class="obs-box"><div class="obs-label">Observations / Contextual Notes</div><div class="lined-area"></div></div>
+</div>
+
+<div class="summary-section">
+  <div class="summary-header">📝 Summary &amp; Signature</div>
+  <div class="summary-body">
+    <div class="summary-label">Overall Clinical Impressions / Notes</div>
+    <div class="summary-lined"></div>
+    <div class="sig-grid">
+      <div><div class="sig-field-label">Signature</div><div class="sig-line"></div></div>
+      <div><div class="sig-field-label">Date</div><div class="sig-line"></div></div>
+    </div>
+    <div class="sig-grid" style="margin-top:10px">
+      <div><div class="sig-field-label">Printed Name</div><div class="sig-line"></div></div>
+      <div><div class="sig-field-label">Role / Title</div><div class="sig-line"></div></div>
+    </div>
+  </div>
+</div>
+
+<div class="form-footer">
+  SCDFI v0.4 · Social-Communication &amp; Developmental Functioning Inventory · Confidential<br>
+  Rachel Terra Norton, MS, CCC-SLP<br>
+  Inspired by ASHA Social Communication Benchmarks, LSP, FEDC/DIR, BESSI, SSF, Roth &amp; Worthington, Greene/CPS (ASUP)
+</div>
+
+</body>
+</html>
