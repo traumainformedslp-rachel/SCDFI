@@ -12,8 +12,8 @@ html { -webkit-text-size-adjust: 100%; }
 body {
   font-family: 'DM Sans', -apple-system, system-ui, sans-serif;
   -webkit-font-smoothing: antialiased;
-  font-size: 11px;
-  line-height: 1.4;
+  font-size: 15px;
+  line-height: 1.5;
   color: #1a1a1a;
   padding: 32px 40px;
   max-width: 880px;
@@ -55,10 +55,10 @@ body {
   padding-bottom: 10px;
   margin-bottom: 12px;
 }
-.form-title { font-size: 26px; font-weight: 700; letter-spacing: -0.02em; }
-.form-subtitle { font-size: 9px; font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase; color: #666; margin-top: 4px; }
+.form-title { font-size: 30px; font-weight: 700; letter-spacing: -0.02em; }
+.form-subtitle { font-size: 12px; font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase; color: #666; margin-top: 4px; }
 .form-badge {
-  font-size: 10px; font-weight: 700; padding: 5px 14px; border-radius: 4px;
+  font-size: 13px; font-weight: 700; padding: 6px 16px; border-radius: 4px;
   color: #fff; letter-spacing: 0.08em; text-transform: uppercase; white-space: nowrap; margin-top: 4px;
 }
 
@@ -72,8 +72,8 @@ body {
 .info-field { padding: 5px 10px; border-right: 1px solid #ddd; border-bottom: 1px solid #ddd; }
 .info-field:last-child { border-right: none; }
 .info-field.full-width { grid-column: 1 / -1; border-bottom: none; border-right: none; }
-.field-label { font-size: 7px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; color: #666; margin-bottom: 2px; }
-.field-blank { min-height: 16px; }
+.field-label { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; color: #666; margin-bottom: 2px; }
+.field-blank { min-height: 20px; }
 
 /* Instructions */
 .instructions {
@@ -81,7 +81,7 @@ body {
   border: 1px solid #ddd;
   border-radius: 3px;
   padding: 7px 10px;
-  font-size: 9px;
+  font-size: 13px;
   line-height: 1.5;
   margin-bottom: 10px;
 }
@@ -97,31 +97,34 @@ body {
   background: #fafafa;
   margin-bottom: 8px;
 }
-.rk-label { font-size: 7px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.12em; color: #888; margin-right: 6px; }
+.rk-label { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.12em; color: #888; margin-right: 6px; }
 .rk-item {
-  display: inline-flex; align-items: center; gap: 4px;
-  padding: 2px 7px; border-radius: 3px; font-size: 8px; font-weight: 700;
+  display: inline-flex; align-items: center; gap: 5px;
+  padding: 3px 8px; border-radius: 3px; font-size: 11px; font-weight: 700;
   border: 1px solid;
 }
-.rk-circle { width: 8px; height: 8px; border-radius: 50%; border: 1.5px solid; display: inline-block; }
+.rk-circle { width: 10px; height: 10px; border-radius: 50%; border: 1.5px solid; display: inline-block; }
+
+/* Domain sections — keep rating key + block together */
+.domain-section { break-inside: avoid; page-break-inside: avoid; margin-bottom: 14px; }
 
 /* Domain blocks */
-.domain-block { margin-bottom: 14px; page-break-inside: avoid; }
+.domain-block { page-break-inside: avoid; }
 .domain-header {
   display: flex; align-items: center; gap: 8px;
   padding: 6px 12px; color: #fff; border-radius: 3px 3px 0 0;
 }
-.dh-icon { font-size: 14px; line-height: 1; }
-.dh-num { font-size: 8px; font-weight: 600; opacity: 0.7; }
-.dh-title { font-size: 9px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; }
+.dh-icon { font-size: 18px; line-height: 1; }
+.dh-num { font-size: 12px; font-weight: 600; opacity: 0.7; }
+.dh-title { font-size: 13px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; }
 .domain-fw {
-  font-size: 7.5px; color: #888; font-style: italic;
+  font-size: 11px; color: #888; font-style: italic;
   padding: 3px 10px;
   border-left: 1.5px solid #1a1a1a; border-right: 1.5px solid #1a1a1a;
   background: #fafafa;
 }
 .domain-context {
-  font-size: 8.5px; padding: 4px 10px;
+  font-size: 12px; padding: 4px 10px;
   border-left: 1.5px solid #1a1a1a; border-right: 1.5px solid #1a1a1a;
   border-bottom: 1px solid #ddd; background: #fcfcfc; font-style: italic;
 }
@@ -129,38 +132,39 @@ body {
 
 /* Domain table */
 .domain-table {
-  width: 100%; border-collapse: collapse; font-size: 9.5px;
+  width: 100%; border-collapse: collapse; font-size: 13px;
   border: 1.5px solid #1a1a1a; border-top: none;
 }
 .domain-table thead { display: table-header-group; }
 .th-item {
-  text-align: left; padding: 4px 8px; font-size: 7px;
+  text-align: left; padding: 5px 8px; font-size: 11px;
   font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em;
   border-bottom: 2px solid #1a1a1a; background: #f0f0f0; width: 52%;
 }
 .th-scale {
-  text-align: center; padding: 4px 3px; font-size: 7px;
-  font-weight: 700; border-bottom: 2px solid #1a1a1a; background: #f0f0f0; min-width: 32px;
+  text-align: center; padding: 5px 3px; font-size: 11px;
+  font-weight: 700; border-bottom: 2px solid #1a1a1a; background: #f0f0f0; min-width: 34px;
 }
 .th-notes {
-  text-align: left; padding: 4px 6px; font-size: 7px;
+  text-align: left; padding: 5px 6px; font-size: 11px;
   font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em;
   border-bottom: 2px solid #1a1a1a; background: #f0f0f0; min-width: 90px;
 }
 .domain-table tbody tr { background: transparent; }
 .domain-table tbody tr.zebra { background: #f9f9f9; }
-.item-cell { padding: 5px 8px; font-size: 9.5px; border-bottom: 1px solid #ddd; line-height: 1.35; vertical-align: top; }
+.item-cell { padding: 6px 8px; font-size: 13px; border-bottom: 1px solid #ddd; line-height: 1.4; vertical-align: top; }
 .item-num { font-weight: 600; color: #666; margin-right: 4px; }
+.item-example { display: block; font-size: 10.5px; color: #777; font-style: italic; margin-top: 2px; line-height: 1.35; }
 .circle-cell { padding: 5px 3px; text-align: center; border-bottom: 1px solid #ddd; vertical-align: middle; }
-.circle { display: inline-block; width: 16px; height: 16px; border-radius: 50%; border: 1.5px solid #aaa; }
-.checkbox { display: inline-block; width: 12px; height: 12px; border-radius: 2px; border: 1.5px solid #aaa; }
+.circle { display: inline-block; width: 18px; height: 18px; border-radius: 50%; border: 1.5px solid #aaa; }
+.checkbox { display: inline-block; width: 14px; height: 14px; border-radius: 2px; border: 1.5px solid #aaa; }
 .notes-cell { padding: 5px 6px; border-bottom: 1px solid #ddd; vertical-align: middle; }
 .notes-line { border-bottom: 1px solid #bbb; min-height: 14px; }
 
 /* Domain totals */
 .domain-totals {
   display: flex; justify-content: flex-end; gap: 14px;
-  padding: 4px 10px; font-size: 8px; font-weight: 700;
+  padding: 5px 10px; font-size: 12px; font-weight: 700;
   color: #666; background: #f5f5f5;
   border: 1.5px solid #1a1a1a; border-top: none;
   text-transform: uppercase; letter-spacing: 0.05em;
@@ -175,7 +179,7 @@ body {
   border: 1.5px solid #1a1a1a; border-top: none;
   border-radius: 0 0 3px 3px; padding: 5px 8px;
 }
-.obs-label { font-size: 7px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; color: #666; margin-bottom: 3px; }
+.obs-label { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; color: #666; margin-bottom: 3px; }
 .lined-area {
   min-height: 60px; border-top: 1px solid #ddd;
   background: repeating-linear-gradient(to bottom, transparent 0, transparent 19px, #e8e8e8 19px, #e8e8e8 20px);
@@ -185,20 +189,20 @@ body {
 .summary-section { margin-top: 24px; page-break-inside: avoid; }
 .summary-header {
   background: #1a1a1a; color: #fff;
-  padding: 6px 12px; font-size: 9px; font-weight: 700;
+  padding: 7px 12px; font-size: 13px; font-weight: 700;
   text-transform: uppercase; letter-spacing: 0.1em; border-radius: 3px 3px 0 0;
 }
 .summary-body { border: 1.5px solid #1a1a1a; border-top: none; border-radius: 0 0 3px 3px; padding: 14px; }
-.summary-label { font-size: 7px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; color: #666; margin-bottom: 4px; }
+.summary-label { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; color: #666; margin-bottom: 4px; }
 .summary-lined { min-height: 90px; background: repeating-linear-gradient(to bottom, transparent 0, transparent 19px, #e8e8e8 19px, #e8e8e8 20px); margin-bottom: 14px; }
 .sig-grid { display: grid; grid-template-columns: 2fr 1fr; gap: 14px; }
-.sig-field-label { font-size: 7px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; color: #666; margin-bottom: 2px; }
+.sig-field-label { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; color: #666; margin-bottom: 2px; }
 .sig-line { border-bottom: 1.5px solid #1a1a1a; min-height: 22px; }
 
 /* Footer */
 .form-footer {
   margin-top: 16px; padding-top: 8px; border-top: 1px solid #ddd;
-  font-size: 7px; color: #888; text-align: center; line-height: 1.7; letter-spacing: 0.05em;
+  font-size: 10px; color: #888; text-align: center; line-height: 1.7; letter-spacing: 0.05em;
 }
 </style>
 </head>
@@ -226,6 +230,7 @@ body {
 <div class="instructions"><strong>Instructions:</strong> Rate current functioning based on direct clinical observation. Consider Social Awareness (SA) — noticing cues without instruction — and Independent Use (IU) — acting on cues without prompts. Specify observation context (structured vs. naturalistic, session type, materials) in the notes field per domain.</div>
 
 
+<div class="domain-section">
 <div class="rating-key"><span class="rk-label">Rating Key</span><span class="rk-item" style="background:#fdf0ef;color:#c0392b;border-color:#c0392b"><span class="rk-circle" style="border-color:#c0392b"></span>NO — Not Observed</span><span class="rk-item" style="background:#fef9ee;color:#b89446;border-color:#b89446"><span class="rk-circle" style="border-color:#b89446"></span>EM — Emerging</span><span class="rk-item" style="background:#e8f0f7;color:#2a6fa0;border-color:#2a6fa0"><span class="rk-circle" style="border-color:#2a6fa0"></span>CS — Consistent with Support</span><span class="rk-item" style="background:#e8f5ed;color:#27864e;border-color:#27864e"><span class="rk-circle" style="border-color:#27864e"></span>CI — Consistent Independently</span></div>
 <div class="domain-block">
   <div class="domain-header" style="background:#440154">
@@ -237,12 +242,12 @@ body {
   <div class="domain-context"><strong>Observation context:</strong> Observe during transitions between structured and unstructured activities, during novel or demanding tasks, and after disruptions to routine. Note co-regulation strategies used by the clinician.</div>
   <table class="domain-table">
     <thead><tr><th class="th-item">Item</th><th class="th-scale" style="color:#c0392b">NO</th><th class="th-scale" style="color:#b89446">EM</th><th class="th-scale" style="color:#2a6fa0">CS</th><th class="th-scale" style="color:#27864e">CI</th><th class="th-notes">Notes / SA · IU</th></tr></thead>
-    <tbody><tr><td class="item-cell"><span class="item-num">1.</span>Maintains a calm, organized state during familiar social routines for 2+ minutes</td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="circle"></span></td><td class="notes-cell"><div class="notes-line"></div></td></tr>
-<tr class="zebra"><td class="item-cell"><span class="item-num">2.</span>Recovers from dysregulation within a reasonable timeframe with partner support</td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="circle"></span></td><td class="notes-cell"><div class="notes-line"></div></td></tr>
-<tr><td class="item-cell"><span class="item-num">3.</span>Recovers from dysregulation within a reasonable timeframe without partner support</td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="circle"></span></td><td class="notes-cell"><div class="notes-line"></div></td></tr>
-<tr class="zebra"><td class="item-cell"><span class="item-num">4.</span>Orients to sensory and social aspects of the environment</td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="circle"></span></td><td class="notes-cell"><div class="notes-line"></div></td></tr>
-<tr><td class="item-cell"><span class="item-num">5.</span>Sustains a regulated state in the presence of moderate sensory input</td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="circle"></span></td><td class="notes-cell"><div class="notes-line"></div></td></tr>
-<tr class="zebra"><td class="item-cell"><span class="item-num">6.</span>Signals dysregulation through recognizable communicative indicators</td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="circle"></span></td><td class="notes-cell"><div class="notes-line"></div></td></tr>
+    <tbody><tr><td class="item-cell"><span class="item-num">1.</span>Maintains a calm, organized state during familiar social routines for 2+ minutes<span class="item-example">e.g., Sits at table during snack routine without leaving seat; engages in familiar circle-time songs without signs of distress</span></td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="circle"></span></td><td class="notes-cell"><div class="notes-line"></div></td></tr>
+<tr class="zebra"><td class="item-cell"><span class="item-num">2.</span>Recovers from dysregulation within a reasonable timeframe with partner support<span class="item-example">e.g., After crying when a toy breaks, calms within 2 minutes when clinician offers deep breaths or a sensory tool</span></td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="circle"></span></td><td class="notes-cell"><div class="notes-line"></div></td></tr>
+<tr><td class="item-cell"><span class="item-num">3.</span>Recovers from dysregulation within a reasonable timeframe without partner support<span class="item-example">e.g., After a startle response to a loud noise, independently takes a deep breath and returns to the activity within a few minutes</span></td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="circle"></span></td><td class="notes-cell"><div class="notes-line"></div></td></tr>
+<tr class="zebra"><td class="item-cell"><span class="item-num">4.</span>Orients to sensory and social aspects of the environment<span class="item-example">e.g., Turns head toward a new sound in the room; looks up when someone enters; visually scans new materials on the table</span></td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="circle"></span></td><td class="notes-cell"><div class="notes-line"></div></td></tr>
+<tr><td class="item-cell"><span class="item-num">5.</span>Sustains a regulated state in the presence of moderate sensory input<span class="item-example">e.g., Continues drawing while peers talk nearby; tolerates background music during a tabletop task without covering ears</span></td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="circle"></span></td><td class="notes-cell"><div class="notes-line"></div></td></tr>
+<tr class="zebra"><td class="item-cell"><span class="item-num">6.</span>Signals dysregulation through recognizable communicative indicators<span class="item-example">e.g., Pushes materials away when overwhelmed; says 'too loud'; covers ears; moves toward a familiar adult when distressed</span></td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="circle"></span></td><td class="notes-cell"><div class="notes-line"></div></td></tr>
 </tbody>
   </table>
   <div class="domain-totals">
@@ -251,7 +256,9 @@ body {
   </div>
   <div class="obs-box"><div class="obs-label">Observations / Contextual Notes</div><div class="lined-area"></div></div>
 </div>
+</div>
 
+<div class="domain-section">
 <div class="rating-key"><span class="rk-label">Rating Key</span><span class="rk-item" style="background:#fdf0ef;color:#c0392b;border-color:#c0392b"><span class="rk-circle" style="border-color:#c0392b"></span>NO — Not Observed</span><span class="rk-item" style="background:#fef9ee;color:#b89446;border-color:#b89446"><span class="rk-circle" style="border-color:#b89446"></span>EM — Emerging</span><span class="rk-item" style="background:#e8f0f7;color:#2a6fa0;border-color:#2a6fa0"><span class="rk-circle" style="border-color:#2a6fa0"></span>CS — Consistent with Support</span><span class="rk-item" style="background:#e8f5ed;color:#27864e;border-color:#27864e"><span class="rk-circle" style="border-color:#27864e"></span>CI — Consistent Independently</span></div>
 <div class="domain-block">
   <div class="domain-header" style="background:#481567">
@@ -263,11 +270,11 @@ body {
   <div class="domain-context"><strong>Observation context:</strong> Observe balance of orientation toward objects vs. people during free play, structured tasks, and shared activities. Note whether the individual seeks out social partners spontaneously.</div>
   <table class="domain-table">
     <thead><tr><th class="th-item">Item</th><th class="th-scale" style="color:#c0392b">NO</th><th class="th-scale" style="color:#b89446">EM</th><th class="th-scale" style="color:#2a6fa0">CS</th><th class="th-scale" style="color:#27864e">CI</th><th class="th-notes">Notes / SA · IU</th></tr></thead>
-    <tbody><tr><td class="item-cell"><span class="item-num">1.</span>Orients to people in the environment (eye gaze, body orientation)</td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="circle"></span></td><td class="notes-cell"><div class="notes-line"></div></td></tr>
-<tr class="zebra"><td class="item-cell"><span class="item-num">2.</span>Demonstrates social curiosity toward others (approaches, watches, moves closer)</td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="circle"></span></td><td class="notes-cell"><div class="notes-line"></div></td></tr>
-<tr><td class="item-cell"><span class="item-num">3.</span>Sustains attention to a social partner during a shared activity for extended periods</td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="circle"></span></td><td class="notes-cell"><div class="notes-line"></div></td></tr>
-<tr class="zebra"><td class="item-cell"><span class="item-num">4.</span>Establishes and maintains joint attention between partner and shared materials</td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="circle"></span></td><td class="notes-cell"><div class="notes-line"></div></td></tr>
-<tr><td class="item-cell"><span class="item-num">5.</span>Responds to a partner's overtures with observable positive affect</td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="circle"></span></td><td class="notes-cell"><div class="notes-line"></div></td></tr>
+    <tbody><tr><td class="item-cell"><span class="item-num">1.</span>Orients to people in the environment (eye gaze, body orientation)<span class="item-example">e.g., Looks at clinician's face when they speak; turns body toward a peer who sits down nearby</span></td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="circle"></span></td><td class="notes-cell"><div class="notes-line"></div></td></tr>
+<tr class="zebra"><td class="item-cell"><span class="item-num">2.</span>Demonstrates social curiosity toward others (approaches, watches, moves closer)<span class="item-example">e.g., Walks over to watch what a peer is building; leans in to see what the clinician is holding</span></td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="circle"></span></td><td class="notes-cell"><div class="notes-line"></div></td></tr>
+<tr><td class="item-cell"><span class="item-num">3.</span>Sustains attention to a social partner during a shared activity for extended periods<span class="item-example">e.g., Maintains focus on a partner's face and actions during a 3-minute puzzle task rather than looking away or at other objects</span></td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="circle"></span></td><td class="notes-cell"><div class="notes-line"></div></td></tr>
+<tr class="zebra"><td class="item-cell"><span class="item-num">4.</span>Establishes and maintains joint attention between partner and shared materials<span class="item-example">e.g., Looks at a toy the clinician is holding, then back at clinician's face, then back at toy — coordinating attention between both</span></td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="circle"></span></td><td class="notes-cell"><div class="notes-line"></div></td></tr>
+<tr><td class="item-cell"><span class="item-num">5.</span>Responds to a partner's overtures with observable positive affect<span class="item-example">e.g., Smiles when clinician initiates peek-a-boo; laughs during a tickle game; brightens when a preferred peer approaches</span></td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="circle"></span></td><td class="notes-cell"><div class="notes-line"></div></td></tr>
 </tbody>
   </table>
   <div class="domain-totals">
@@ -276,7 +283,9 @@ body {
   </div>
   <div class="obs-box"><div class="obs-label">Observations / Contextual Notes</div><div class="lined-area"></div></div>
 </div>
+</div>
 
+<div class="domain-section">
 <div class="rating-key"><span class="rk-label">Rating Key</span><span class="rk-item" style="background:#fdf0ef;color:#c0392b;border-color:#c0392b"><span class="rk-circle" style="border-color:#c0392b"></span>NO — Not Observed</span><span class="rk-item" style="background:#fef9ee;color:#b89446;border-color:#b89446"><span class="rk-circle" style="border-color:#b89446"></span>EM — Emerging</span><span class="rk-item" style="background:#e8f0f7;color:#2a6fa0;border-color:#2a6fa0"><span class="rk-circle" style="border-color:#2a6fa0"></span>CS — Consistent with Support</span><span class="rk-item" style="background:#e8f5ed;color:#27864e;border-color:#27864e"><span class="rk-circle" style="border-color:#27864e"></span>CI — Consistent Independently</span></div>
 <div class="domain-block">
   <div class="domain-header" style="background:#482677">
@@ -288,12 +297,12 @@ body {
   <div class="domain-context"><strong>Observation context:</strong> Observe gaze coordination during shared book reading, construction tasks, and joint play. Probe with pointing and gaze shifts. Note distance at which shared attention breaks down.</div>
   <table class="domain-table">
     <thead><tr><th class="th-item">Item</th><th class="th-scale" style="color:#c0392b">NO</th><th class="th-scale" style="color:#b89446">EM</th><th class="th-scale" style="color:#2a6fa0">CS</th><th class="th-scale" style="color:#27864e">CI</th><th class="th-notes">Notes / SA · IU</th></tr></thead>
-    <tbody><tr><td class="item-cell"><span class="item-num">1.</span>Coordinates gaze between a social partner and a shared object or event</td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="circle"></span></td><td class="notes-cell"><div class="notes-line"></div></td></tr>
-<tr class="zebra"><td class="item-cell"><span class="item-num">2.</span>Follows a social partner's point, gaze, or head turn to a referent</td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="circle"></span></td><td class="notes-cell"><div class="notes-line"></div></td></tr>
-<tr><td class="item-cell"><span class="item-num">3.</span>Directs a partner's attention to an object or event of interest (showing, pointing, giving)</td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="circle"></span></td><td class="notes-cell"><div class="notes-line"></div></td></tr>
-<tr class="zebra"><td class="item-cell"><span class="item-num">4.</span>Maintains shared focus with a partner during joint activity for extended periods</td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="circle"></span></td><td class="notes-cell"><div class="notes-line"></div></td></tr>
-<tr><td class="item-cell"><span class="item-num">5.</span>Attends to partner's bids and cues at increasing physical distances</td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="circle"></span></td><td class="notes-cell"><div class="notes-line"></div></td></tr>
-<tr class="zebra"><td class="item-cell"><span class="item-num">6.</span>Maintains shared focus with moderate to high attentional competition</td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="circle"></span></td><td class="notes-cell"><div class="notes-line"></div></td></tr>
+    <tbody><tr><td class="item-cell"><span class="item-num">1.</span>Coordinates gaze between a social partner and a shared object or event<span class="item-example">e.g., Looks at a spinning top, then up at the clinician, then back at the top — checking that the partner sees it too</span></td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="circle"></span></td><td class="notes-cell"><div class="notes-line"></div></td></tr>
+<tr class="zebra"><td class="item-cell"><span class="item-num">2.</span>Follows a social partner's point, gaze, or head turn to a referent<span class="item-example">e.g., When clinician points to a picture on the wall, shifts gaze from clinician's finger to the picture</span></td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="circle"></span></td><td class="notes-cell"><div class="notes-line"></div></td></tr>
+<tr><td class="item-cell"><span class="item-num">3.</span>Directs a partner's attention to an object or event of interest (showing, pointing, giving)<span class="item-example">e.g., Holds up a completed drawing for the clinician to see; points to an airplane outside the window; hands a toy to a peer to share the experience</span></td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="circle"></span></td><td class="notes-cell"><div class="notes-line"></div></td></tr>
+<tr class="zebra"><td class="item-cell"><span class="item-num">4.</span>Maintains shared focus with a partner during joint activity for extended periods<span class="item-example">e.g., Stays focused with a partner on a shared book for 3+ minutes, following along as pages turn and commenting on pictures</span></td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="circle"></span></td><td class="notes-cell"><div class="notes-line"></div></td></tr>
+<tr><td class="item-cell"><span class="item-num">5.</span>Attends to partner's bids and cues at increasing physical distances<span class="item-example">e.g., Responds to clinician's wave from across the room; follows a point to an object on a shelf 10 feet away</span></td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="circle"></span></td><td class="notes-cell"><div class="notes-line"></div></td></tr>
+<tr class="zebra"><td class="item-cell"><span class="item-num">6.</span>Maintains shared focus with moderate to high attentional competition<span class="item-example">e.g., Maintains shared attention on a partner's demonstration while two other children play nearby and music is on</span></td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="circle"></span></td><td class="notes-cell"><div class="notes-line"></div></td></tr>
 </tbody>
   </table>
   <div class="domain-totals">
@@ -302,7 +311,9 @@ body {
   </div>
   <div class="obs-box"><div class="obs-label">Observations / Contextual Notes</div><div class="lined-area"></div></div>
 </div>
+</div>
 
+<div class="domain-section">
 <div class="rating-key"><span class="rk-label">Rating Key</span><span class="rk-item" style="background:#fdf0ef;color:#c0392b;border-color:#c0392b"><span class="rk-circle" style="border-color:#c0392b"></span>NO — Not Observed</span><span class="rk-item" style="background:#fef9ee;color:#b89446;border-color:#b89446"><span class="rk-circle" style="border-color:#b89446"></span>EM — Emerging</span><span class="rk-item" style="background:#e8f0f7;color:#2a6fa0;border-color:#2a6fa0"><span class="rk-circle" style="border-color:#2a6fa0"></span>CS — Consistent with Support</span><span class="rk-item" style="background:#e8f5ed;color:#27864e;border-color:#27864e"><span class="rk-circle" style="border-color:#27864e"></span>CI — Consistent Independently</span></div>
 <div class="domain-block">
   <div class="domain-header" style="background:#453781">
@@ -314,12 +325,12 @@ body {
   <div class="domain-context"><strong>Observation context:</strong> Observe during modeled activities (clinician demonstrates, then waits). Note latency to imitate, accuracy of imitation, and whether imitation occurs with novel vs. familiar actions.</div>
   <table class="domain-table">
     <thead><tr><th class="th-item">Item</th><th class="th-scale" style="color:#c0392b">NO</th><th class="th-scale" style="color:#b89446">EM</th><th class="th-scale" style="color:#2a6fa0">CS</th><th class="th-scale" style="color:#27864e">CI</th><th class="th-notes">Notes / SA · IU</th></tr></thead>
-    <tbody><tr><td class="item-cell"><span class="item-num">1.</span>Attends to a partner's actions and use of objects during modeled demonstrations</td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="circle"></span></td><td class="notes-cell"><div class="notes-line"></div></td></tr>
-<tr class="zebra"><td class="item-cell"><span class="item-num">2.</span>Attends to a partner's nonverbal cues during social models</td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="circle"></span></td><td class="notes-cell"><div class="notes-line"></div></td></tr>
-<tr><td class="item-cell"><span class="item-num">3.</span>Spontaneously imitates a partner's meaningful actions with objects</td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="circle"></span></td><td class="notes-cell"><div class="notes-line"></div></td></tr>
-<tr class="zebra"><td class="item-cell"><span class="item-num">4.</span>Spontaneously imitates or approximates a partner's verbal communication</td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="circle"></span></td><td class="notes-cell"><div class="notes-line"></div></td></tr>
-<tr><td class="item-cell"><span class="item-num">5.</span>Follows a partner's communicative lead during a demonstrated social routine</td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="circle"></span></td><td class="notes-cell"><div class="notes-line"></div></td></tr>
-<tr class="zebra"><td class="item-cell"><span class="item-num">6.</span>Applies previously modeled skills in novel but related contexts</td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="circle"></span></td><td class="notes-cell"><div class="notes-line"></div></td></tr>
+    <tbody><tr><td class="item-cell"><span class="item-num">1.</span>Attends to a partner's actions and use of objects during modeled demonstrations<span class="item-example">e.g., Watches clinician stack blocks; observes peer stirring during pretend cooking; attends to how a partner opens a container</span></td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="circle"></span></td><td class="notes-cell"><div class="notes-line"></div></td></tr>
+<tr class="zebra"><td class="item-cell"><span class="item-num">2.</span>Attends to a partner's nonverbal cues during social models<span class="item-example">e.g., Notices clinician's exaggerated surprised face; watches a peer's gesture for 'come here'</span></td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="circle"></span></td><td class="notes-cell"><div class="notes-line"></div></td></tr>
+<tr><td class="item-cell"><span class="item-num">3.</span>Spontaneously imitates a partner's meaningful actions with objects<span class="item-example">e.g., After watching clinician roll a car down a ramp, picks up a car and rolls it down the same ramp without being told</span></td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="circle"></span></td><td class="notes-cell"><div class="notes-line"></div></td></tr>
+<tr class="zebra"><td class="item-cell"><span class="item-num">4.</span>Spontaneously imitates or approximates a partner's verbal communication<span class="item-example">e.g., After hearing clinician say 'ready set go,' later says 'ready set go' before pushing a ball</span></td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="circle"></span></td><td class="notes-cell"><div class="notes-line"></div></td></tr>
+<tr><td class="item-cell"><span class="item-num">5.</span>Follows a partner's communicative lead during a demonstrated social routine<span class="item-example">e.g., Clinician waves and says 'bye bye' at the door — child waves back and walks toward the door</span></td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="circle"></span></td><td class="notes-cell"><div class="notes-line"></div></td></tr>
+<tr class="zebra"><td class="item-cell"><span class="item-num">6.</span>Applies previously modeled skills in novel but related contexts<span class="item-example">e.g., After learning to request 'more' during bubbles, uses 'more' at snack time without being prompted</span></td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="circle"></span></td><td class="notes-cell"><div class="notes-line"></div></td></tr>
 </tbody>
   </table>
   <div class="domain-totals">
@@ -328,7 +339,9 @@ body {
   </div>
   <div class="obs-box"><div class="obs-label">Observations / Contextual Notes</div><div class="lined-area"></div></div>
 </div>
+</div>
 
+<div class="domain-section">
 <div class="rating-key"><span class="rk-label">Rating Key</span><span class="rk-item" style="background:#fdf0ef;color:#c0392b;border-color:#c0392b"><span class="rk-circle" style="border-color:#c0392b"></span>NO — Not Observed</span><span class="rk-item" style="background:#fef9ee;color:#b89446;border-color:#b89446"><span class="rk-circle" style="border-color:#b89446"></span>EM — Emerging</span><span class="rk-item" style="background:#e8f0f7;color:#2a6fa0;border-color:#2a6fa0"><span class="rk-circle" style="border-color:#2a6fa0"></span>CS — Consistent with Support</span><span class="rk-item" style="background:#e8f5ed;color:#27864e;border-color:#27864e"><span class="rk-circle" style="border-color:#27864e"></span>CI — Consistent Independently</span></div>
 <div class="domain-block">
   <div class="domain-header" style="background:#3f4788">
@@ -340,10 +353,10 @@ body {
   <div class="domain-context"><strong>Observation context:</strong> Observe during small group activities (3+ participants). Note whether the individual monitors multiple partners or fixates on one. Probe by having different partners initiate.</div>
   <table class="domain-table">
     <thead><tr><th class="th-item">Item</th><th class="th-scale" style="color:#c0392b">NO</th><th class="th-scale" style="color:#b89446">EM</th><th class="th-scale" style="color:#2a6fa0">CS</th><th class="th-scale" style="color:#27864e">CI</th><th class="th-notes">Notes / SA · IU</th></tr></thead>
-    <tbody><tr><td class="item-cell"><span class="item-num">1.</span>Attends to and monitors actions of more than one partner during shared activity</td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="circle"></span></td><td class="notes-cell"><div class="notes-line"></div></td></tr>
-<tr class="zebra"><td class="item-cell"><span class="item-num">2.</span>Anticipates the actions or contributions of multiple partners in a group routine</td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="circle"></span></td><td class="notes-cell"><div class="notes-line"></div></td></tr>
-<tr><td class="item-cell"><span class="item-num">3.</span>Imitates or approximates actions of multiple partners (not only one preferred partner)</td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="circle"></span></td><td class="notes-cell"><div class="notes-line"></div></td></tr>
-<tr class="zebra"><td class="item-cell"><span class="item-num">4.</span>Contingently responds and reciprocates with multiple partners within shared activity</td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="circle"></span></td><td class="notes-cell"><div class="notes-line"></div></td></tr>
+    <tbody><tr><td class="item-cell"><span class="item-num">1.</span>Attends to and monitors actions of more than one partner during shared activity<span class="item-example">e.g., During a group game, looks at each player when it's their turn — not just the preferred partner</span></td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="circle"></span></td><td class="notes-cell"><div class="notes-line"></div></td></tr>
+<tr class="zebra"><td class="item-cell"><span class="item-num">2.</span>Anticipates the actions or contributions of multiple partners in a group routine<span class="item-example">e.g., In a 3-person ball-rolling game, looks toward the partner who is likely to receive the ball next before it's rolled</span></td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="circle"></span></td><td class="notes-cell"><div class="notes-line"></div></td></tr>
+<tr><td class="item-cell"><span class="item-num">3.</span>Imitates or approximates actions of multiple partners (not only one preferred partner)<span class="item-example">e.g., After watching both a clinician and a peer clap a rhythm pattern, claps the pattern — having watched both models</span></td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="circle"></span></td><td class="notes-cell"><div class="notes-line"></div></td></tr>
+<tr class="zebra"><td class="item-cell"><span class="item-num">4.</span>Contingently responds and reciprocates with multiple partners within shared activity<span class="item-example">e.g., In a group craft, hands scissors to one peer and then glue to another; responds to bids from multiple group members within the same activity</span></td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="circle"></span></td><td class="notes-cell"><div class="notes-line"></div></td></tr>
 </tbody>
   </table>
   <div class="domain-totals">
@@ -352,7 +365,9 @@ body {
   </div>
   <div class="obs-box"><div class="obs-label">Observations / Contextual Notes</div><div class="lined-area"></div></div>
 </div>
+</div>
 
+<div class="domain-section">
 <div class="rating-key"><span class="rk-label">Rating Key</span><span class="rk-item" style="background:#fdf0ef;color:#c0392b;border-color:#c0392b"><span class="rk-circle" style="border-color:#c0392b"></span>NO — Not Observed</span><span class="rk-item" style="background:#fef9ee;color:#b89446;border-color:#b89446"><span class="rk-circle" style="border-color:#b89446"></span>EM — Emerging</span><span class="rk-item" style="background:#e8f0f7;color:#2a6fa0;border-color:#2a6fa0"><span class="rk-circle" style="border-color:#2a6fa0"></span>CS — Consistent with Support</span><span class="rk-item" style="background:#e8f5ed;color:#27864e;border-color:#27864e"><span class="rk-circle" style="border-color:#27864e"></span>CI — Consistent Independently</span></div>
 <div class="domain-block">
   <div class="domain-header" style="background:#33568b">
@@ -364,13 +379,13 @@ body {
   <div class="domain-context"><strong>Observation context:</strong> Introduce both anticipated changes (warn before modifying a routine) and unanticipated changes (change materials or sequence without warning). Note regulation response and recovery time for each.</div>
   <table class="domain-table">
     <thead><tr><th class="th-item">Item</th><th class="th-scale" style="color:#c0392b">NO</th><th class="th-scale" style="color:#b89446">EM</th><th class="th-scale" style="color:#2a6fa0">CS</th><th class="th-scale" style="color:#27864e">CI</th><th class="th-notes">Notes / SA · IU</th></tr></thead>
-    <tbody><tr><td class="item-cell"><span class="item-num">1.</span>Attends to changes in familiar routines introduced by social partners</td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="circle"></span></td><td class="notes-cell"><div class="notes-line"></div></td></tr>
-<tr class="zebra"><td class="item-cell"><span class="item-num">2.</span>Tolerates changes to familiar routines while maintaining a regulated state</td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="circle"></span></td><td class="notes-cell"><div class="notes-line"></div></td></tr>
-<tr><td class="item-cell"><span class="item-num">3.</span>Actively participates in modified familiar routines introduced by partners</td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="circle"></span></td><td class="notes-cell"><div class="notes-line"></div></td></tr>
-<tr class="zebra"><td class="item-cell"><span class="item-num">4.</span>Maintains engagement when anticipated (forewarned) changes are introduced</td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="circle"></span></td><td class="notes-cell"><div class="notes-line"></div></td></tr>
-<tr><td class="item-cell"><span class="item-num">5.</span>Maintains engagement when unanticipated (unexpected) changes are introduced</td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="circle"></span></td><td class="notes-cell"><div class="notes-line"></div></td></tr>
-<tr class="zebra"><td class="item-cell"><span class="item-num">6.</span>Demonstrates varied/flexible actions with familiar and novel objects</td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="circle"></span></td><td class="notes-cell"><div class="notes-line"></div></td></tr>
-<tr><td class="item-cell"><span class="item-num">7.</span>Engages with a range of social partners — not only preferred individuals</td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="circle"></span></td><td class="notes-cell"><div class="notes-line"></div></td></tr>
+    <tbody><tr><td class="item-cell"><span class="item-num">1.</span>Attends to changes in familiar routines introduced by social partners<span class="item-example">e.g., Looks up or pauses when the clinician rearranges materials or changes the order of a familiar routine</span></td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="circle"></span></td><td class="notes-cell"><div class="notes-line"></div></td></tr>
+<tr class="zebra"><td class="item-cell"><span class="item-num">2.</span>Tolerates changes to familiar routines while maintaining a regulated state<span class="item-example">e.g., Stays calm when the usual blue cup is replaced with a red one; accepts sitting in a different chair without protest</span></td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="circle"></span></td><td class="notes-cell"><div class="notes-line"></div></td></tr>
+<tr><td class="item-cell"><span class="item-num">3.</span>Actively participates in modified familiar routines introduced by partners<span class="item-example">e.g., When the clinician changes the rules of a familiar game, adjusts behavior and continues playing</span></td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="circle"></span></td><td class="notes-cell"><div class="notes-line"></div></td></tr>
+<tr class="zebra"><td class="item-cell"><span class="item-num">4.</span>Maintains engagement when anticipated (forewarned) changes are introduced<span class="item-example">e.g., After being told 'we'll do art before snack today instead of after,' transitions to art without distress</span></td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="circle"></span></td><td class="notes-cell"><div class="notes-line"></div></td></tr>
+<tr><td class="item-cell"><span class="item-num">5.</span>Maintains engagement when unanticipated (unexpected) changes are introduced<span class="item-example">e.g., When a fire drill interrupts the session unexpectedly, recovers and re-engages within a reasonable timeframe</span></td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="circle"></span></td><td class="notes-cell"><div class="notes-line"></div></td></tr>
+<tr class="zebra"><td class="item-cell"><span class="item-num">6.</span>Demonstrates varied/flexible actions with familiar and novel objects<span class="item-example">e.g., Uses a block as a phone during pretend play; stirs with a stick instead of a spoon; finds a new use for a familiar toy</span></td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="circle"></span></td><td class="notes-cell"><div class="notes-line"></div></td></tr>
+<tr><td class="item-cell"><span class="item-num">7.</span>Engages with a range of social partners — not only preferred individuals<span class="item-example">e.g., Willingly works with a substitute clinician or unfamiliar peer; does not refuse participation when the usual partner is absent</span></td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="circle"></span></td><td class="notes-cell"><div class="notes-line"></div></td></tr>
 </tbody>
   </table>
   <div class="domain-totals">
@@ -379,7 +394,9 @@ body {
   </div>
   <div class="obs-box"><div class="obs-label">Observations / Contextual Notes</div><div class="lined-area"></div></div>
 </div>
+</div>
 
+<div class="domain-section">
 <div class="rating-key"><span class="rk-label">Rating Key</span><span class="rk-item" style="background:#fdf0ef;color:#c0392b;border-color:#c0392b"><span class="rk-circle" style="border-color:#c0392b"></span>NO — Not Observed</span><span class="rk-item" style="background:#fef9ee;color:#b89446;border-color:#b89446"><span class="rk-circle" style="border-color:#b89446"></span>EM — Emerging</span><span class="rk-item" style="background:#e8f0f7;color:#2a6fa0;border-color:#2a6fa0"><span class="rk-circle" style="border-color:#2a6fa0"></span>CS — Consistent with Support</span><span class="rk-item" style="background:#e8f5ed;color:#27864e;border-color:#27864e"><span class="rk-circle" style="border-color:#27864e"></span>CI — Consistent Independently</span></div>
 <div class="domain-block">
   <div class="domain-header" style="background:#26828e">
@@ -391,11 +408,11 @@ body {
   <div class="domain-context"><strong>Observation context:</strong> Observe during turn-taking games, co-construction tasks, and activities where the clinician shifts between leading and following. Note tolerance for partner's agenda and ability to negotiate.</div>
   <table class="domain-table">
     <thead><tr><th class="th-item">Item</th><th class="th-scale" style="color:#c0392b">NO</th><th class="th-scale" style="color:#b89446">EM</th><th class="th-scale" style="color:#2a6fa0">CS</th><th class="th-scale" style="color:#27864e">CI</th><th class="th-notes">Notes / SA · IU</th></tr></thead>
-    <tbody><tr><td class="item-cell"><span class="item-num">1.</span>Tolerates a social partner taking the lead in a shared activity</td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="circle"></span></td><td class="notes-cell"><div class="notes-line"></div></td></tr>
-<tr class="zebra"><td class="item-cell"><span class="item-num">2.</span>Sustains participation in activities initiated by another partner</td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="circle"></span></td><td class="notes-cell"><div class="notes-line"></div></td></tr>
-<tr><td class="item-cell"><span class="item-num">3.</span>Collaboratively takes turns leading and following within a shared activity</td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="circle"></span></td><td class="notes-cell"><div class="notes-line"></div></td></tr>
-<tr class="zebra"><td class="item-cell"><span class="item-num">4.</span>Waits for and anticipates socially appropriate opportunities to take the lead</td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="circle"></span></td><td class="notes-cell"><div class="notes-line"></div></td></tr>
-<tr><td class="item-cell"><span class="item-num">5.</span>Engages in shared problem-solving with a partner</td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="circle"></span></td><td class="notes-cell"><div class="notes-line"></div></td></tr>
+    <tbody><tr><td class="item-cell"><span class="item-num">1.</span>Tolerates a social partner taking the lead in a shared activity<span class="item-example">e.g., Allows clinician to take a turn building the tower without grabbing materials back or protesting</span></td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="circle"></span></td><td class="notes-cell"><div class="notes-line"></div></td></tr>
+<tr class="zebra"><td class="item-cell"><span class="item-num">2.</span>Sustains participation in activities initiated by another partner<span class="item-example">e.g., Continues playing a board game that a peer chose, even though it wasn't their first choice</span></td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="circle"></span></td><td class="notes-cell"><div class="notes-line"></div></td></tr>
+<tr><td class="item-cell"><span class="item-num">3.</span>Collaboratively takes turns leading and following within a shared activity<span class="item-example">e.g., During a co-construction task, sometimes adds a piece and sometimes waits for the partner to add one — both leading and following naturally</span></td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="circle"></span></td><td class="notes-cell"><div class="notes-line"></div></td></tr>
+<tr class="zebra"><td class="item-cell"><span class="item-num">4.</span>Waits for and anticipates socially appropriate opportunities to take the lead<span class="item-example">e.g., Waits for a pause in conversation before interjecting; raises hand during group discussion; waits for a peer to finish their turn in a game</span></td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="circle"></span></td><td class="notes-cell"><div class="notes-line"></div></td></tr>
+<tr><td class="item-cell"><span class="item-num">5.</span>Engages in shared problem-solving with a partner<span class="item-example">e.g., When a puzzle piece doesn't fit, looks at partner and says 'help' or gestures for assistance; works together to figure out where a piece goes</span></td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="circle"></span></td><td class="notes-cell"><div class="notes-line"></div></td></tr>
 </tbody>
   </table>
   <div class="domain-totals">
@@ -404,7 +421,9 @@ body {
   </div>
   <div class="obs-box"><div class="obs-label">Observations / Contextual Notes</div><div class="lined-area"></div></div>
 </div>
+</div>
 
+<div class="domain-section">
 <div class="rating-key"><span class="rk-label">Rating Key</span><span class="rk-item" style="background:#fdf0ef;color:#c0392b;border-color:#c0392b"><span class="rk-circle" style="border-color:#c0392b"></span>NO — Not Observed</span><span class="rk-item" style="background:#fef9ee;color:#b89446;border-color:#b89446"><span class="rk-circle" style="border-color:#b89446"></span>EM — Emerging</span><span class="rk-item" style="background:#e8f0f7;color:#2a6fa0;border-color:#2a6fa0"><span class="rk-circle" style="border-color:#2a6fa0"></span>CS — Consistent with Support</span><span class="rk-item" style="background:#e8f5ed;color:#27864e;border-color:#27864e"><span class="rk-circle" style="border-color:#27864e"></span>CI — Consistent Independently</span></div>
 <div class="domain-block">
   <div class="domain-header" style="background:#1f9e89">
@@ -416,12 +435,12 @@ body {
   <div class="domain-context"><strong>Observation context:</strong> Track the balance of initiating, maintaining, and responding across structured and unstructured activities. Use communicative temptations and environmental arrangement to elicit initiations. Note range of communicative functions beyond requesting.</div>
   <table class="domain-table">
     <thead><tr><th class="th-item">Item</th><th class="th-scale" style="color:#c0392b">NO</th><th class="th-scale" style="color:#b89446">EM</th><th class="th-scale" style="color:#2a6fa0">CS</th><th class="th-scale" style="color:#27864e">CI</th><th class="th-notes">Notes / SA · IU</th></tr></thead>
-    <tbody><tr><td class="item-cell"><span class="item-num">1.</span>[A] Uses nonverbal/verbal means to initiate interactions (showing, greeting, requesting)</td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="circle"></span></td><td class="notes-cell"><div class="notes-line"></div></td></tr>
-<tr class="zebra"><td class="item-cell"><span class="item-num">2.</span>[A] Spontaneously initiates across a range of communicative functions</td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="circle"></span></td><td class="notes-cell"><div class="notes-line"></div></td></tr>
-<tr><td class="item-cell"><span class="item-num">3.</span>[B] Uses nonverbal/verbal means to sustain interactions (commenting, turn-taking)</td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="circle"></span></td><td class="notes-cell"><div class="notes-line"></div></td></tr>
-<tr class="zebra"><td class="item-cell"><span class="item-num">4.</span>[B] Spontaneously maintains reciprocal interaction for extended exchanges</td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="circle"></span></td><td class="notes-cell"><div class="notes-line"></div></td></tr>
-<tr><td class="item-cell"><span class="item-num">5.</span>[C] Uses nonverbal/verbal means to respond to partners (answering, contingent responses)</td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="circle"></span></td><td class="notes-cell"><div class="notes-line"></div></td></tr>
-<tr class="zebra"><td class="item-cell"><span class="item-num">6.</span>[C] Spontaneously responds to partner's initiations across varied contexts</td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="circle"></span></td><td class="notes-cell"><div class="notes-line"></div></td></tr>
+    <tbody><tr><td class="item-cell"><span class="item-num">1.</span>[A] Uses nonverbal/verbal means to initiate interactions (showing, greeting, requesting)<span class="item-example">e.g., Waves to greet the clinician; holds up a toy to show a peer; reaches toward a desired item while looking at a partner</span></td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="circle"></span></td><td class="notes-cell"><div class="notes-line"></div></td></tr>
+<tr class="zebra"><td class="item-cell"><span class="item-num">2.</span>[A] Spontaneously initiates across a range of communicative functions<span class="item-example">e.g., Initiates to comment ('look, a dog!'), protest ('no, mine'), greet ('hi!'), and request ('I want blue') — not just one function</span></td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="circle"></span></td><td class="notes-cell"><div class="notes-line"></div></td></tr>
+<tr><td class="item-cell"><span class="item-num">3.</span>[B] Uses nonverbal/verbal means to sustain interactions (commenting, turn-taking)<span class="item-example">e.g., After a peer says 'I built a house,' responds 'I'm building a garage' — adding to the conversational topic</span></td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="circle"></span></td><td class="notes-cell"><div class="notes-line"></div></td></tr>
+<tr class="zebra"><td class="item-cell"><span class="item-num">4.</span>[B] Spontaneously maintains reciprocal interaction for extended exchanges<span class="item-example">e.g., Engages in 4+ back-and-forth conversational turns about a shared topic without the partner carrying the interaction</span></td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="circle"></span></td><td class="notes-cell"><div class="notes-line"></div></td></tr>
+<tr><td class="item-cell"><span class="item-num">5.</span>[C] Uses nonverbal/verbal means to respond to partners (answering, contingent responses)<span class="item-example">e.g., When clinician asks 'what did you do this weekend?', provides a relevant answer; nods when a peer shares a story</span></td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="circle"></span></td><td class="notes-cell"><div class="notes-line"></div></td></tr>
+<tr class="zebra"><td class="item-cell"><span class="item-num">6.</span>[C] Spontaneously responds to partner's initiations across varied contexts<span class="item-example">e.g., Responds appropriately to a peer's greeting in the hallway, a teacher's question during instruction, and a parent's comment at pickup</span></td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="circle"></span></td><td class="notes-cell"><div class="notes-line"></div></td></tr>
 </tbody>
   </table>
   <div class="domain-totals">
@@ -430,7 +449,9 @@ body {
   </div>
   <div class="obs-box"><div class="obs-label">Observations / Contextual Notes</div><div class="lined-area"></div></div>
 </div>
+</div>
 
+<div class="domain-section">
 <div class="rating-key"><span class="rk-label">Rating Key</span><span class="rk-item" style="background:#fdf0ef;color:#c0392b;border-color:#c0392b"><span class="rk-circle" style="border-color:#c0392b"></span>NO — Not Observed</span><span class="rk-item" style="background:#fef9ee;color:#b89446;border-color:#b89446"><span class="rk-circle" style="border-color:#b89446"></span>EM — Emerging</span><span class="rk-item" style="background:#e8f0f7;color:#2a6fa0;border-color:#2a6fa0"><span class="rk-circle" style="border-color:#2a6fa0"></span>CS — Consistent with Support</span><span class="rk-item" style="background:#e8f5ed;color:#27864e;border-color:#27864e"><span class="rk-circle" style="border-color:#27864e"></span>CI — Consistent Independently</span></div>
 <div class="domain-block">
   <div class="domain-header" style="background:#35b779">
@@ -442,12 +463,12 @@ body {
   <div class="domain-context"><strong>Observation context:</strong> Document the individual's primary communication modality (speech, sign, AAC, gestalt/echoic). Note the proportion of generative vs. non-generative (echoic, scripted) output. Track communication across functions: requesting, commenting, protesting, greeting, labeling, narrating.</div>
   <table class="domain-table">
     <thead><tr><th class="th-item">Item</th><th class="th-scale" style="color:#c0392b">NO</th><th class="th-scale" style="color:#b89446">EM</th><th class="th-scale" style="color:#2a6fa0">CS</th><th class="th-scale" style="color:#27864e">CI</th><th class="th-notes">Notes / SA · IU</th></tr></thead>
-    <tbody><tr><td class="item-cell"><span class="item-num">1.</span>Uses intentional communication (verbal, gestural, AAC) for wants and needs</td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="circle"></span></td><td class="notes-cell"><div class="notes-line"></div></td></tr>
-<tr class="zebra"><td class="item-cell"><span class="item-num">2.</span>Uses single words or gestalt phrases with meaning to represent semantic knowledge</td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="circle"></span></td><td class="notes-cell"><div class="notes-line"></div></td></tr>
-<tr><td class="item-cell"><span class="item-num">3.</span>Uses word combinations or mitigated echoic phrases for multi-word meanings</td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="circle"></span></td><td class="notes-cell"><div class="notes-line"></div></td></tr>
-<tr class="zebra"><td class="item-cell"><span class="item-num">4.</span>Uses generative, flexible phrases/sentences across contexts and functions</td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="circle"></span></td><td class="notes-cell"><div class="notes-line"></div></td></tr>
-<tr><td class="item-cell"><span class="item-num">5.</span>Creates symbolic ideas through pretend play, narrative, or creative expression</td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="circle"></span></td><td class="notes-cell"><div class="notes-line"></div></td></tr>
-<tr class="zebra"><td class="item-cell"><span class="item-num">6.</span>Communicates emotional states and abstract ideas — not only concrete requests</td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="circle"></span></td><td class="notes-cell"><div class="notes-line"></div></td></tr>
+    <tbody><tr><td class="item-cell"><span class="item-num">1.</span>Uses intentional communication (verbal, gestural, AAC) for wants and needs<span class="item-example">e.g., Points to a desired snack on the shelf; says 'want that'; activates an AAC button for 'drink'</span></td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="circle"></span></td><td class="notes-cell"><div class="notes-line"></div></td></tr>
+<tr class="zebra"><td class="item-cell"><span class="item-num">2.</span>Uses single words or gestalt phrases with meaning to represent semantic knowledge<span class="item-example">e.g., Says 'doggy' when seeing a dog; uses a gestalt phrase like 'let's go' meaningfully to request leaving; signs 'more' during a preferred activity</span></td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="circle"></span></td><td class="notes-cell"><div class="notes-line"></div></td></tr>
+<tr><td class="item-cell"><span class="item-num">3.</span>Uses word combinations or mitigated echoic phrases for multi-word meanings<span class="item-example">e.g., Says 'want more juice' combining words flexibly; mitigates a script from 'let's get out of here' to 'let's go outside'</span></td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="circle"></span></td><td class="notes-cell"><div class="notes-line"></div></td></tr>
+<tr class="zebra"><td class="item-cell"><span class="item-num">4.</span>Uses generative, flexible phrases/sentences across contexts and functions<span class="item-example">e.g., Tells a peer 'I don't want the red one, can I have the blue one please?' adapting language to the situation</span></td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="circle"></span></td><td class="notes-cell"><div class="notes-line"></div></td></tr>
+<tr><td class="item-cell"><span class="item-num">5.</span>Creates symbolic ideas through pretend play, narrative, or creative expression<span class="item-example">e.g., Pretends a banana is a phone; narrates a story about a drawing; creates an imaginary scenario during doll play</span></td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="circle"></span></td><td class="notes-cell"><div class="notes-line"></div></td></tr>
+<tr class="zebra"><td class="item-cell"><span class="item-num">6.</span>Communicates emotional states and abstract ideas — not only concrete requests<span class="item-example">e.g., Says 'I'm frustrated' when a task is hard; explains 'that's not fair because...' during a game dispute</span></td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="circle"></span></td><td class="notes-cell"><div class="notes-line"></div></td></tr>
 </tbody>
   </table>
   <div class="domain-totals">
@@ -456,7 +477,9 @@ body {
   </div>
   <div class="obs-box"><div class="obs-label">Observations / Contextual Notes</div><div class="lined-area"></div></div>
 </div>
+</div>
 
+<div class="domain-section">
 <div class="rating-key"><span class="rk-label">Rating Key</span><span class="rk-item" style="background:#fdf0ef;color:#c0392b;border-color:#c0392b"><span class="rk-circle" style="border-color:#c0392b"></span>NO — Not Observed</span><span class="rk-item" style="background:#fef9ee;color:#b89446;border-color:#b89446"><span class="rk-circle" style="border-color:#b89446"></span>EM — Emerging</span><span class="rk-item" style="background:#e8f0f7;color:#2a6fa0;border-color:#2a6fa0"><span class="rk-circle" style="border-color:#2a6fa0"></span>CS — Consistent with Support</span><span class="rk-item" style="background:#e8f5ed;color:#27864e;border-color:#27864e"><span class="rk-circle" style="border-color:#27864e"></span>CI — Consistent Independently</span></div>
 <div class="domain-block">
   <div class="domain-header" style="background:#6ccd5a">
@@ -468,11 +491,11 @@ body {
   <div class="domain-context"><strong>Observation context:</strong> Observe comprehension and use of visual schedules, task sequences, and social plans. Note whether the individual can rehearse, follow, and independently complete multi-step plans. Probe with the 5-question framework: Where do I go? What do I do? How much? When am I finished? What comes next?</div>
   <table class="domain-table">
     <thead><tr><th class="th-item">Item</th><th class="th-scale" style="color:#c0392b">NO</th><th class="th-scale" style="color:#b89446">EM</th><th class="th-scale" style="color:#2a6fa0">CS</th><th class="th-scale" style="color:#27864e">CI</th><th class="th-notes">Notes / SA · IU</th></tr></thead>
-    <tbody><tr><td class="item-cell"><span class="item-num">1.</span>Orients to a partner's use of visual structure for organizing a social plan</td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="circle"></span></td><td class="notes-cell"><div class="notes-line"></div></td></tr>
-<tr class="zebra"><td class="item-cell"><span class="item-num">2.</span>Participates in practice/rehearsal activities preparing for upcoming events</td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="circle"></span></td><td class="notes-cell"><div class="notes-line"></div></td></tr>
-<tr><td class="item-cell"><span class="item-num">3.</span>Collaboratively follows a mutually agreed-upon, visually structured plan</td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="circle"></span></td><td class="notes-cell"><div class="notes-line"></div></td></tr>
-<tr class="zebra"><td class="item-cell"><span class="item-num">4.</span>Independently follows and completes a previously rehearsed plan</td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="circle"></span></td><td class="notes-cell"><div class="notes-line"></div></td></tr>
-<tr><td class="item-cell"><span class="item-num">5.</span>Uses contextual/situational/interpersonal cues to collaborate during new activities</td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="circle"></span></td><td class="notes-cell"><div class="notes-line"></div></td></tr>
+    <tbody><tr><td class="item-cell"><span class="item-num">1.</span>Orients to a partner's use of visual structure for organizing a social plan<span class="item-example">e.g., Looks at a visual schedule when the clinician points to it; watches as a partner sets up a first-then board</span></td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="circle"></span></td><td class="notes-cell"><div class="notes-line"></div></td></tr>
+<tr class="zebra"><td class="item-cell"><span class="item-num">2.</span>Participates in practice/rehearsal activities preparing for upcoming events<span class="item-example">e.g., Practices greeting a new teacher using a social story before the actual meeting; rehearses steps of a fire drill routine</span></td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="circle"></span></td><td class="notes-cell"><div class="notes-line"></div></td></tr>
+<tr><td class="item-cell"><span class="item-num">3.</span>Collaboratively follows a mutually agreed-upon, visually structured plan<span class="item-example">e.g., Follows a visual checklist to complete a 4-step craft project (cut → glue → decorate → clean up) with the clinician monitoring</span></td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="circle"></span></td><td class="notes-cell"><div class="notes-line"></div></td></tr>
+<tr class="zebra"><td class="item-cell"><span class="item-num">4.</span>Independently follows and completes a previously rehearsed plan<span class="item-example">e.g., Uses a previously practiced visual schedule to independently complete morning arrival routine (backpack → folder → seat)</span></td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="circle"></span></td><td class="notes-cell"><div class="notes-line"></div></td></tr>
+<tr><td class="item-cell"><span class="item-num">5.</span>Uses contextual/situational/interpersonal cues to collaborate during new activities<span class="item-example">e.g., Enters an unfamiliar room, notices peers are sitting in a circle, and joins the circle without needing verbal direction</span></td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="circle"></span></td><td class="notes-cell"><div class="notes-line"></div></td></tr>
 </tbody>
   </table>
   <div class="domain-totals">
@@ -481,7 +504,9 @@ body {
   </div>
   <div class="obs-box"><div class="obs-label">Observations / Contextual Notes</div><div class="lined-area"></div></div>
 </div>
+</div>
 
+<div class="domain-section">
 <div class="rating-key"><span class="rk-label">Rating Key</span><span class="rk-item" style="background:#fdf0ef;color:#c0392b;border-color:#c0392b"><span class="rk-circle" style="border-color:#c0392b"></span>NO — Not Observed</span><span class="rk-item" style="background:#fef9ee;color:#b89446;border-color:#b89446"><span class="rk-circle" style="border-color:#b89446"></span>EM — Emerging</span><span class="rk-item" style="background:#e8f0f7;color:#2a6fa0;border-color:#2a6fa0"><span class="rk-circle" style="border-color:#2a6fa0"></span>CS — Consistent with Support</span><span class="rk-item" style="background:#e8f5ed;color:#27864e;border-color:#27864e"><span class="rk-circle" style="border-color:#27864e"></span>CI — Consistent Independently</span></div>
 <div class="domain-block">
   <div class="domain-header" style="background:#b5de2b">
@@ -493,10 +518,10 @@ body {
   <div class="domain-context"><strong>Observation context:</strong> Systematically increase physical distance during communicative bids. Test in quiet 1:1 vs. noisy clinic environments. Note the distance and noise threshold at which responsiveness breaks down.</div>
   <table class="domain-table">
     <thead><tr><th class="th-item">Item</th><th class="th-scale" style="color:#c0392b">NO</th><th class="th-scale" style="color:#b89446">EM</th><th class="th-scale" style="color:#2a6fa0">CS</th><th class="th-scale" style="color:#27864e">CI</th><th class="th-notes">Notes / SA · IU</th></tr></thead>
-    <tbody><tr><td class="item-cell"><span class="item-num">1.</span>Attends to partner's communication at increasing physical distances</td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="circle"></span></td><td class="notes-cell"><div class="notes-line"></div></td></tr>
-<tr class="zebra"><td class="item-cell"><span class="item-num">2.</span>Attends to partner's communication in spaces of increasing size</td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="circle"></span></td><td class="notes-cell"><div class="notes-line"></div></td></tr>
-<tr><td class="item-cell"><span class="item-num">3.</span>Attends to partner's communication with increasing background noise</td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="circle"></span></td><td class="notes-cell"><div class="notes-line"></div></td></tr>
-<tr class="zebra"><td class="item-cell"><span class="item-num">4.</span>Responds to partner's directions and bids at graduating distances</td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="circle"></span></td><td class="notes-cell"><div class="notes-line"></div></td></tr>
+    <tbody><tr><td class="item-cell"><span class="item-num">1.</span>Attends to partner's communication at increasing physical distances<span class="item-example">e.g., Responds to clinician saying their name from 6 feet away, then 10 feet, then across the room</span></td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="circle"></span></td><td class="notes-cell"><div class="notes-line"></div></td></tr>
+<tr class="zebra"><td class="item-cell"><span class="item-num">2.</span>Attends to partner's communication in spaces of increasing size<span class="item-example">e.g., Follows a group instruction delivered in a gym vs. a small therapy room; responds to a partner in a cafeteria vs. a quiet office</span></td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="circle"></span></td><td class="notes-cell"><div class="notes-line"></div></td></tr>
+<tr><td class="item-cell"><span class="item-num">3.</span>Attends to partner's communication with increasing background noise<span class="item-example">e.g., Responds to their name being called while other children are talking; follows a direction while music plays in the background</span></td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="circle"></span></td><td class="notes-cell"><div class="notes-line"></div></td></tr>
+<tr class="zebra"><td class="item-cell"><span class="item-num">4.</span>Responds to partner's directions and bids at graduating distances<span class="item-example">e.g., When clinician says 'come here' from across the playground, looks up and walks over; follows a point to a distant object and retrieves it</span></td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="circle"></span></td><td class="notes-cell"><div class="notes-line"></div></td></tr>
 </tbody>
   </table>
   <div class="domain-totals">
@@ -505,7 +530,9 @@ body {
   </div>
   <div class="obs-box"><div class="obs-label">Observations / Contextual Notes</div><div class="lined-area"></div></div>
 </div>
+</div>
 
+<div class="domain-section">
 <div class="rating-key"><span class="rk-label">Rating Key</span><span class="rk-item" style="background:#fdf0ef;color:#c0392b;border-color:#c0392b"><span class="rk-circle" style="border-color:#c0392b"></span>NO — Not Observed</span><span class="rk-item" style="background:#fef9ee;color:#b89446;border-color:#b89446"><span class="rk-circle" style="border-color:#b89446"></span>EM — Emerging</span><span class="rk-item" style="background:#e8f0f7;color:#2a6fa0;border-color:#2a6fa0"><span class="rk-circle" style="border-color:#2a6fa0"></span>CS — Consistent with Support</span><span class="rk-item" style="background:#e8f5ed;color:#27864e;border-color:#27864e"><span class="rk-circle" style="border-color:#27864e"></span>CI — Consistent Independently</span></div>
 <div class="domain-block">
   <div class="domain-header" style="background:#fde725">
@@ -517,11 +544,11 @@ body {
   <div class="domain-context"><strong>Observation context:</strong> Observe responses to session transitions (warm-up → activity → clean-up → new activity). Vary warning types: verbal countdown, visual timer, environmental cue. Note which transition supports are most effective.</div>
   <table class="domain-table">
     <thead><tr><th class="th-item">Item</th><th class="th-scale" style="color:#c0392b">NO</th><th class="th-scale" style="color:#b89446">EM</th><th class="th-scale" style="color:#2a6fa0">CS</th><th class="th-scale" style="color:#27864e">CI</th><th class="th-notes">Notes / SA · IU</th></tr></thead>
-    <tbody><tr><td class="item-cell"><span class="item-num">1.</span>Attends to interpersonal cues signaling a current activity is ending</td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="circle"></span></td><td class="notes-cell"><div class="notes-line"></div></td></tr>
-<tr class="zebra"><td class="item-cell"><span class="item-num">2.</span>Attends to contextual/environmental cues signaling an activity change</td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="circle"></span></td><td class="notes-cell"><div class="notes-line"></div></td></tr>
-<tr><td class="item-cell"><span class="item-num">3.</span>Tolerates the conclusion of a current activity without significant dysregulation</td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="circle"></span></td><td class="notes-cell"><div class="notes-line"></div></td></tr>
-<tr class="zebra"><td class="item-cell"><span class="item-num">4.</span>Collaboratively participates in ending an activity and shifting to a new one</td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="circle"></span></td><td class="notes-cell"><div class="notes-line"></div></td></tr>
-<tr><td class="item-cell"><span class="item-num">5.</span>Independently uses contextual cues to conclude activities and transition</td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="circle"></span></td><td class="notes-cell"><div class="notes-line"></div></td></tr>
+    <tbody><tr><td class="item-cell"><span class="item-num">1.</span>Attends to interpersonal cues signaling a current activity is ending<span class="item-example">e.g., Looks up when clinician says 'one more minute'; notices when a peer starts cleaning up materials</span></td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="circle"></span></td><td class="notes-cell"><div class="notes-line"></div></td></tr>
+<tr class="zebra"><td class="item-cell"><span class="item-num">2.</span>Attends to contextual/environmental cues signaling an activity change<span class="item-example">e.g., Sees the lights flicker (a signal for transition) and begins to put materials away; notices peers lining up and moves toward the line</span></td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="circle"></span></td><td class="notes-cell"><div class="notes-line"></div></td></tr>
+<tr><td class="item-cell"><span class="item-num">3.</span>Tolerates the conclusion of a current activity without significant dysregulation<span class="item-example">e.g., When told 'time to clean up,' stops playing and begins putting toys in the bin without crying or refusing — even if the activity was preferred</span></td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="circle"></span></td><td class="notes-cell"><div class="notes-line"></div></td></tr>
+<tr class="zebra"><td class="item-cell"><span class="item-num">4.</span>Collaboratively participates in ending an activity and shifting to a new one<span class="item-example">e.g., Helps put materials away, walks to the next area, and begins the new activity with only a brief verbal prompt</span></td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="circle"></span></td><td class="notes-cell"><div class="notes-line"></div></td></tr>
+<tr><td class="item-cell"><span class="item-num">5.</span>Independently uses contextual cues to conclude activities and transition<span class="item-example">e.g., Hears the school bell, independently puts away materials, packs up, and lines up at the door without adult prompts</span></td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="circle"></span></td><td class="notes-cell"><div class="notes-line"></div></td></tr>
 </tbody>
   </table>
   <div class="domain-totals">
@@ -529,6 +556,7 @@ body {
     <span class="total-item">% Score: <span class="blank-line"></span></span>
   </div>
   <div class="obs-box"><div class="obs-label">Observations / Contextual Notes</div><div class="lined-area"></div></div>
+</div>
 </div>
 
 <div class="summary-section">

@@ -12,8 +12,8 @@ html { -webkit-text-size-adjust: 100%; }
 body {
   font-family: 'DM Sans', -apple-system, system-ui, sans-serif;
   -webkit-font-smoothing: antialiased;
-  font-size: 11px;
-  line-height: 1.4;
+  font-size: 15px;
+  line-height: 1.5;
   color: #1a1a1a;
   padding: 32px 40px;
   max-width: 880px;
@@ -55,10 +55,10 @@ body {
   padding-bottom: 10px;
   margin-bottom: 12px;
 }
-.form-title { font-size: 26px; font-weight: 700; letter-spacing: -0.02em; }
-.form-subtitle { font-size: 9px; font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase; color: #666; margin-top: 4px; }
+.form-title { font-size: 30px; font-weight: 700; letter-spacing: -0.02em; }
+.form-subtitle { font-size: 12px; font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase; color: #666; margin-top: 4px; }
 .form-badge {
-  font-size: 10px; font-weight: 700; padding: 5px 14px; border-radius: 4px;
+  font-size: 13px; font-weight: 700; padding: 6px 16px; border-radius: 4px;
   color: #fff; letter-spacing: 0.08em; text-transform: uppercase; white-space: nowrap; margin-top: 4px;
 }
 
@@ -72,8 +72,8 @@ body {
 .info-field { padding: 5px 10px; border-right: 1px solid #ddd; border-bottom: 1px solid #ddd; }
 .info-field:last-child { border-right: none; }
 .info-field.full-width { grid-column: 1 / -1; border-bottom: none; border-right: none; }
-.field-label { font-size: 7px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; color: #666; margin-bottom: 2px; }
-.field-blank { min-height: 16px; }
+.field-label { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; color: #666; margin-bottom: 2px; }
+.field-blank { min-height: 20px; }
 
 /* Instructions */
 .instructions {
@@ -81,7 +81,7 @@ body {
   border: 1px solid #ddd;
   border-radius: 3px;
   padding: 7px 10px;
-  font-size: 9px;
+  font-size: 13px;
   line-height: 1.5;
   margin-bottom: 10px;
 }
@@ -97,31 +97,34 @@ body {
   background: #fafafa;
   margin-bottom: 8px;
 }
-.rk-label { font-size: 7px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.12em; color: #888; margin-right: 6px; }
+.rk-label { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.12em; color: #888; margin-right: 6px; }
 .rk-item {
-  display: inline-flex; align-items: center; gap: 4px;
-  padding: 2px 7px; border-radius: 3px; font-size: 8px; font-weight: 700;
+  display: inline-flex; align-items: center; gap: 5px;
+  padding: 3px 8px; border-radius: 3px; font-size: 11px; font-weight: 700;
   border: 1px solid;
 }
-.rk-circle { width: 8px; height: 8px; border-radius: 50%; border: 1.5px solid; display: inline-block; }
+.rk-circle { width: 10px; height: 10px; border-radius: 50%; border: 1.5px solid; display: inline-block; }
+
+/* Domain sections — keep rating key + block together */
+.domain-section { break-inside: avoid; page-break-inside: avoid; margin-bottom: 14px; }
 
 /* Domain blocks */
-.domain-block { margin-bottom: 14px; page-break-inside: avoid; }
+.domain-block { page-break-inside: avoid; }
 .domain-header {
   display: flex; align-items: center; gap: 8px;
   padding: 6px 12px; color: #fff; border-radius: 3px 3px 0 0;
 }
-.dh-icon { font-size: 14px; line-height: 1; }
-.dh-num { font-size: 8px; font-weight: 600; opacity: 0.7; }
-.dh-title { font-size: 9px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; }
+.dh-icon { font-size: 18px; line-height: 1; }
+.dh-num { font-size: 12px; font-weight: 600; opacity: 0.7; }
+.dh-title { font-size: 13px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; }
 .domain-fw {
-  font-size: 7.5px; color: #888; font-style: italic;
+  font-size: 11px; color: #888; font-style: italic;
   padding: 3px 10px;
   border-left: 1.5px solid #1a1a1a; border-right: 1.5px solid #1a1a1a;
   background: #fafafa;
 }
 .domain-context {
-  font-size: 8.5px; padding: 4px 10px;
+  font-size: 12px; padding: 4px 10px;
   border-left: 1.5px solid #1a1a1a; border-right: 1.5px solid #1a1a1a;
   border-bottom: 1px solid #ddd; background: #fcfcfc; font-style: italic;
 }
@@ -129,38 +132,39 @@ body {
 
 /* Domain table */
 .domain-table {
-  width: 100%; border-collapse: collapse; font-size: 9.5px;
+  width: 100%; border-collapse: collapse; font-size: 13px;
   border: 1.5px solid #1a1a1a; border-top: none;
 }
 .domain-table thead { display: table-header-group; }
 .th-item {
-  text-align: left; padding: 4px 8px; font-size: 7px;
+  text-align: left; padding: 5px 8px; font-size: 11px;
   font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em;
   border-bottom: 2px solid #1a1a1a; background: #f0f0f0; width: 52%;
 }
 .th-scale {
-  text-align: center; padding: 4px 3px; font-size: 7px;
-  font-weight: 700; border-bottom: 2px solid #1a1a1a; background: #f0f0f0; min-width: 32px;
+  text-align: center; padding: 5px 3px; font-size: 11px;
+  font-weight: 700; border-bottom: 2px solid #1a1a1a; background: #f0f0f0; min-width: 34px;
 }
 .th-notes {
-  text-align: left; padding: 4px 6px; font-size: 7px;
+  text-align: left; padding: 5px 6px; font-size: 11px;
   font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em;
   border-bottom: 2px solid #1a1a1a; background: #f0f0f0; min-width: 90px;
 }
 .domain-table tbody tr { background: transparent; }
 .domain-table tbody tr.zebra { background: #f9f9f9; }
-.item-cell { padding: 5px 8px; font-size: 9.5px; border-bottom: 1px solid #ddd; line-height: 1.35; vertical-align: top; }
+.item-cell { padding: 6px 8px; font-size: 13px; border-bottom: 1px solid #ddd; line-height: 1.4; vertical-align: top; }
 .item-num { font-weight: 600; color: #666; margin-right: 4px; }
+.item-example { display: block; font-size: 10.5px; color: #777; font-style: italic; margin-top: 2px; line-height: 1.35; }
 .circle-cell { padding: 5px 3px; text-align: center; border-bottom: 1px solid #ddd; vertical-align: middle; }
-.circle { display: inline-block; width: 16px; height: 16px; border-radius: 50%; border: 1.5px solid #aaa; }
-.checkbox { display: inline-block; width: 12px; height: 12px; border-radius: 2px; border: 1.5px solid #aaa; }
+.circle { display: inline-block; width: 18px; height: 18px; border-radius: 50%; border: 1.5px solid #aaa; }
+.checkbox { display: inline-block; width: 14px; height: 14px; border-radius: 2px; border: 1.5px solid #aaa; }
 .notes-cell { padding: 5px 6px; border-bottom: 1px solid #ddd; vertical-align: middle; }
 .notes-line { border-bottom: 1px solid #bbb; min-height: 14px; }
 
 /* Domain totals */
 .domain-totals {
   display: flex; justify-content: flex-end; gap: 14px;
-  padding: 4px 10px; font-size: 8px; font-weight: 700;
+  padding: 5px 10px; font-size: 12px; font-weight: 700;
   color: #666; background: #f5f5f5;
   border: 1.5px solid #1a1a1a; border-top: none;
   text-transform: uppercase; letter-spacing: 0.05em;
@@ -175,7 +179,7 @@ body {
   border: 1.5px solid #1a1a1a; border-top: none;
   border-radius: 0 0 3px 3px; padding: 5px 8px;
 }
-.obs-label { font-size: 7px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; color: #666; margin-bottom: 3px; }
+.obs-label { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; color: #666; margin-bottom: 3px; }
 .lined-area {
   min-height: 60px; border-top: 1px solid #ddd;
   background: repeating-linear-gradient(to bottom, transparent 0, transparent 19px, #e8e8e8 19px, #e8e8e8 20px);
@@ -185,20 +189,20 @@ body {
 .summary-section { margin-top: 24px; page-break-inside: avoid; }
 .summary-header {
   background: #1a1a1a; color: #fff;
-  padding: 6px 12px; font-size: 9px; font-weight: 700;
+  padding: 7px 12px; font-size: 13px; font-weight: 700;
   text-transform: uppercase; letter-spacing: 0.1em; border-radius: 3px 3px 0 0;
 }
 .summary-body { border: 1.5px solid #1a1a1a; border-top: none; border-radius: 0 0 3px 3px; padding: 14px; }
-.summary-label { font-size: 7px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; color: #666; margin-bottom: 4px; }
+.summary-label { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; color: #666; margin-bottom: 4px; }
 .summary-lined { min-height: 90px; background: repeating-linear-gradient(to bottom, transparent 0, transparent 19px, #e8e8e8 19px, #e8e8e8 20px); margin-bottom: 14px; }
 .sig-grid { display: grid; grid-template-columns: 2fr 1fr; gap: 14px; }
-.sig-field-label { font-size: 7px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; color: #666; margin-bottom: 2px; }
+.sig-field-label { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; color: #666; margin-bottom: 2px; }
 .sig-line { border-bottom: 1.5px solid #1a1a1a; min-height: 22px; }
 
 /* Footer */
 .form-footer {
   margin-top: 16px; padding-top: 8px; border-top: 1px solid #ddd;
-  font-size: 7px; color: #888; text-align: center; line-height: 1.7; letter-spacing: 0.05em;
+  font-size: 10px; color: #888; text-align: center; line-height: 1.7; letter-spacing: 0.05em;
 }
 </style>
 </head>
@@ -225,6 +229,7 @@ body {
 <div class="instructions"><strong>Instructions:</strong> Rate your child's current functioning based on what you typically observe at home and in the community. Use the stress modifier if your child can do this but not when stressed, tired, hungry, or in unfamiliar settings. There are no right or wrong answers.</div>
 
 
+<div class="domain-section">
 <div class="rating-key"><span class="rk-label">Rating Key</span><span class="rk-item" style="background:#fdf0ef;color:#c0392b;border-color:#c0392b"><span class="rk-circle" style="border-color:#c0392b"></span>NO — Not Observed</span><span class="rk-item" style="background:#fef9ee;color:#b89446;border-color:#b89446"><span class="rk-circle" style="border-color:#b89446"></span>EM — Emerging</span><span class="rk-item" style="background:#e8f0f7;color:#2a6fa0;border-color:#2a6fa0"><span class="rk-circle" style="border-color:#2a6fa0"></span>CS — Consistent with Support</span><span class="rk-item" style="background:#e8f5ed;color:#27864e;border-color:#27864e"><span class="rk-circle" style="border-color:#27864e"></span>CI — Consistent Independently</span><span class="rk-item" style="background:#f3edf9;color:#7a5aaa;border-color:#7a5aaa">⚡ Stress Modifier</span></div>
 <div class="domain-block">
   <div class="domain-header" style="background:#440154">
@@ -236,11 +241,11 @@ body {
   
   <table class="domain-table">
     <thead><tr><th class="th-item">Item</th><th class="th-scale" style="color:#c0392b">NO</th><th class="th-scale" style="color:#b89446">EM</th><th class="th-scale" style="color:#2a6fa0">CS</th><th class="th-scale" style="color:#27864e">CI</th><th class="th-scale" style="color:#7a5aaa">⚡</th></tr></thead>
-    <tbody><tr><td class="item-cell"><span class="item-num">1.</span>My child stays calm during everyday activities</td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="checkbox"></span></td></tr>
-<tr class="zebra"><td class="item-cell"><span class="item-num">2.</span>My child can calm down after being upset — with my help</td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="checkbox"></span></td></tr>
-<tr><td class="item-cell"><span class="item-num">3.</span>My child can calm down after being upset — on their own</td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="checkbox"></span></td></tr>
-<tr class="zebra"><td class="item-cell"><span class="item-num">4.</span>My child shows interest in what's happening around them</td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="checkbox"></span></td></tr>
-<tr><td class="item-cell"><span class="item-num">5.</span>My child can handle moderate noise or activity without becoming overwhelmed</td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="checkbox"></span></td></tr>
+    <tbody><tr><td class="item-cell"><span class="item-num">1.</span>My child stays calm during everyday activities<span class="item-example">e.g., Sits calmly during a family meal or plays quietly during a familiar bedtime routine without becoming upset</span></td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="checkbox"></span></td></tr>
+<tr class="zebra"><td class="item-cell"><span class="item-num">2.</span>My child can calm down after being upset — with my help<span class="item-example">e.g., After a meltdown over a broken toy, calms down within a few minutes when you hold them, offer deep breaths, or use a comfort item</span></td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="checkbox"></span></td></tr>
+<tr><td class="item-cell"><span class="item-num">3.</span>My child can calm down after being upset — on their own<span class="item-example">e.g., After getting frustrated with a puzzle, walks away briefly, then comes back and tries again without needing your help to calm down</span></td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="checkbox"></span></td></tr>
+<tr class="zebra"><td class="item-cell"><span class="item-num">4.</span>My child shows interest in what's happening around them<span class="item-example">e.g., Looks toward the TV when it turns on; notices when a sibling enters the room; looks around with interest in a new place like a store</span></td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="checkbox"></span></td></tr>
+<tr><td class="item-cell"><span class="item-num">5.</span>My child can handle moderate noise or activity without becoming overwhelmed<span class="item-example">e.g., Plays at the park with other kids around without getting overwhelmed; tolerates a noisy family dinner without covering ears or shutting down</span></td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="checkbox"></span></td></tr>
 </tbody>
   </table>
   <div class="domain-totals">
@@ -249,7 +254,9 @@ body {
   </div>
   
 </div>
+</div>
 
+<div class="domain-section">
 <div class="rating-key"><span class="rk-label">Rating Key</span><span class="rk-item" style="background:#fdf0ef;color:#c0392b;border-color:#c0392b"><span class="rk-circle" style="border-color:#c0392b"></span>NO — Not Observed</span><span class="rk-item" style="background:#fef9ee;color:#b89446;border-color:#b89446"><span class="rk-circle" style="border-color:#b89446"></span>EM — Emerging</span><span class="rk-item" style="background:#e8f0f7;color:#2a6fa0;border-color:#2a6fa0"><span class="rk-circle" style="border-color:#2a6fa0"></span>CS — Consistent with Support</span><span class="rk-item" style="background:#e8f5ed;color:#27864e;border-color:#27864e"><span class="rk-circle" style="border-color:#27864e"></span>CI — Consistent Independently</span><span class="rk-item" style="background:#f3edf9;color:#7a5aaa;border-color:#7a5aaa">⚡ Stress Modifier</span></div>
 <div class="domain-block">
   <div class="domain-header" style="background:#481567">
@@ -261,10 +268,10 @@ body {
   
   <table class="domain-table">
     <thead><tr><th class="th-item">Item</th><th class="th-scale" style="color:#c0392b">NO</th><th class="th-scale" style="color:#b89446">EM</th><th class="th-scale" style="color:#2a6fa0">CS</th><th class="th-scale" style="color:#27864e">CI</th><th class="th-scale" style="color:#7a5aaa">⚡</th></tr></thead>
-    <tbody><tr><td class="item-cell"><span class="item-num">1.</span>My child notices other people in the room</td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="checkbox"></span></td></tr>
-<tr class="zebra"><td class="item-cell"><span class="item-num">2.</span>My child seems curious about other people</td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="checkbox"></span></td></tr>
-<tr><td class="item-cell"><span class="item-num">3.</span>My child pays attention to people during activities — not just toys or objects</td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="checkbox"></span></td></tr>
-<tr class="zebra"><td class="item-cell"><span class="item-num">4.</span>My child enjoys interacting with familiar people</td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="checkbox"></span></td></tr>
+    <tbody><tr><td class="item-cell"><span class="item-num">1.</span>My child notices other people in the room<span class="item-example">e.g., Looks at your face when you talk to them; turns toward a sibling who walks into the room</span></td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="checkbox"></span></td></tr>
+<tr class="zebra"><td class="item-cell"><span class="item-num">2.</span>My child seems curious about other people<span class="item-example">e.g., Watches what other kids are doing at the playground; moves closer to see what you're cooking; stares with interest when a neighbor waves</span></td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="checkbox"></span></td></tr>
+<tr><td class="item-cell"><span class="item-num">3.</span>My child pays attention to people during activities — not just toys or objects<span class="item-example">e.g., Stays focused on you during a game or book for several minutes instead of looking away or wandering off</span></td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="checkbox"></span></td></tr>
+<tr class="zebra"><td class="item-cell"><span class="item-num">4.</span>My child enjoys interacting with familiar people<span class="item-example">e.g., Seems happy when you start a favorite game; laughs when a sibling makes a funny face; gets excited when grandma arrives</span></td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="checkbox"></span></td></tr>
 </tbody>
   </table>
   <div class="domain-totals">
@@ -273,7 +280,9 @@ body {
   </div>
   
 </div>
+</div>
 
+<div class="domain-section">
 <div class="rating-key"><span class="rk-label">Rating Key</span><span class="rk-item" style="background:#fdf0ef;color:#c0392b;border-color:#c0392b"><span class="rk-circle" style="border-color:#c0392b"></span>NO — Not Observed</span><span class="rk-item" style="background:#fef9ee;color:#b89446;border-color:#b89446"><span class="rk-circle" style="border-color:#b89446"></span>EM — Emerging</span><span class="rk-item" style="background:#e8f0f7;color:#2a6fa0;border-color:#2a6fa0"><span class="rk-circle" style="border-color:#2a6fa0"></span>CS — Consistent with Support</span><span class="rk-item" style="background:#e8f5ed;color:#27864e;border-color:#27864e"><span class="rk-circle" style="border-color:#27864e"></span>CI — Consistent Independently</span><span class="rk-item" style="background:#f3edf9;color:#7a5aaa;border-color:#7a5aaa">⚡ Stress Modifier</span></div>
 <div class="domain-block">
   <div class="domain-header" style="background:#482677">
@@ -285,11 +294,11 @@ body {
   
   <table class="domain-table">
     <thead><tr><th class="th-item">Item</th><th class="th-scale" style="color:#c0392b">NO</th><th class="th-scale" style="color:#b89446">EM</th><th class="th-scale" style="color:#2a6fa0">CS</th><th class="th-scale" style="color:#27864e">CI</th><th class="th-scale" style="color:#7a5aaa">⚡</th></tr></thead>
-    <tbody><tr><td class="item-cell"><span class="item-num">1.</span>My child looks back and forth between me and something interesting</td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="checkbox"></span></td></tr>
-<tr class="zebra"><td class="item-cell"><span class="item-num">2.</span>My child points or shows me things they find interesting</td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="checkbox"></span></td></tr>
-<tr><td class="item-cell"><span class="item-num">3.</span>When I point at something, my child looks where I'm pointing</td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="checkbox"></span></td></tr>
-<tr class="zebra"><td class="item-cell"><span class="item-num">4.</span>My child can pay attention to me from across the room</td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="checkbox"></span></td></tr>
-<tr><td class="item-cell"><span class="item-num">5.</span>My child can stay focused during an activity even with distractions</td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="checkbox"></span></td></tr>
+    <tbody><tr><td class="item-cell"><span class="item-num">1.</span>My child looks back and forth between me and something interesting<span class="item-example">e.g., Looks at something interesting, then looks at you to see if you noticed it too</span></td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="checkbox"></span></td></tr>
+<tr class="zebra"><td class="item-cell"><span class="item-num">2.</span>My child points or shows me things they find interesting<span class="item-example">e.g., Holds up a toy to show you; points to a dog on a walk; brings you something they found outside</span></td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="checkbox"></span></td></tr>
+<tr><td class="item-cell"><span class="item-num">3.</span>When I point at something, my child looks where I'm pointing<span class="item-example">e.g., When you point at something, your child looks where you're pointing — not just at your hand</span></td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="checkbox"></span></td></tr>
+<tr class="zebra"><td class="item-cell"><span class="item-num">4.</span>My child can pay attention to me from across the room<span class="item-example">e.g., Responds when you call their name from another room; follows your point to something across the yard</span></td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="checkbox"></span></td></tr>
+<tr><td class="item-cell"><span class="item-num">5.</span>My child can stay focused during an activity even with distractions<span class="item-example">e.g., Stays focused on a shared activity even when the TV is on or siblings are playing nearby</span></td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="checkbox"></span></td></tr>
 </tbody>
   </table>
   <div class="domain-totals">
@@ -298,7 +307,9 @@ body {
   </div>
   
 </div>
+</div>
 
+<div class="domain-section">
 <div class="rating-key"><span class="rk-label">Rating Key</span><span class="rk-item" style="background:#fdf0ef;color:#c0392b;border-color:#c0392b"><span class="rk-circle" style="border-color:#c0392b"></span>NO — Not Observed</span><span class="rk-item" style="background:#fef9ee;color:#b89446;border-color:#b89446"><span class="rk-circle" style="border-color:#b89446"></span>EM — Emerging</span><span class="rk-item" style="background:#e8f0f7;color:#2a6fa0;border-color:#2a6fa0"><span class="rk-circle" style="border-color:#2a6fa0"></span>CS — Consistent with Support</span><span class="rk-item" style="background:#e8f5ed;color:#27864e;border-color:#27864e"><span class="rk-circle" style="border-color:#27864e"></span>CI — Consistent Independently</span><span class="rk-item" style="background:#f3edf9;color:#7a5aaa;border-color:#7a5aaa">⚡ Stress Modifier</span></div>
 <div class="domain-block">
   <div class="domain-header" style="background:#453781">
@@ -310,9 +321,9 @@ body {
   
   <table class="domain-table">
     <thead><tr><th class="th-item">Item</th><th class="th-scale" style="color:#c0392b">NO</th><th class="th-scale" style="color:#b89446">EM</th><th class="th-scale" style="color:#2a6fa0">CS</th><th class="th-scale" style="color:#27864e">CI</th><th class="th-scale" style="color:#7a5aaa">⚡</th></tr></thead>
-    <tbody><tr><td class="item-cell"><span class="item-num">1.</span>My child watches what other people do during activities</td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="checkbox"></span></td></tr>
-<tr class="zebra"><td class="item-cell"><span class="item-num">2.</span>My child copies other people's actions or words after watching them</td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="checkbox"></span></td></tr>
-<tr><td class="item-cell"><span class="item-num">3.</span>My child takes turns during activities shown to them by someone else</td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="checkbox"></span></td></tr>
+    <tbody><tr><td class="item-cell"><span class="item-num">1.</span>My child watches what other people do during activities<span class="item-example">e.g., Watches what you or others are doing — like how you stir while cooking or how a sibling plays a game</span></td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="checkbox"></span></td></tr>
+<tr class="zebra"><td class="item-cell"><span class="item-num">2.</span>My child copies other people's actions or words after watching them<span class="item-example">e.g., After seeing you wave goodbye, waves back; after watching a sibling clap, starts clapping too</span></td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="checkbox"></span></td></tr>
+<tr><td class="item-cell"><span class="item-num">3.</span>My child takes turns during activities shown to them by someone else<span class="item-example">e.g., Takes turns during a game that someone else started — like rolling a ball back and forth after being shown how</span></td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="checkbox"></span></td></tr>
 </tbody>
   </table>
   <div class="domain-totals">
@@ -321,7 +332,9 @@ body {
   </div>
   
 </div>
+</div>
 
+<div class="domain-section">
 <div class="rating-key"><span class="rk-label">Rating Key</span><span class="rk-item" style="background:#fdf0ef;color:#c0392b;border-color:#c0392b"><span class="rk-circle" style="border-color:#c0392b"></span>NO — Not Observed</span><span class="rk-item" style="background:#fef9ee;color:#b89446;border-color:#b89446"><span class="rk-circle" style="border-color:#b89446"></span>EM — Emerging</span><span class="rk-item" style="background:#e8f0f7;color:#2a6fa0;border-color:#2a6fa0"><span class="rk-circle" style="border-color:#2a6fa0"></span>CS — Consistent with Support</span><span class="rk-item" style="background:#e8f5ed;color:#27864e;border-color:#27864e"><span class="rk-circle" style="border-color:#27864e"></span>CI — Consistent Independently</span><span class="rk-item" style="background:#f3edf9;color:#7a5aaa;border-color:#7a5aaa">⚡ Stress Modifier</span></div>
 <div class="domain-block">
   <div class="domain-header" style="background:#3f4788">
@@ -333,9 +346,9 @@ body {
   
   <table class="domain-table">
     <thead><tr><th class="th-item">Item</th><th class="th-scale" style="color:#c0392b">NO</th><th class="th-scale" style="color:#b89446">EM</th><th class="th-scale" style="color:#2a6fa0">CS</th><th class="th-scale" style="color:#27864e">CI</th><th class="th-scale" style="color:#7a5aaa">⚡</th></tr></thead>
-    <tbody><tr><td class="item-cell"><span class="item-num">1.</span>My child notices what multiple people are doing during group activities</td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="checkbox"></span></td></tr>
-<tr class="zebra"><td class="item-cell"><span class="item-num">2.</span>My child copies or joins in with what multiple people are doing</td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="checkbox"></span></td></tr>
-<tr><td class="item-cell"><span class="item-num">3.</span>My child starts activities that were introduced by different people</td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="checkbox"></span></td></tr>
+    <tbody><tr><td class="item-cell"><span class="item-num">1.</span>My child notices what multiple people are doing during group activities<span class="item-example">e.g., At a family gathering, pays attention to what several people are doing — not just one favorite person</span></td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="checkbox"></span></td></tr>
+<tr class="zebra"><td class="item-cell"><span class="item-num">2.</span>My child copies or joins in with what multiple people are doing<span class="item-example">e.g., Copies things that different family members do — like a dance move from a sibling and a thumbs-up from a parent</span></td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="checkbox"></span></td></tr>
+<tr><td class="item-cell"><span class="item-num">3.</span>My child starts activities that were introduced by different people<span class="item-example">e.g., Joins in activities that different people started — plays a game a sibling suggested, then does a craft that grandma set up</span></td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="checkbox"></span></td></tr>
 </tbody>
   </table>
   <div class="domain-totals">
@@ -344,7 +357,9 @@ body {
   </div>
   
 </div>
+</div>
 
+<div class="domain-section">
 <div class="rating-key"><span class="rk-label">Rating Key</span><span class="rk-item" style="background:#fdf0ef;color:#c0392b;border-color:#c0392b"><span class="rk-circle" style="border-color:#c0392b"></span>NO — Not Observed</span><span class="rk-item" style="background:#fef9ee;color:#b89446;border-color:#b89446"><span class="rk-circle" style="border-color:#b89446"></span>EM — Emerging</span><span class="rk-item" style="background:#e8f0f7;color:#2a6fa0;border-color:#2a6fa0"><span class="rk-circle" style="border-color:#2a6fa0"></span>CS — Consistent with Support</span><span class="rk-item" style="background:#e8f5ed;color:#27864e;border-color:#27864e"><span class="rk-circle" style="border-color:#27864e"></span>CI — Consistent Independently</span><span class="rk-item" style="background:#f3edf9;color:#7a5aaa;border-color:#7a5aaa">⚡ Stress Modifier</span></div>
 <div class="domain-block">
   <div class="domain-header" style="background:#33568b">
@@ -356,10 +371,10 @@ body {
   
   <table class="domain-table">
     <thead><tr><th class="th-item">Item</th><th class="th-scale" style="color:#c0392b">NO</th><th class="th-scale" style="color:#b89446">EM</th><th class="th-scale" style="color:#2a6fa0">CS</th><th class="th-scale" style="color:#27864e">CI</th><th class="th-scale" style="color:#7a5aaa">⚡</th></tr></thead>
-    <tbody><tr><td class="item-cell"><span class="item-num">1.</span>My child notices when something about a familiar routine has changed</td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="checkbox"></span></td></tr>
-<tr class="zebra"><td class="item-cell"><span class="item-num">2.</span>My child stays calm when small, expected changes happen</td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="checkbox"></span></td></tr>
-<tr><td class="item-cell"><span class="item-num">3.</span>My child stays calm when unexpected changes happen</td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="checkbox"></span></td></tr>
-<tr class="zebra"><td class="item-cell"><span class="item-num">4.</span>My child can use toys and objects in more than one way</td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="checkbox"></span></td></tr>
+    <tbody><tr><td class="item-cell"><span class="item-num">1.</span>My child notices when something about a familiar routine has changed<span class="item-example">e.g., Notices when you do something differently — like driving a new route to school or changing the order of the bedtime routine</span></td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="checkbox"></span></td></tr>
+<tr class="zebra"><td class="item-cell"><span class="item-num">2.</span>My child stays calm when small, expected changes happen<span class="item-example">e.g., Stays calm when you use a different plate or sit in a different seat at dinner; handles small changes without a meltdown</span></td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="checkbox"></span></td></tr>
+<tr><td class="item-cell"><span class="item-num">3.</span>My child stays calm when unexpected changes happen<span class="item-example">e.g., Handles a surprise change — like a canceled playdate or a different babysitter — without a big reaction</span></td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="checkbox"></span></td></tr>
+<tr class="zebra"><td class="item-cell"><span class="item-num">4.</span>My child can use toys and objects in more than one way<span class="item-example">e.g., Uses toys in creative ways — pretends a spoon is a microphone, builds something unexpected with blocks</span></td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="checkbox"></span></td></tr>
 </tbody>
   </table>
   <div class="domain-totals">
@@ -368,7 +383,9 @@ body {
   </div>
   
 </div>
+</div>
 
+<div class="domain-section">
 <div class="rating-key"><span class="rk-label">Rating Key</span><span class="rk-item" style="background:#fdf0ef;color:#c0392b;border-color:#c0392b"><span class="rk-circle" style="border-color:#c0392b"></span>NO — Not Observed</span><span class="rk-item" style="background:#fef9ee;color:#b89446;border-color:#b89446"><span class="rk-circle" style="border-color:#b89446"></span>EM — Emerging</span><span class="rk-item" style="background:#e8f0f7;color:#2a6fa0;border-color:#2a6fa0"><span class="rk-circle" style="border-color:#2a6fa0"></span>CS — Consistent with Support</span><span class="rk-item" style="background:#e8f5ed;color:#27864e;border-color:#27864e"><span class="rk-circle" style="border-color:#27864e"></span>CI — Consistent Independently</span><span class="rk-item" style="background:#f3edf9;color:#7a5aaa;border-color:#7a5aaa">⚡ Stress Modifier</span></div>
 <div class="domain-block">
   <div class="domain-header" style="background:#26828e">
@@ -380,9 +397,9 @@ body {
   
   <table class="domain-table">
     <thead><tr><th class="th-item">Item</th><th class="th-scale" style="color:#c0392b">NO</th><th class="th-scale" style="color:#b89446">EM</th><th class="th-scale" style="color:#2a6fa0">CS</th><th class="th-scale" style="color:#27864e">CI</th><th class="th-scale" style="color:#7a5aaa">⚡</th></tr></thead>
-    <tbody><tr><td class="item-cell"><span class="item-num">1.</span>My child only plays with others if they are in charge of the activity</td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="checkbox"></span></td></tr>
-<tr class="zebra"><td class="item-cell"><span class="item-num">2.</span>My child will join in when someone else introduces an activity</td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="checkbox"></span></td></tr>
-<tr><td class="item-cell"><span class="item-num">3.</span>My child takes turns being the leader during activities with others</td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="checkbox"></span></td></tr>
+    <tbody><tr><td class="item-cell"><span class="item-num">1.</span>My child only plays with others if they are in charge of the activity<span class="item-example">e.g., Wants to be in charge of every game or activity — picks the show, decides the rules, chooses the toy</span></td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="checkbox"></span></td></tr>
+<tr class="zebra"><td class="item-cell"><span class="item-num">2.</span>My child will join in when someone else introduces an activity<span class="item-example">e.g., Will play a game that a sibling or friend chose, even if it wasn't their first pick</span></td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="checkbox"></span></td></tr>
+<tr><td class="item-cell"><span class="item-num">3.</span>My child takes turns being the leader during activities with others<span class="item-example">e.g., During play, sometimes leads and sometimes follows — like building together and taking turns deciding what to add</span></td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="checkbox"></span></td></tr>
 </tbody>
   </table>
   <div class="domain-totals">
@@ -391,7 +408,9 @@ body {
   </div>
   
 </div>
+</div>
 
+<div class="domain-section">
 <div class="rating-key"><span class="rk-label">Rating Key</span><span class="rk-item" style="background:#fdf0ef;color:#c0392b;border-color:#c0392b"><span class="rk-circle" style="border-color:#c0392b"></span>NO — Not Observed</span><span class="rk-item" style="background:#fef9ee;color:#b89446;border-color:#b89446"><span class="rk-circle" style="border-color:#b89446"></span>EM — Emerging</span><span class="rk-item" style="background:#e8f0f7;color:#2a6fa0;border-color:#2a6fa0"><span class="rk-circle" style="border-color:#2a6fa0"></span>CS — Consistent with Support</span><span class="rk-item" style="background:#e8f5ed;color:#27864e;border-color:#27864e"><span class="rk-circle" style="border-color:#27864e"></span>CI — Consistent Independently</span><span class="rk-item" style="background:#f3edf9;color:#7a5aaa;border-color:#7a5aaa">⚡ Stress Modifier</span></div>
 <div class="domain-block">
   <div class="domain-header" style="background:#1f9e89">
@@ -403,10 +422,10 @@ body {
   
   <table class="domain-table">
     <thead><tr><th class="th-item">Item</th><th class="th-scale" style="color:#c0392b">NO</th><th class="th-scale" style="color:#b89446">EM</th><th class="th-scale" style="color:#2a6fa0">CS</th><th class="th-scale" style="color:#27864e">CI</th><th class="th-scale" style="color:#7a5aaa">⚡</th></tr></thead>
-    <tbody><tr><td class="item-cell"><span class="item-num">1.</span>My child starts interactions with people (brings a toy, waves, reaches out)</td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="checkbox"></span></td></tr>
-<tr class="zebra"><td class="item-cell"><span class="item-num">2.</span>My child responds when someone communicates with them</td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="checkbox"></span></td></tr>
-<tr><td class="item-cell"><span class="item-num">3.</span>My child keeps an interaction going back and forth for a while</td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="checkbox"></span></td></tr>
-<tr class="zebra"><td class="item-cell"><span class="item-num">4.</span>My child interacts for many reasons — not only to get things they need</td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="checkbox"></span></td></tr>
+    <tbody><tr><td class="item-cell"><span class="item-num">1.</span>My child starts interactions with people (brings a toy, waves, reaches out)<span class="item-example">e.g., Brings you a toy to play with; waves 'hi' to a neighbor; reaches for a snack while looking at you</span></td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="checkbox"></span></td></tr>
+<tr class="zebra"><td class="item-cell"><span class="item-num">2.</span>My child responds when someone communicates with them<span class="item-example">e.g., Responds when you or someone else talks to them — answers a question, nods, makes a sound, or looks at you</span></td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="checkbox"></span></td></tr>
+<tr><td class="item-cell"><span class="item-num">3.</span>My child keeps an interaction going back and forth for a while<span class="item-example">e.g., Keeps a back-and-forth going — like taking turns in a game, going back and forth in conversation, or playing peek-a-boo for several rounds</span></td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="checkbox"></span></td></tr>
+<tr class="zebra"><td class="item-cell"><span class="item-num">4.</span>My child interacts for many reasons — not only to get things they need<span class="item-example">e.g., Communicates for different reasons — not just to ask for things, but also to show you something, say hi, or tell you about their day</span></td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="checkbox"></span></td></tr>
 </tbody>
   </table>
   <div class="domain-totals">
@@ -415,7 +434,9 @@ body {
   </div>
   
 </div>
+</div>
 
+<div class="domain-section">
 <div class="rating-key"><span class="rk-label">Rating Key</span><span class="rk-item" style="background:#fdf0ef;color:#c0392b;border-color:#c0392b"><span class="rk-circle" style="border-color:#c0392b"></span>NO — Not Observed</span><span class="rk-item" style="background:#fef9ee;color:#b89446;border-color:#b89446"><span class="rk-circle" style="border-color:#b89446"></span>EM — Emerging</span><span class="rk-item" style="background:#e8f0f7;color:#2a6fa0;border-color:#2a6fa0"><span class="rk-circle" style="border-color:#2a6fa0"></span>CS — Consistent with Support</span><span class="rk-item" style="background:#e8f5ed;color:#27864e;border-color:#27864e"><span class="rk-circle" style="border-color:#27864e"></span>CI — Consistent Independently</span><span class="rk-item" style="background:#f3edf9;color:#7a5aaa;border-color:#7a5aaa">⚡ Stress Modifier</span></div>
 <div class="domain-block">
   <div class="domain-header" style="background:#35b779">
@@ -427,10 +448,10 @@ body {
   
   <table class="domain-table">
     <thead><tr><th class="th-item">Item</th><th class="th-scale" style="color:#c0392b">NO</th><th class="th-scale" style="color:#b89446">EM</th><th class="th-scale" style="color:#2a6fa0">CS</th><th class="th-scale" style="color:#27864e">CI</th><th class="th-scale" style="color:#7a5aaa">⚡</th></tr></thead>
-    <tbody><tr><td class="item-cell"><span class="item-num">1.</span>My child understands and responds to words spoken by others</td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="checkbox"></span></td></tr>
-<tr class="zebra"><td class="item-cell"><span class="item-num">2.</span>My child uses words, sounds, signs, or a device to communicate</td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="checkbox"></span></td></tr>
-<tr><td class="item-cell"><span class="item-num">3.</span>My child uses words for many purposes — not only to ask for things</td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="checkbox"></span></td></tr>
-<tr class="zebra"><td class="item-cell"><span class="item-num">4.</span>My child puts words together in flexible, original ways</td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="checkbox"></span></td></tr>
+    <tbody><tr><td class="item-cell"><span class="item-num">1.</span>My child understands and responds to words spoken by others<span class="item-example">e.g., Understands when you say 'time for bath' or 'get your shoes'; follows simple directions at home</span></td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="checkbox"></span></td></tr>
+<tr class="zebra"><td class="item-cell"><span class="item-num">2.</span>My child uses words, sounds, signs, or a device to communicate<span class="item-example">e.g., Uses words, sounds, signs, or a device to tell you what they want or need — like saying 'milk,' pointing to a snack, or pressing a button on a talker</span></td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="checkbox"></span></td></tr>
+<tr><td class="item-cell"><span class="item-num">3.</span>My child uses words for many purposes — not only to ask for things<span class="item-example">e.g., Uses words for more than just asking for things — like saying 'look!' to show you something, 'uh oh' when something falls, or 'hi' to greet someone</span></td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="checkbox"></span></td></tr>
+<tr class="zebra"><td class="item-cell"><span class="item-num">4.</span>My child puts words together in flexible, original ways<span class="item-example">e.g., Makes up their own sentences rather than repeating the same phrases — like 'I want the big red truck' instead of always saying the same script</span></td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="checkbox"></span></td></tr>
 </tbody>
   </table>
   <div class="domain-totals">
@@ -439,7 +460,9 @@ body {
   </div>
   
 </div>
+</div>
 
+<div class="domain-section">
 <div class="rating-key"><span class="rk-label">Rating Key</span><span class="rk-item" style="background:#fdf0ef;color:#c0392b;border-color:#c0392b"><span class="rk-circle" style="border-color:#c0392b"></span>NO — Not Observed</span><span class="rk-item" style="background:#fef9ee;color:#b89446;border-color:#b89446"><span class="rk-circle" style="border-color:#b89446"></span>EM — Emerging</span><span class="rk-item" style="background:#e8f0f7;color:#2a6fa0;border-color:#2a6fa0"><span class="rk-circle" style="border-color:#2a6fa0"></span>CS — Consistent with Support</span><span class="rk-item" style="background:#e8f5ed;color:#27864e;border-color:#27864e"><span class="rk-circle" style="border-color:#27864e"></span>CI — Consistent Independently</span><span class="rk-item" style="background:#f3edf9;color:#7a5aaa;border-color:#7a5aaa">⚡ Stress Modifier</span></div>
 <div class="domain-block">
   <div class="domain-header" style="background:#6ccd5a">
@@ -451,9 +474,9 @@ body {
   
   <table class="domain-table">
     <thead><tr><th class="th-item">Item</th><th class="th-scale" style="color:#c0392b">NO</th><th class="th-scale" style="color:#b89446">EM</th><th class="th-scale" style="color:#2a6fa0">CS</th><th class="th-scale" style="color:#27864e">CI</th><th class="th-scale" style="color:#7a5aaa">⚡</th></tr></thead>
-    <tbody><tr><td class="item-cell"><span class="item-num">1.</span>My child understands when I'm setting up or organizing an activity</td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="checkbox"></span></td></tr>
-<tr class="zebra"><td class="item-cell"><span class="item-num">2.</span>My child participates in planned activities when steps are shown</td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="checkbox"></span></td></tr>
-<tr><td class="item-cell"><span class="item-num">3.</span>My child can complete a familiar routine on their own after being shown how</td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="checkbox"></span></td></tr>
+    <tbody><tr><td class="item-cell"><span class="item-num">1.</span>My child understands when I'm setting up or organizing an activity<span class="item-example">e.g., Looks at a chart or list you've set up to help them know what comes next — like a morning routine poster</span></td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="checkbox"></span></td></tr>
+<tr class="zebra"><td class="item-cell"><span class="item-num">2.</span>My child participates in planned activities when steps are shown<span class="item-example">e.g., Practices something before doing it — like rehearsing what to say to a new teacher or walking through the steps of getting ready for school</span></td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="checkbox"></span></td></tr>
+<tr><td class="item-cell"><span class="item-num">3.</span>My child can complete a familiar routine on their own after being shown how<span class="item-example">e.g., Can follow a familiar routine on their own after being shown — like getting dressed, brushing teeth, and grabbing their backpack without reminders</span></td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="checkbox"></span></td></tr>
 </tbody>
   </table>
   <div class="domain-totals">
@@ -462,7 +485,9 @@ body {
   </div>
   
 </div>
+</div>
 
+<div class="domain-section">
 <div class="rating-key"><span class="rk-label">Rating Key</span><span class="rk-item" style="background:#fdf0ef;color:#c0392b;border-color:#c0392b"><span class="rk-circle" style="border-color:#c0392b"></span>NO — Not Observed</span><span class="rk-item" style="background:#fef9ee;color:#b89446;border-color:#b89446"><span class="rk-circle" style="border-color:#b89446"></span>EM — Emerging</span><span class="rk-item" style="background:#e8f0f7;color:#2a6fa0;border-color:#2a6fa0"><span class="rk-circle" style="border-color:#2a6fa0"></span>CS — Consistent with Support</span><span class="rk-item" style="background:#e8f5ed;color:#27864e;border-color:#27864e"><span class="rk-circle" style="border-color:#27864e"></span>CI — Consistent Independently</span><span class="rk-item" style="background:#f3edf9;color:#7a5aaa;border-color:#7a5aaa">⚡ Stress Modifier</span></div>
 <div class="domain-block">
   <div class="domain-header" style="background:#b5de2b">
@@ -474,8 +499,8 @@ body {
   
   <table class="domain-table">
     <thead><tr><th class="th-item">Item</th><th class="th-scale" style="color:#c0392b">NO</th><th class="th-scale" style="color:#b89446">EM</th><th class="th-scale" style="color:#2a6fa0">CS</th><th class="th-scale" style="color:#27864e">CI</th><th class="th-scale" style="color:#7a5aaa">⚡</th></tr></thead>
-    <tbody><tr><td class="item-cell"><span class="item-num">1.</span>My child responds when I talk from across the room</td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="checkbox"></span></td></tr>
-<tr class="zebra"><td class="item-cell"><span class="item-num">2.</span>My child can follow directions in noisy or busy places</td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="checkbox"></span></td></tr>
+    <tbody><tr><td class="item-cell"><span class="item-num">1.</span>My child responds when I talk from across the room<span class="item-example">e.g., Responds when you call their name or give a direction from across the room or from another room</span></td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="checkbox"></span></td></tr>
+<tr class="zebra"><td class="item-cell"><span class="item-num">2.</span>My child can follow directions in noisy or busy places<span class="item-example">e.g., Can follow directions in busy or noisy places — like a grocery store, a family party, or a playground</span></td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="checkbox"></span></td></tr>
 </tbody>
   </table>
   <div class="domain-totals">
@@ -484,7 +509,9 @@ body {
   </div>
   
 </div>
+</div>
 
+<div class="domain-section">
 <div class="rating-key"><span class="rk-label">Rating Key</span><span class="rk-item" style="background:#fdf0ef;color:#c0392b;border-color:#c0392b"><span class="rk-circle" style="border-color:#c0392b"></span>NO — Not Observed</span><span class="rk-item" style="background:#fef9ee;color:#b89446;border-color:#b89446"><span class="rk-circle" style="border-color:#b89446"></span>EM — Emerging</span><span class="rk-item" style="background:#e8f0f7;color:#2a6fa0;border-color:#2a6fa0"><span class="rk-circle" style="border-color:#2a6fa0"></span>CS — Consistent with Support</span><span class="rk-item" style="background:#e8f5ed;color:#27864e;border-color:#27864e"><span class="rk-circle" style="border-color:#27864e"></span>CI — Consistent Independently</span><span class="rk-item" style="background:#f3edf9;color:#7a5aaa;border-color:#7a5aaa">⚡ Stress Modifier</span></div>
 <div class="domain-block">
   <div class="domain-header" style="background:#fde725">
@@ -496,9 +523,9 @@ body {
   
   <table class="domain-table">
     <thead><tr><th class="th-item">Item</th><th class="th-scale" style="color:#c0392b">NO</th><th class="th-scale" style="color:#b89446">EM</th><th class="th-scale" style="color:#2a6fa0">CS</th><th class="th-scale" style="color:#27864e">CI</th><th class="th-scale" style="color:#7a5aaa">⚡</th></tr></thead>
-    <tbody><tr><td class="item-cell"><span class="item-num">1.</span>My child notices when it's time to stop one activity and move to the next</td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="checkbox"></span></td></tr>
-<tr class="zebra"><td class="item-cell"><span class="item-num">2.</span>My child can stop and shift to a new activity without significant difficulty</td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="checkbox"></span></td></tr>
-<tr><td class="item-cell"><span class="item-num">3.</span>My child participates in both ending one activity and starting the next</td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="checkbox"></span></td></tr>
+    <tbody><tr><td class="item-cell"><span class="item-num">1.</span>My child notices when it's time to stop one activity and move to the next<span class="item-example">e.g., Notices when it's time to stop — like when you say 'five more minutes' or when other kids start leaving the playground</span></td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="checkbox"></span></td></tr>
+<tr class="zebra"><td class="item-cell"><span class="item-num">2.</span>My child can stop and shift to a new activity without significant difficulty<span class="item-example">e.g., Can stop what they're doing and move to the next thing without a big meltdown — even if they were enjoying it</span></td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="checkbox"></span></td></tr>
+<tr><td class="item-cell"><span class="item-num">3.</span>My child participates in both ending one activity and starting the next<span class="item-example">e.g., Helps clean up and gets ready for the next activity — like putting toys away and then coming to the table for dinner</span></td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="circle"></span></td><td class="circle-cell"><span class="checkbox"></span></td></tr>
 </tbody>
   </table>
   <div class="domain-totals">
@@ -506,6 +533,7 @@ body {
     <span class="total-item">Stress Items: <span class="blank-line short"></span> <span class="total-max">/ 3</span></span>
   </div>
   
+</div>
 </div>
 
 <div class="summary-section">
