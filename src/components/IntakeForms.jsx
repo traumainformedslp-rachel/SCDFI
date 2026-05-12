@@ -1,5 +1,5 @@
 import React from "react";
-import DOMAINS from "../data/domains";
+import DOMAINS, { CLINICIAN_EXAMPLES, TEACHER_EXAMPLES, PARENT_EXAMPLES } from "../data/domains";
 import { THEMES, SECTION_COLORS, VERSION_META } from "../data/constants";
 import { SCALES } from "../data/scales";
 import { getItems, getContext } from "../utils/scoring";
@@ -44,6 +44,9 @@ export function ProtocolForm({ version, dark, onBack, onToggle }) {
   }[version];
 
   const sectionColor = (colorKey) => SECTION_COLORS[colorKey]?.[dark ? "dark" : "light"] || t.accent;
+  const examplesMap = version === "clinician" ? CLINICIAN_EXAMPLES
+    : version === "teacher" ? TEACHER_EXAMPLES
+    : PARENT_EXAMPLES;
 
   // Border + ink colors — formal record-form palette
   const ink = dark ? "#e0edec" : "#1a1a1a";
@@ -84,7 +87,7 @@ export function ProtocolForm({ version, dark, onBack, onToggle }) {
       <div className="pc protocol-sheet" style={{
         background: t.card, padding: "32px 40px", margin: "16px 0",
         border: `1px solid ${t.border}`, borderRadius: 8,
-        color: ink, fontSize: 11, lineHeight: 1.4,
+        color: ink, fontSize: 15, lineHeight: 1.5,
       }}>
 
         {/* ─── TITLE HEADER ─── */}
@@ -93,13 +96,13 @@ export function ProtocolForm({ version, dark, onBack, onToggle }) {
           borderBottom: `3px solid ${ruleColor}`, paddingBottom: 10, marginBottom: 12,
         }}>
           <div>
-            <div style={{ fontSize: 26, fontWeight: 700, letterSpacing: "-0.02em", lineHeight: 1.05, color: ink }}>SCDFI</div>
-            <div style={{ fontSize: 9, fontWeight: 500, letterSpacing: "0.12em", textTransform: "uppercase", color: inkDim, marginTop: 4 }}>
+            <div style={{ fontSize: 30, fontWeight: 700, letterSpacing: "-0.02em", lineHeight: 1.05, color: ink }}>SCDFI</div>
+            <div style={{ fontSize: 12, fontWeight: 500, letterSpacing: "0.12em", textTransform: "uppercase", color: inkDim, marginTop: 4 }}>
               Social-Communication &amp; Developmental Functioning Inventory
             </div>
           </div>
           <div style={{
-            fontSize: 10, fontWeight: 700, padding: "5px 14px", borderRadius: 4,
+            fontSize: 13, fontWeight: 700, padding: "6px 16px", borderRadius: 4,
             background: badgeColor, color: "#fff", letterSpacing: "0.08em",
             textTransform: "uppercase", whiteSpace: "nowrap", marginTop: 4,
             WebkitPrintColorAdjust: "exact", printColorAdjust: "exact",
@@ -124,13 +127,13 @@ export function ProtocolForm({ version, dark, onBack, onToggle }) {
               borderBottom: isObs ? `1px solid ${lightRule}` : "none",
               background: fieldBg,
             }}>
-              <div style={{ fontSize: 7, fontWeight: 700, textTransform: "uppercase", letterSpacing: "0.1em", color: inkDim, marginBottom: 2 }}>{f.label}</div>
+              <div style={{ fontSize: 11, fontWeight: 700, textTransform: "uppercase", letterSpacing: "0.1em", color: inkDim, marginBottom: 2 }}>{f.label}</div>
               <div style={{ minHeight: 16 }}></div>
             </div>
           ))}
           {isObs && (
             <div style={{ gridColumn: "1 / -1", padding: "5px 10px", background: fieldBg }}>
-              <div style={{ fontSize: 7, fontWeight: 700, textTransform: "uppercase", letterSpacing: "0.1em", color: inkDim, marginBottom: 2 }}>Setting / Context</div>
+              <div style={{ fontSize: 11, fontWeight: 700, textTransform: "uppercase", letterSpacing: "0.1em", color: inkDim, marginBottom: 2 }}>Setting / Context</div>
               <div style={{ minHeight: 16 }}></div>
             </div>
           )}
@@ -139,7 +142,7 @@ export function ProtocolForm({ version, dark, onBack, onToggle }) {
         {/* ─── INSTRUCTIONS ─── */}
         <div style={{
           background: dark ? "#142322" : "#f7f7f7", border: `1px solid ${lightRule}`,
-          borderRadius: 3, padding: "7px 10px", fontSize: 9, color: ink,
+          borderRadius: 3, padding: "7px 10px", fontSize: 13, color: ink,
           lineHeight: 1.5, marginBottom: 10,
         }}>
           <strong>Instructions:</strong> {vm.instructions}
@@ -164,23 +167,23 @@ export function ProtocolForm({ version, dark, onBack, onToggle }) {
                 background: dark ? "#0d1b1a" : "#fafafa", marginBottom: 8,
                 WebkitPrintColorAdjust: "exact", printColorAdjust: "exact",
               }}>
-                <span style={{ fontSize: 7, fontWeight: 700, textTransform: "uppercase", letterSpacing: "0.12em", color: inkDim, marginRight: 6 }}>Rating Key</span>
+                <span style={{ fontSize: 11, fontWeight: 700, textTransform: "uppercase", letterSpacing: "0.12em", color: inkDim, marginRight: 6 }}>Rating Key</span>
                 {scale.map((s) => (
                   <span key={s.value} style={{
                     display: "inline-flex", alignItems: "center", gap: 4,
-                    padding: "2px 7px", borderRadius: 3, fontSize: 8, fontWeight: 700,
+                    padding: "3px 8px", borderRadius: 3, fontSize: 11, fontWeight: 700,
                     background: dark ? s.darkBg : s.bg, color: s.color,
                     border: `1px solid ${s.color}`,
                     WebkitPrintColorAdjust: "exact", printColorAdjust: "exact",
                   }}>
-                    <span style={{ width: 8, height: 8, borderRadius: "50%", border: `1.5px solid ${s.color}` }}></span>
+                    <span style={{ width: 10, height: 10, borderRadius: "50%", border: `1.5px solid ${s.color}` }}></span>
                     {ABBREV[s.label] || s.label.split(" ")[0]} — {s.label}
                   </span>
                 ))}
                 {isParent && (
                   <span style={{
                     display: "inline-flex", alignItems: "center", gap: 4,
-                    padding: "2px 7px", borderRadius: 3, fontSize: 8, fontWeight: 700,
+                    padding: "3px 8px", borderRadius: 3, fontSize: 11, fontWeight: 700,
                     background: dark ? "#2a2030" : "#f3edf9", color: "#7a5aaa",
                     border: "1px solid #7a5aaa",
                     WebkitPrintColorAdjust: "exact", printColorAdjust: "exact",
@@ -197,14 +200,14 @@ export function ProtocolForm({ version, dark, onBack, onToggle }) {
                 borderRadius: "3px 3px 0 0",
                 WebkitPrintColorAdjust: "exact", printColorAdjust: "exact",
               }}>
-                <span style={{ fontSize: 14, lineHeight: 1 }}>{d.icon}</span>
-                <span style={{ fontSize: 8, fontWeight: 600, opacity: 0.7 }}>D{d.n}</span>
-                <span style={{ fontSize: 9, fontWeight: 700, textTransform: "uppercase", letterSpacing: "0.08em" }}>{d.title}</span>
+                <span style={{ fontSize: 18, lineHeight: 1 }}>{d.icon}</span>
+                <span style={{ fontSize: 12, fontWeight: 600, opacity: 0.7 }}>D{d.n}</span>
+                <span style={{ fontSize: 13, fontWeight: 700, textTransform: "uppercase", letterSpacing: "0.08em" }}>{d.title}</span>
               </div>
 
               {/* Sub-line: framework */}
               <div style={{
-                fontSize: 7.5, color: inkSub, fontStyle: "italic",
+                fontSize: 11, color: inkSub, fontStyle: "italic",
                 padding: "3px 10px",
                 borderLeft: `1.5px solid ${ruleColor}`, borderRight: `1.5px solid ${ruleColor}`,
                 background: dark ? "#0d1b1a" : "#fafafa",
@@ -215,7 +218,7 @@ export function ProtocolForm({ version, dark, onBack, onToggle }) {
               {/* Context prompt for observer versions */}
               {isObs && ctx && (
                 <div style={{
-                  fontSize: 8.5, color: ink,
+                  fontSize: 12, color: ink,
                   padding: "4px 10px",
                   borderLeft: `1.5px solid ${ruleColor}`, borderRight: `1.5px solid ${ruleColor}`,
                   borderBottom: `1px solid ${lightRule}`,
@@ -228,13 +231,13 @@ export function ProtocolForm({ version, dark, onBack, onToggle }) {
 
               {/* Rating table */}
               <table style={{
-                width: "100%", borderCollapse: "collapse", fontSize: 9.5,
+                width: "100%", borderCollapse: "collapse", fontSize: 13,
                 border: `1.5px solid ${ruleColor}`, borderTop: "none",
               }}>
                 <thead style={{ display: "table-header-group" }}>
                   <tr>
                     <th style={{
-                      textAlign: "left", padding: "4px 8px", fontSize: 7,
+                      textAlign: "left", padding: "5px 8px", fontSize: 11,
                       fontWeight: 700, textTransform: "uppercase", letterSpacing: "0.05em",
                       borderBottom: `2px solid ${ruleColor}`, background: headerBg,
                       color: ink, width: "52%",
@@ -242,23 +245,23 @@ export function ProtocolForm({ version, dark, onBack, onToggle }) {
                     }}>Item</th>
                     {scale.map((s) => (
                       <th key={s.value} style={{
-                        textAlign: "center", padding: "4px 3px", fontSize: 7,
+                        textAlign: "center", padding: "5px 3px", fontSize: 11,
                         fontWeight: 700, color: s.color,
                         borderBottom: `2px solid ${ruleColor}`, background: headerBg,
-                        minWidth: 32,
+                        minWidth: 34,
                         WebkitPrintColorAdjust: "exact", printColorAdjust: "exact",
                       }}>{ABBREV[s.label] || s.label}</th>
                     ))}
                     {isParent && (
                       <th style={{
-                        textAlign: "center", padding: "4px 3px", fontSize: 9, color: "#7a5aaa",
+                        textAlign: "center", padding: "5px 3px", fontSize: 11, color: "#7a5aaa",
                         borderBottom: `2px solid ${ruleColor}`, background: headerBg, minWidth: 22,
                         WebkitPrintColorAdjust: "exact", printColorAdjust: "exact",
                       }}>⚡</th>
                     )}
                     {isObs && (
                       <th style={{
-                        textAlign: "left", padding: "4px 6px", fontSize: 7,
+                        textAlign: "left", padding: "5px 6px", fontSize: 11,
                         fontWeight: 700, textTransform: "uppercase", letterSpacing: "0.05em",
                         borderBottom: `2px solid ${ruleColor}`, background: headerBg,
                         color: ink, minWidth: 90,
@@ -268,17 +271,20 @@ export function ProtocolForm({ version, dark, onBack, onToggle }) {
                   </tr>
                 </thead>
                 <tbody>
-                  {items.map((text, i) => (
-                    <tr key={i} style={{
+                  {items.map((text, i) => {
+                    const domainExamples = examplesMap[d.id] || [];
+                    const ex = i < domainExamples.length ? domainExamples[i] : null;
+                    return (<tr key={i} style={{
                       background: i % 2 === 1 ? zebraBg : "transparent",
                       WebkitPrintColorAdjust: "exact", printColorAdjust: "exact",
                     }}>
                       <td style={{
-                        padding: "5px 8px", fontSize: 9.5, color: ink,
-                        borderBottom: `1px solid ${lightRule}`, lineHeight: 1.35,
+                        padding: "6px 8px", fontSize: 13, color: ink,
+                        borderBottom: `1px solid ${lightRule}`, lineHeight: 1.4,
                         verticalAlign: "top",
                       }}>
                         <span style={{ fontWeight: 600, color: inkDim, marginRight: 4 }}>{i + 1}.</span>{text}
+                        {ex && <span style={{ display: "block", fontSize: 10.5, color: inkSub, fontStyle: "italic", marginTop: 2, lineHeight: 1.35 }}>{ex}</span>}
                       </td>
                       {scale.map((s) => (
                         <td key={s.value} style={{
@@ -286,7 +292,7 @@ export function ProtocolForm({ version, dark, onBack, onToggle }) {
                           borderBottom: `1px solid ${lightRule}`, verticalAlign: "middle",
                         }}>
                           <span style={{
-                            display: "inline-block", width: 16, height: 16, borderRadius: "50%",
+                            display: "inline-block", width: 18, height: 18, borderRadius: "50%",
                             border: `1.5px solid ${dark ? "#3a5a58" : "#aaa"}`,
                           }}></span>
                         </td>
@@ -297,7 +303,7 @@ export function ProtocolForm({ version, dark, onBack, onToggle }) {
                           borderBottom: `1px solid ${lightRule}`, verticalAlign: "middle",
                         }}>
                           <span style={{
-                            display: "inline-block", width: 12, height: 12, borderRadius: 2,
+                            display: "inline-block", width: 14, height: 14, borderRadius: 2,
                             border: `1.5px solid ${dark ? "#3a5a58" : "#aaa"}`,
                           }}></span>
                         </td>
@@ -310,15 +316,15 @@ export function ProtocolForm({ version, dark, onBack, onToggle }) {
                           <div style={{ borderBottom: `1px solid ${dark ? "#3a5a58" : "#bbb"}`, minHeight: 14 }}></div>
                         </td>
                       )}
-                    </tr>
-                  ))}
+                    </tr>);
+                  })}
                 </tbody>
               </table>
 
               {/* Domain score totals row */}
               <div style={{
                 display: "flex", justifyContent: "flex-end", gap: 14,
-                padding: "4px 10px", fontSize: 8, fontWeight: 700,
+                padding: "5px 10px", fontSize: 12, fontWeight: 700,
                 color: inkDim, background: dark ? "#142322" : "#f5f5f5",
                 border: `1.5px solid ${ruleColor}`, borderTop: "none",
                 textTransform: "uppercase", letterSpacing: "0.05em",
@@ -346,7 +352,7 @@ export function ProtocolForm({ version, dark, onBack, onToggle }) {
                   border: `1.5px solid ${ruleColor}`, borderTop: "none",
                   borderRadius: "0 0 3px 3px", padding: "5px 8px",
                 }}>
-                  <div style={{ fontSize: 7, fontWeight: 700, textTransform: "uppercase", letterSpacing: "0.1em", color: inkDim, marginBottom: 3 }}>
+                  <div style={{ fontSize: 11, fontWeight: 700, textTransform: "uppercase", letterSpacing: "0.1em", color: inkDim, marginBottom: 3 }}>
                     Observations / Contextual Notes
                   </div>
                   <div style={{
@@ -364,7 +370,7 @@ export function ProtocolForm({ version, dark, onBack, onToggle }) {
         <div style={{ marginTop: 24, pageBreakInside: "avoid" }}>
           <div style={{
             background: ruleColor, color: dark ? "#0d1b1a" : "#fff",
-            padding: "6px 12px", fontSize: 9, fontWeight: 700,
+            padding: "7px 12px", fontSize: 13, fontWeight: 700,
             textTransform: "uppercase", letterSpacing: "0.1em",
             borderRadius: "3px 3px 0 0",
             WebkitPrintColorAdjust: "exact", printColorAdjust: "exact",
@@ -375,7 +381,7 @@ export function ProtocolForm({ version, dark, onBack, onToggle }) {
             border: `1.5px solid ${ruleColor}`, borderTop: "none",
             borderRadius: "0 0 3px 3px", padding: 14,
           }}>
-            <div style={{ fontSize: 7, fontWeight: 700, textTransform: "uppercase", letterSpacing: "0.1em", color: inkDim, marginBottom: 4 }}>
+            <div style={{ fontSize: 11, fontWeight: 700, textTransform: "uppercase", letterSpacing: "0.1em", color: inkDim, marginBottom: 4 }}>
               Overall Clinical Impressions / Notes
             </div>
             <div style={{
@@ -385,21 +391,21 @@ export function ProtocolForm({ version, dark, onBack, onToggle }) {
 
             <div style={{ display: "grid", gridTemplateColumns: "2fr 1fr", gap: 14 }}>
               <div>
-                <div style={{ fontSize: 7, fontWeight: 700, textTransform: "uppercase", letterSpacing: "0.1em", color: inkDim, marginBottom: 2 }}>Signature</div>
+                <div style={{ fontSize: 11, fontWeight: 700, textTransform: "uppercase", letterSpacing: "0.1em", color: inkDim, marginBottom: 2 }}>Signature</div>
                 <div style={{ borderBottom: `1.5px solid ${ruleColor}`, minHeight: 22 }}></div>
               </div>
               <div>
-                <div style={{ fontSize: 7, fontWeight: 700, textTransform: "uppercase", letterSpacing: "0.1em", color: inkDim, marginBottom: 2 }}>Date</div>
+                <div style={{ fontSize: 11, fontWeight: 700, textTransform: "uppercase", letterSpacing: "0.1em", color: inkDim, marginBottom: 2 }}>Date</div>
                 <div style={{ borderBottom: `1.5px solid ${ruleColor}`, minHeight: 22 }}></div>
               </div>
             </div>
             <div style={{ display: "grid", gridTemplateColumns: "2fr 1fr", gap: 14, marginTop: 10 }}>
               <div>
-                <div style={{ fontSize: 7, fontWeight: 700, textTransform: "uppercase", letterSpacing: "0.1em", color: inkDim, marginBottom: 2 }}>Printed Name</div>
+                <div style={{ fontSize: 11, fontWeight: 700, textTransform: "uppercase", letterSpacing: "0.1em", color: inkDim, marginBottom: 2 }}>Printed Name</div>
                 <div style={{ borderBottom: `1.5px solid ${ruleColor}`, minHeight: 22 }}></div>
               </div>
               <div>
-                <div style={{ fontSize: 7, fontWeight: 700, textTransform: "uppercase", letterSpacing: "0.1em", color: inkDim, marginBottom: 2 }}>
+                <div style={{ fontSize: 11, fontWeight: 700, textTransform: "uppercase", letterSpacing: "0.1em", color: inkDim, marginBottom: 2 }}>
                   {isParent ? "Relationship to Child" : "Role / Title"}
                 </div>
                 <div style={{ borderBottom: `1.5px solid ${ruleColor}`, minHeight: 22 }}></div>
@@ -411,7 +417,7 @@ export function ProtocolForm({ version, dark, onBack, onToggle }) {
         {/* ─── FOOTER ─── */}
         <div style={{
           marginTop: 16, paddingTop: 8, borderTop: `1px solid ${lightRule}`,
-          fontSize: 7, color: inkSub, textAlign: "center", lineHeight: 1.7,
+          fontSize: 10, color: inkSub, textAlign: "center", lineHeight: 1.7,
           letterSpacing: "0.05em",
         }}>
           SCDFI v0.4 · Social-Communication &amp; Developmental Functioning Inventory · Confidential<br />
