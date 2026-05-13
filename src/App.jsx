@@ -1,5 +1,5 @@
 import { useState, useRef, useCallback } from "react";
-import DOMAINS from "./data/domains";
+import DOMAINS, { CLINICIAN_EXAMPLES, TEACHER_EXAMPLES, PARENT_EXAMPLES } from "./data/domains";
 import { COLORS, THEMES, SECTION_COLORS, VERSION_META, MAX_VALUES } from "./data/constants";
 import { getItems, getContext, computeScores, computeStress } from "./utils/scoring";
 import {
@@ -213,7 +213,7 @@ export default function App() {
     const cards = [
       { v: "clinician", ico: "📋", lbl: "Clinician", accent: "#1b3a4b", desc: "4-point developmental scale\n~66 items · SA/IU notation\nClinical / therapeutic settings" },
       { v: "teacher", ico: "🏫", lbl: "Teacher", accent: "#1a7a7a", desc: "4-point developmental scale\n~66 items · SA/IU notation\nClassroom / school settings" },
-      { v: "parent", ico: "👨‍👩‍👧", lbl: "Parent / Caregiver", accent: "#2a7a5a", desc: "4-point developmental scale\n~43 items · Stress modifier\nHome / community settings" },
+      { v: "parent", ico: "👨‍👩‍👧", lbl: "Parent / Caregiver", accent: "#2a7a5a", desc: "4-point developmental scale\n~64 items · Stress modifier\nHome / community settings" },
       { v: "self", ico: "🧑‍🎓", lbl: "Self-Report (14+)", accent: "#7a5aaa", desc: "4-point self-identification\n~24 items\nAdolescent / young adult" },
     ];
 
@@ -252,6 +252,7 @@ export default function App() {
   if (mode === "assess" && ver) {
     const respondentLabel = ver === "self" ? "School / Program" : ver === "parent" ? "Respondent Name" : "Respondent (Name, Role)";
     const clientLabel = ver === "self" ? "Your Name" : "Client / Student Name";
+    const examplesMap = ver === "clinician" ? CLINICIAN_EXAMPLES : ver === "teacher" ? TEACHER_EXAMPLES : PARENT_EXAMPLES;
 
     return (
       <div style={{ maxWidth: 860, margin: "0 auto" }}>
@@ -329,10 +330,10 @@ export default function App() {
                 {isObserver(ver) && <ContextPrompt text={ctx} color={vc} dark={dark} />}
 
                 {isObserver(ver) && items.map((text, i) => (
-                  <ObserverRow key={i} text={text} value={resp[`${d.id}_${i}`]} onChange={(v) => sR(d.id, i, v)} scaleKey={ver} dark={dark} />
+                  <ObserverRow key={i} text={text} example={(examplesMap[d.id] || [])[i]} value={resp[`${d.id}_${i}`]} onChange={(v) => sR(d.id, i, v)} scaleKey={ver} dark={dark} />
                 ))}
                 {ver === "parent" && items.map((text, i) => (
-                  <ParentRow key={i} text={text} value={resp[`${d.id}_${i}`]} onChange={(v) => sR(d.id, i, v)} stress={stress[`${d.id}_${i}`]} onStress={(v) => sS(d.id, i, v)} dark={dark} />
+                  <ParentRow key={i} text={text} example={(examplesMap[d.id] || [])[i]} value={resp[`${d.id}_${i}`]} onChange={(v) => sR(d.id, i, v)} stress={stress[`${d.id}_${i}`]} onStress={(v) => sS(d.id, i, v)} dark={dark} />
                 ))}
                 {ver === "self" && items.map((text, i) => (
                   <SelfReportRow key={i} text={text} value={resp[`${d.id}_${i}`]} onChange={(v) => sR(d.id, i, v)} dark={dark} />

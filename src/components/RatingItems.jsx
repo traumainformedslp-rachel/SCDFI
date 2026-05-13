@@ -31,16 +31,19 @@ export function RatingButton({ option, selected, onClick, dark }) {
   );
 }
 
-export function ObserverRow({ text, value, onChange, scaleKey = "clinician", dark }) {
+export function ObserverRow({ text, example, value, onChange, scaleKey = "clinician", dark }) {
   const t = dark
-    ? { bg: value != null ? "#1e3332" : "#142322", border: "#1e3332", text: "#e0edec" }
-    : { bg: value != null ? "#f0faf9" : "#fafbfc", border: "#d4dfdf", text: "#1c2d2d" };
+    ? { bg: value != null ? "#1e3332" : "#142322", border: "#1e3332", text: "#e0edec", sub: "#6b8886" }
+    : { bg: value != null ? "#f0faf9" : "#fafbfc", border: "#d4dfdf", text: "#1c2d2d", sub: "#888" };
   return (
     <div style={{
       display: "flex", alignItems: "center", gap: 10, padding: "8px 12px", borderRadius: 9,
       background: t.bg, border: `1px solid ${t.border}`, marginBottom: 5,
     }}>
-      <div style={{ flex: 1, fontSize: 13, color: t.text, lineHeight: 1.45 }}>{text}</div>
+      <div style={{ flex: 1, fontSize: 13, color: t.text, lineHeight: 1.45 }}>
+        {text}
+        {example && <div style={{ fontSize: 11, color: t.sub, fontStyle: "italic", marginTop: 2, lineHeight: 1.35 }}>{example}</div>}
+      </div>
       <div style={{ display: "flex", gap: 3, flexShrink: 0, maxWidth: 420 }}>
         {SCALES[scaleKey].map((o) => (
           <RatingButton key={o.value} option={o} selected={value} onClick={() => onChange(o.value)} dark={dark} />
@@ -50,17 +53,20 @@ export function ObserverRow({ text, value, onChange, scaleKey = "clinician", dar
   );
 }
 
-export function ParentRow({ text, value, onChange, stress, onStress, dark }) {
+export function ParentRow({ text, example, value, onChange, stress, onStress, dark }) {
   const t = dark
-    ? { bg: value != null ? "#1e3332" : "#142322", border: "#1e3332", text: "#e0edec", stressColor: "#6b8886" }
-    : { bg: value != null ? "#f0faf9" : "#fafbfc", border: "#d4dfdf", text: "#1c2d2d", stressColor: "#7a9191" };
+    ? { bg: value != null ? "#1e3332" : "#142322", border: "#1e3332", text: "#e0edec", stressColor: "#6b8886", sub: "#6b8886" }
+    : { bg: value != null ? "#f0faf9" : "#fafbfc", border: "#d4dfdf", text: "#1c2d2d", stressColor: "#7a9191", sub: "#888" };
   return (
     <div style={{
       padding: "8px 12px", borderRadius: 9,
       background: t.bg, border: `1px solid ${t.border}`, marginBottom: 5,
     }}>
       <div style={{ display: "flex", alignItems: "center", gap: 10 }}>
-        <div style={{ flex: 1, fontSize: 13, color: t.text, lineHeight: 1.45 }}>{text}</div>
+        <div style={{ flex: 1, fontSize: 13, color: t.text, lineHeight: 1.45 }}>
+          {text}
+          {example && <div style={{ fontSize: 11, color: t.sub, fontStyle: "italic", marginTop: 2, lineHeight: 1.35 }}>{example}</div>}
+        </div>
         <div style={{ display: "flex", gap: 3, flexShrink: 0, maxWidth: 400 }}>
           {SCALES.parent.map((o) => (
             <RatingButton key={o.value} option={o} selected={value} onClick={() => onChange(o.value)} dark={dark} />
