@@ -13,9 +13,9 @@ const isObserver = (v) => v === "clinician" || v === "teacher";
 const ThemeToggle = ({ dark, toggle }) => (
   <button onClick={toggle} aria-label={dark ? "Switch to light mode" : "Switch to dark mode"} style={{
     padding: "7px 14px", borderRadius: 100,
-    border: `1px solid ${dark ? "#1e3332" : "#d4dfdf"}`,
-    background: dark ? "#142322" : "#ffffff",
-    color: dark ? "#6b8886" : "#7a9191",
+    border: `1px solid ${dark ? "#302a50" : "#c0b8d0"}`,
+    background: dark ? "#1c1832" : "#ffffff",
+    color: dark ? "#6e5c88" : "#6b6280",
     fontSize: 11, fontWeight: 500, letterSpacing: "0.06em", cursor: "pointer",
     display: "inline-flex", alignItems: "center", gap: 6, transition: "border-color 0.2s, color 0.2s",
   }}>
@@ -161,7 +161,7 @@ export default function App() {
           <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(200px, 1fr))", gap: 12, marginBottom: 20 }}>
             {[
               { m: "assess", icon: "📝", label: "Assessment", desc: "Clinician · Teacher · Parent · Self\n12 domains · 4 informant versions", accent: t.accent },
-              { m: "dash", icon: "📊", label: "Dashboard", desc: "Import saved assessments\nRadar · Bar · Cross-informant analysis", accent: "#2a6fa0" },
+              { m: "dash", icon: "📊", label: "Dashboard", desc: "Import saved assessments\nRadar · Bar · Cross-informant analysis", accent: "#3288bd" },
             ].map(({ m, icon, label, desc, accent }) => (
               <button key={m} onClick={() => setMode(m)} style={{
                 padding: "24px 22px", borderRadius: 18, border: `1px solid ${t.border}`,
@@ -211,10 +211,10 @@ export default function App() {
   // ═══ VERSION SELECT ═══
   if (mode === "assess" && !ver) {
     const cards = [
-      { v: "clinician", ico: "📋", lbl: "Clinician", accent: "#1b3a4b", desc: "4-point developmental scale\n~66 items · SA/IU notation\nClinical / therapeutic settings" },
-      { v: "teacher", ico: "🏫", lbl: "Teacher", accent: "#1a7a7a", desc: "4-point developmental scale\n~66 items · SA/IU notation\nClassroom / school settings" },
-      { v: "parent", ico: "👨‍👩‍👧", lbl: "Parent / Caregiver", accent: "#2a7a5a", desc: "4-point developmental scale\n~64 items · Stress modifier\nHome / community settings" },
-      { v: "self", ico: "🧑‍🎓", lbl: "Self-Report (14+)", accent: "#7a5aaa", desc: "4-point self-identification\n~24 items\nAdolescent / young adult" },
+      { v: "clinician", ico: "📋", lbl: "Clinician", accent: "#5e4fa2", desc: "4-point developmental scale\n~66 items · SA/IU notation\nClinical / therapeutic settings" },
+      { v: "teacher", ico: "🏫", lbl: "Teacher", accent: "#3288bd", desc: "4-point developmental scale\n~66 items · SA/IU notation\nClassroom / school settings" },
+      { v: "parent", ico: "👨‍👩‍👧", lbl: "Parent / Caregiver", accent: "#66c2a5", desc: "4-point developmental scale\n~64 items · Stress modifier\nHome / community settings" },
+      { v: "self", ico: "🧑‍🎓", lbl: "Self-Report (14+)", accent: "#fdae61", desc: "4-point self-identification\n~24 items\nAdolescent / young adult" },
     ];
 
     return (
